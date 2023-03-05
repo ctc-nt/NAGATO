@@ -127,3 +127,17 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# VS Code
+.vscode/
+
+# Temporary directories
+temp/
+tmp/
+temporary/
+.temp/
+.tmp/
+.temporary/
+
+# macOS
+.DS_Store
