@@ -1,0 +1,3 @@
+robotframework>==5.0.0
+netmiko>=4.0.0
+pysnmplib>=5.0.20

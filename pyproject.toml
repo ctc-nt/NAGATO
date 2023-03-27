@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ctc-robotframework-drivers"
+version = "0.0.1"
+authors = [
+    {name = "Takumi Nohara", email = "takumi.nohara.571@ctc-g.co.jp"},
+]
+description = "cRFD: ctc Robot Framework Drivers"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+classifiers = [
+    "Framework :: Robot Framework",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "robotframework>=5.0.0",
+    "netmiko>=4.0.0",
+    "pysnmplib>=5.0.20"
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipython",
+    "black",
+    "isort"
+]
+
+[tool.setuptools.package-dir]
+NetmikoLibrary = "packages/NetmikoLibrary"
+NetworkUtils = "packages/NetworkUtils"
+
+[tool.isort]
+profile = "black"
