@@ -3,12 +3,12 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ctc-robotframework-drivers"
+name = "nagato"
 version = "0.0.1"
 authors = [
     {name = "Takumi Nohara", email = "takumi.nohara.571@ctc-g.co.jp"},
 ]
-description = "cRFD: ctc Robot Framework Drivers"
+description = "NAGATO: Network Automation Gears and Test Orchestrator"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
@@ -19,6 +19,7 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
     "robotframework>=5.0.0",
@@ -28,9 +29,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "ipython",
     "black",
-    "isort"
+    "ipython",
+    "isort",
+    "pytest"
 ]
 
 [tool.setuptools.package-dir]

@@ -1,3 +1,4 @@
-ipython
 black
+ipython
 isort
+pytest
