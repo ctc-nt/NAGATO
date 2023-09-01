@@ -1,7 +1,7 @@
 from ._wrapper import IxnNetworkRestpyWrapper
 from robot.api.deco import library
 
-__all__ = ["NetmikoLibrary"]
+__all__ = ["IxNetworkLibrary"]
 
 
 @library(scope="SUITE", version="1.0.0")
