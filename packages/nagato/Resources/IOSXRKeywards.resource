@@ -3,7 +3,6 @@ Documentation    High-level keywords for operating IOS-XR
 
 Library    NetmikoLibrary
 Library    Collections
-Library    OperatingSystem
 Library    String
 
 
