@@ -40,6 +40,8 @@ dev = [
 NetmikoLibrary = "packages/NAGATO/NetmikoLibrary"
 NetworkUtils = "packages/NAGATO/NetworkUtils"
 IxNetworkLibrary = "packages/NAGATO/IxNetworkLibrary"
+Resources = "packages/NAGATO/Resources"
+templates = "packages/NAGATO/templates"
 
 [tool.isort]
 profile = "black"
