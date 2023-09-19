@@ -1,4 +1,4 @@
-from SNMP import SNMP
+from .SNMP import SNMP
 from robot.api.deco import library
 
 __all__ = ["NetworkUtils"]
