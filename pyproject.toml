@@ -40,9 +40,10 @@ dev = [
 [tool.setuptools.package-dir]
 NAGATO = "packages/NAGATO"
 
-
 [tool.isort]
 profile = "black"
 
-# パッケージinstallした先のtemplatesを参照させたい
 
+# TODO: 環境変数(NET_TEXTFSM)、alias(-dでlog格納先を指定)周りの設定
+# TODO: pip installした後のtamplatesをコピーして移動、indexは上書き
+# TODO: formatter、unittest、libdocをCI/CDで回す

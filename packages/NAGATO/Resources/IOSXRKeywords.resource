@@ -35,7 +35,7 @@ Running Config Should Be Equal IOS-XR
     [Arguments]    ${expect_config}    ${host}
 
     BuiltIn.Log    ${expect_config}
-    ${running_config} =    NetmikoLibrary.Send Command    command_string=show running-config    host=${host}
+    ${running_config} =    NAGATO.NetmikoLibrary.Send Command    command_string=show running-config    host=${host}
 
     ${expect_config_list} =    Normalize Config Text IOS-XR    ${expect_config}
     ${running_config_list} =    Normalize Config Text IOS-XR    ${running_config}
