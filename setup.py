@@ -1,5 +1,4 @@
 from setuptools import setup
-import ntc_templates
 import os
 import shutil
 
@@ -8,6 +7,7 @@ import shutil
 print(f"パスは{os.getcwd()}です。")
 setup()
 
+import ntc_templates
 # get ntc_templates path
 templates_path = os.path.join(ntc_templates.__path__[0], "templates")
 
