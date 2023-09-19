@@ -46,3 +46,7 @@ templates = "packages/NAGATO/templates"
 
 [tool.isort]
 profile = "black"
+
+[tool.hatch.envs.docs.env-vars]
+# パッケージinstallした先のtemplatesを参照させたい
+NET_TEXTFSM = "templates"
