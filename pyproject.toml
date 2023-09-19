@@ -38,15 +38,11 @@ dev = [
 ]
 
 [tool.setuptools.package-dir]
-NetmikoLibrary = "packages/NAGATO/NetmikoLibrary"
-NetworkUtils = "packages/NAGATO/NetworkUtils"
-IxNetworkLibrary = "packages/NAGATO/IxNetworkLibrary"
-Resources = "packages/NAGATO/Resources"
-templates = "packages/NAGATO/templates"
+NAGATO = "packages/NAGATO"
+
 
 [tool.isort]
 profile = "black"
 
-[tool.hatch.envs.docs.env-vars]
 # パッケージinstallした先のtemplatesを参照させたい
-NET_TEXTFSM = "templates"
+
