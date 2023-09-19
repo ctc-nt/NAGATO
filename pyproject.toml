@@ -37,9 +37,9 @@ dev = [
 ]
 
 [tool.setuptools.package-dir]
-NetmikoLibrary = "packages/NetmikoLibrary"
-NetworkUtils = "packages/NetworkUtils"
-IxNetworkLibrary = "packages/IxNetworkLibrary"
+NetmikoLibrary = "packages/NAGATO/NetmikoLibrary"
+NetworkUtils = "packages/NAGATO/NetworkUtils"
+IxNetworkLibrary = "packages/NAGATO/IxNetworkLibrary"
 
 [tool.isort]
 profile = "black"
