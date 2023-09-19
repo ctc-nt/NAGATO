@@ -24,7 +24,8 @@ classifiers = [
 dependencies = [
     "robotframework>=5.0.0",
     "netmiko>=4.0.0",
-    "pysnmplib>=5.0.20"
+    "pysnmplib>=5.0.20",
+    "ixnetwork-restpy>=1.1.10"
 ]
 
 [project.optional-dependencies]
@@ -36,9 +37,9 @@ dev = [
 ]
 
 [tool.setuptools.package-dir]
-NetmikoLibrary = "packages/NAGATO/NetmikoLibrary"
-NetworkUtils = "packages/NAGATO/NetworkUtils"
-IxNetworkLibrary = "packages/NAGATO/IxNetworkLibrary"
+NetmikoLibrary = "packages/NetmikoLibrary"
+NetworkUtils = "packages/NetworkUtils"
+IxNetworkLibrary = "packages/IxNetworkLibrary"
 
 [tool.isort]
 profile = "black"
