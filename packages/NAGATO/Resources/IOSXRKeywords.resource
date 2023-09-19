@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    High-level keywords for operating IOS-XR
 
-Library    NetmikoLibrary
+Library    NAGATO.NetmikoLibrary
 Library    Collections
 Library    String
 
