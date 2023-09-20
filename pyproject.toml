@@ -22,11 +22,11 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "robotframework>=5.0.0",
-    "netmiko>=4.0.0",
-    "pysnmplib>=5.0.20",
     "ixnetwork-restpy>=1.1.10",
-    "ntc-templates>=3.5.0"
+    "netmiko>=4.0.0",
+    "ntc-templates>=3.5.0",
+    "pysnmplib>=5.0.20",
+    "robotframework>=5.0.0"
 ]
 
 [project.optional-dependencies]
@@ -38,7 +38,7 @@ dev = [
 ]
 
 [tool.setuptools.package-dir]
-NAGATO = "packages/NAGATO"
+NAGATO = "src/NAGATO"
 
 [tool.isort]
 profile = "black"
