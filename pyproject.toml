@@ -22,10 +22,11 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dependencies = [
-    "robotframework>=5.0.0",
+    "ixnetwork-restpy>=1.1.10",
     "netmiko>=4.0.0",
+    "ntc-templates>=3.5.0",
     "pysnmplib>=5.0.20",
-    "ixnetwork-restpy>=1.1.10"
+    "robotframework>=5.0.0"
 ]
 
 [project.optional-dependencies]
@@ -37,9 +38,12 @@ dev = [
 ]
 
 [tool.setuptools.package-dir]
-NetmikoLibrary = "packages/NetmikoLibrary"
-NetworkUtils = "packages/NetworkUtils"
-IxNetworkLibrary = "packages/IxNetworkLibrary"
+NAGATO = "src/NAGATO"
 
 [tool.isort]
 profile = "black"
+
+
+# TODO: 環境変数(NET_TEXTFSM)、alias(-dでlog格納先を指定)周りの設定
+# TODO: pip installした後のtamplatesをコピーして移動、indexは上書き
+# TODO: formatter、unittest、libdocをCI/CDで回す

@@ -1,4 +1,5 @@
-robotframework>==5.0.0
-netmiko>=4.0.0
-pysnmplib>=5.0.20
 ixnetwork-restpy>=1.1.10
+netmiko>=4.0.0
+ntc-templates>=3.5.0
+pysnmplib>=5.0.20
+robotframework>==5.0.0

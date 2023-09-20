@@ -10,10 +10,9 @@ from pysnmp.hlapi import (
     nextCmd,
 )
 from robot.api import logger
-from robot.api.deco import keyword, library
+from robot.api.deco import keyword
 
 
-@library(scope="TEST", version="0.0.1")
 class SNMP:
     """NetworkUtils.SNMPはSNMPに関する操作を提供するRobot Frameworkライブラリです。"""
 
