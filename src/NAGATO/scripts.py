@@ -10,9 +10,6 @@ def copy_templates():
     ntc_templates_path = os.path.join(ntc_templates.__path__[0], "templates")
     nagato_templates_path = os.path.join(NAGATO.__path__[0], "templates")
 
-    # copy templates実行後にechoでNET_TEXTFSMを確認しても空の状態
-    os.environ["NET_TEXTFSM"] = nagato_templates_path
-
     for file in os.listdir(ntc_templates_path):
         if ".textfsm" in file:
             shutil.copy(os.path.join(ntc_templates_path, file), nagato_templates_path)
