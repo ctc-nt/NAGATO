@@ -1,3 +1,5 @@
+# This file is appended to ntc template's index after NetmikoLibrary's import.
+# 
 # Regular expressions are supported in all fields except the first.
 # Last field supports variable length command completion.
 # abc[[xyz]] is expanded to abc(x(y(z)?)?)?, regexp inside [[]] is not supported
@@ -8,7 +10,7 @@
 #  - When Length is the same, use alphabetical order
 #  - Keep space between OS's
 # 
-# Header is not necessary because it is appended to the index of remote
-# Remote header is "Template, Hostname, Platform, Command"
+# Header "Template, Hostname, Platform, Command" is not necessary 
+# because it is appended to ntc template's index
 
 apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
