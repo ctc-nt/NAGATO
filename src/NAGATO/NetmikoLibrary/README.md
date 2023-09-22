@@ -43,9 +43,6 @@ flowchart TD
     E --> F[Create a device type class that extends netmiko's BaseConnection in device_type.py\n See example code 1]
     F --> G[Import the created class into __init__.py in the vendor's directory\n See example code 2.]
     G --> H[Add the device type as key and the created class \nas value to the CLASS_MAPPER variable of dictionary type in _wrapper.py\nSee example code 3.]
-    click F "https://github.com/ctc-nt/NAGATO/blob/NTDEV-23429_add_netmikolib/src/NAGATO/NetmikoLibrary/README.md#example-code-1"
-    click G "https://github.com/ctc-nt/NAGATO/blob/NTDEV-23429_add_netmikolib/src/NAGATO/NetmikoLibrary/README.md#example-code-2"
-    click H "https://github.com/ctc-nt/NAGATO/blob/NTDEV-23429_add_netmikolib/src/NAGATO/NetmikoLibrary/README.md#example-code-3"
 ```
 
 
