@@ -8,6 +8,7 @@ If you want to know how to use keywords, please refer to the following
 →※libdocのurl
 
 ## Architecture
+---------------
 NetmikoLibrary with the following structure:
 ```
 NetmikoLibrary
@@ -20,16 +21,17 @@ NetmikoLibrary
 ...etc
 ```
 
--  _wrapper.py  
+-  **_wrapper.py**  
 Wraps the netmiko package and defines functions that can be used as keywords in the RobotFramework.  
 The functions defined here are limited to those defined in netmiko. (e.g. `connect()`, `send_command()`)  
 
-- <device_type>.py  
-User-defined classes to use device types not supported by the netmiko package . 
-List of supported device types: https://github.com/ktbyers/netmiko/blob/develop/netmiko/ssh_dispatcher.py  
+- **<vender_name>/<device_type>.py**  
+User-defined classes to use device types not supported by the netmiko package.   
+[List of supported device types](https://github.com/ktbyers/netmiko/blob/develop/netmiko/ssh_dispatcher.py)  
 See below for how to define them.
 
-## How to incorporate User-defined classes
+How to incorporate User-defined classes
+---------------
 If the device you want to test is not supported by netmiko, you must define your own class to extend the Library.  
 When incorporating user-defined classes, please perform the following steps:  
 ```mermaid
@@ -38,15 +40,19 @@ flowchart TD
     A -->|No| C[Create vendor name directory]
     C --> D[Create __init__.py under the directory]
     D --> E[Create device_type.py under the directory\n e.g. apresia_amios.py]
-    E --> F[Create a device type class that extends netmiko's BaseConnection in device_type.py\n See example code 1.]
+    E --> F[Create a device type class that extends netmiko's BaseConnection in device_type.py\n See example code 1]
     F --> G[Import the created class into __init__.py in the vendor's directory\n See example code 2.]
     G --> H[Add the device type as key and the created class \nas value to the CLASS_MAPPER variable of dictionary type in _wrapper.py\nSee example code 3.]
+    click F "https://github.com/ctc-nt/NAGATO/blob/NTDEV-23429_add_netmikolib/src/NAGATO/NetmikoLibrary/README.md#example-code-1"
+    click G "https://github.com/ctc-nt/NAGATO/blob/NTDEV-23429_add_netmikolib/src/NAGATO/NetmikoLibrary/README.md#example-code-2"
+    click H "https://github.com/ctc-nt/NAGATO/blob/NTDEV-23429_add_netmikolib/src/NAGATO/NetmikoLibrary/README.md#example-code-3"
 ```
 
 
 ### example code 1
-Example of when you want to use amios device type in apresia
-
+Example of when you want to use the following device:  
+vendor: apresia  
+device_type: amios
 ```python
 # apresia/apresia_amios.py
 from netmiko import BaseConnection
