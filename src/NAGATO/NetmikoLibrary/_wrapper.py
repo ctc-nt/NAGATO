@@ -31,7 +31,7 @@ platforms_alt_str = "\n" + platforms_alt_str
 
 
 def robot_log(func):
-    """戻り値をRobot Frameworkのlog.htmlにLogとして表示させるデコレータ"""
+    """Decorator to display the return value as Log in Robot Framework's log.html."""
 
     @wraps(func)
     def _robot_log(*args, **kwargs):
@@ -44,9 +44,9 @@ def robot_log(func):
 
 
 def host_specify(func):
-    """引数hostを指定していない場合、hostに ``self.cursor`` を渡すデコレータ
+    """Decorator that passes ``self.cursor`` to host if the ``host`` argument is not specified.
 
-    ``self.cursor`` にはシナリオ実行時に最初に接続したデバイスのaliasが格納されている
+    ``self.cursor`` contains the alias of the first device connected during scenario execution.
     """
 
     @wraps(func)
@@ -79,10 +79,11 @@ class NetmikoWrapper:
         session_log: str = None,
         **kwargs,
     ):
-        """与えられた接続情報を元にSSH/Telnet接続を行います。
+        """SSH/Telnet connection based on the given connection information.
 
-        ``alias`` にはこの接続を識別する一意の名前を与えてください。
-        ``alias`` は各キーワードのオプション引数 ``host`` として指定することで、実行対象のデバイスを指定することができます。
+        ``alias``  is a a unique name that identifies this connection.
+        The ``alias`` can be specified as an optional ``host`` argument for each keyword 
+        to specify the device to run on.
 
         Example:
         | `Connect` | device_type=cisco_xr | host=192.168.1.1 | alias=Cisco8000 | username=cisco | password=C1sco123! | port=22 |
@@ -128,7 +129,7 @@ class NetmikoWrapper:
             )
 
         except ValueError as error:
-            # 指定したdevice_typeがNetmikoがサポートするplatformの中に存在しない場合、CLASS_MAPPER_ALTから探す
+            # If the specified device_type does not exist in the platforms supported by Netmiko, look for it in CLASS_MAPPER_ALT.
 
             if device_type not in platforms_alt:
                 message = "".join((*error.args, "\n\nAnd: ", platforms_alt_str))
@@ -147,7 +148,7 @@ class NetmikoWrapper:
     @keyword
     @host_specify
     def disconnect(self, host: str = ""):
-        """コネクションの切断処理を行います。
+        """Disconnects the connection.
 
         Example:
         | `Disconnect` | host=Cisco8000 |
@@ -157,7 +158,7 @@ class NetmikoWrapper:
 
     @keyword
     def disconnect_all(self):
-        """全てのコネクションに対し、切断処理を行います。
+        """Disconnects all connections.
 
         Example:
         | `Disconnect All` |
@@ -170,10 +171,10 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def send_command(self, command_string: str, host: str = "", *args, **kwargs):
-        """``command_string`` に指定したコマンドを送信し、CLIの出力を返します。
+        """Sends the command specified in ``command_string`` and returns CLI output.
 
-        このキーワードはnetmikoパッケージの ``send_command`` メソッドをラップしています。
-        このキーワードに与えられる引数は同パッケージの ``send_command`` メソッドに準拠します。
+        This keyword wraps the ``send_command`` method of the netmiko package.
+        The arguments given to this keyword conform to the ``send_command`` method of the netmiko package.
 
         Example:
         | ${output} = | `Send Command` | show ip interface brief | host=Cisco8000 |
@@ -195,12 +196,15 @@ class NetmikoWrapper:
         host: str = "",
         **kwargs,
     ) -> str:
-        """``config_commands`` に指定した設定コマンドを送信し、その間のCLIの表示を返します。
+        """Sends the configuration commands specified in ``config_commands`` and 
+        returns a display of the CLI during that time.
 
-        ``config_commands`` には、送信する設定コマンドを複数格納したIterableオブジェクトを指定可能です。（通常それはlist型です）
-        Iterableオブジェクトを指定した場合、設定コマンドは順番に送信、実行されます。
+        The ``config_commands`` can be an iterable object containing multiple configuration commands to be sent. 
+        (Usually it is of type list.)
+        If an Iterable object is specified, configuration commands are sent and executed in sequence.
 
-        Configurationモードへの移行が必要な場合は自動的に移行し、設定コマンドの送信の終了後は自動的にConfigurationモードを終了します。
+        If it is necessary to shift to Configuration mode, it will do so automatically.
+        The Configuration mode is automatically exited after the end of sending configuration commands.
 
         Example:
         | @{commands} = | Create List | interface Gi1/1 |
@@ -215,10 +219,10 @@ class NetmikoWrapper:
     @keyword
     @host_specify
     def write_channel(self, out_data: str, host: str = ""):
-        """``out_data`` の値を通信チャネルに送信します。
+        """Sends the value of ``out_data`` to the communication channel.
 
-        送信する値には、明示しない限り改行コードが含まれません。
-        コマンド実行には、実行を示す制御コード(\\nなど)を値に含める必要があります。
+        The value to be sent does not include line feed codes unless explicitly stated.
+        Command execution must include a control code (such as \\n) in the value to indicate execution.
 
         Example:
         | `Write Channel` | shutdown -h now\\n |
@@ -230,7 +234,7 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def read_channel(self, host: str = ""):
-        """通信チャネルを読み込みます。その後、読み込んだ文字列を返します。
+        """Reads the communication channel. Then returns the read string.
 
         Example:
         | ${output} = | `Read Channel` | host=Cisco8000 |
@@ -243,8 +247,8 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def read_until_pattern(self, pattern: str, host: str = "", *args, **kwargs) -> str:
-        """``pattern`` に指定した値が検出されるまで、通信チャネルを読み込みます。
-        その後、pattenの値を含めた、それまでに読み込んだ文字列を返します。
+        """Reads the communication channel until the value specified in ``pattern`` is found.
+        It then returns the string read up to that point, including the value of patten.
 
         Example:
         | ${output} = | `Read Until Pattern` | pattern=login: |
@@ -259,8 +263,8 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def read_until_prompt(self, host: str = "", *args, **kwargs) -> str:
-        """プロンプトが検出されるまで、通信チャネルを読み込みます。
-        その後、プロンプトを含めた、それまでに読み込んだ文字列を返します。
+        """Read the communication channel until a prompt is detected.
+        It then returns the string read up to that point, including prompts.
 
         Example:
         | ${output} = | `Read Until Prompt` |
@@ -272,7 +276,7 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def serial_login(self, host: str = "", *args, **kwargs) -> str:
-        """シリアル通信におけるCLIのログイン操作を行います。
+        """Performs CLI login operations in serial communications.
 
         Example:
         | `Serial Login` | host=Cisco8000 |
@@ -284,7 +288,7 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def telnet_login(self, host: str = "", *args, **kwargs) -> str:
-        """Telnet通信におけるCLIのログイン操作を行います。
+        """Performs CLI login operations in Telnet communications.
 
         Example:
         | `Telnet Login` | host=Cisco8000 |
@@ -295,12 +299,12 @@ class NetmikoWrapper:
     @keyword
     @host_specify
     def session_preparation(self, host: str = ""):
-        """コネクション確立後のCLI操作の準備を行います。
+        """Prepare for CLI operation after connection is established.
 
-        通常、このキーワードは以下を実行します。
-        - プロンプトを検出する
-        - ターミナルの幅をデフォルトの値にセットする
-        - ターミナルの改ページを無効にする
+        This keyword performs the following
+        - Find prompts
+        - Set terminal width to default value
+        - Disable page breaks in the terminal
 
         Example:
         | `Establish Connection` | host=Cisco8000 |
@@ -312,9 +316,9 @@ class NetmikoWrapper:
     @keyword
     @host_specify
     def establish_connection(self, host: str = ""):
-        """``host`` に指定した接続先に対し、コネクションの確立させます。
+        """Establishes a connection to the destination specified in ``host`` .
 
-        コネクションの確立に使用される情報は、`Connect`から与えられたものを使用します。
+        The information used to establish the connection is that given by `Connect` .
 
         Example:
         | `Connect` | device_type=cisco_xr | host=192.168.1.1 | alias=Cisco8000 | username=cisco | password=C1sco123! | port=22 |
@@ -328,9 +332,10 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def enable(self, host: str = "", *args, **kwargs) -> str:
-        """特権モードへ移行し、移行後のプロンプト表示を返します。
+        """Transfers to privileged mode and returns a prompt display after the transition.
 
-        特権モード移行の際にパスワード入力が必要な場合、 `Connect` 呼び出し時にキーワード引数 ``secret`` の値としてパスワードを与える必要があります。
+        If password input is required for privileged mode transition, 
+        the password must be supplied as the value of the keyword argument ``secret`` when calling `Connect`.
 
         Example:
         | ${output} = | `Enable` | host=Cisco8000 |
@@ -343,7 +348,7 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def exit_enable_mode(self, host: str = "", *args, **kwargs):
-        """特権モードから退出し、移行後のプロンプト表示を返します。
+        """Exits from privileged mode and returns a prompt display after transition.
 
         Example:
         | `Enable` | host=Cisco8000 |
@@ -357,9 +362,9 @@ class NetmikoWrapper:
     @host_specify
     @robot_log
     def call(self, method: str, host: str = "", *args, **kwargs) -> Any:
-        """``method`` に与えた関数を実行し、その戻り値を返します。
+        """Executes the function given as ``method`` and returns its return value.
 
-        与える関数はnetmikoが実行可能なものに限られます。
+        The functions given must be executable by netmiko.
 
         Example:
         | ${output} = | `Call` | send_command | command_string=show ip interface brief | host=Cisco8000 |
