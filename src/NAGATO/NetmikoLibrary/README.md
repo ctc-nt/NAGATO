@@ -24,7 +24,7 @@ NetmikoLibrary
 Wraps the netmiko package and defines functions that can be used as keywords in the RobotFramework.  
 The functions defined here are limited to those defined in netmiko. (e.g. `connect()`, `send_command()`)  
 
-- <device_type_name>.py  
+- <device_type>.py  
 User-defined classes to use device types not supported by the netmiko package . 
 List of supported device types: https://github.com/ktbyers/netmiko/blob/develop/netmiko/ssh_dispatcher.py  
 See below for how to define them.
