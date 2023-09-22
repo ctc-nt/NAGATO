@@ -65,7 +65,7 @@ class AmiosTelnet(Amios):
     pass
 ```
 
-### sample code 2
+### example code 2
 Import the defined class
 ```python
 # apresia/__init__.py
@@ -73,7 +73,7 @@ from .apresia_amios import AmiosSSH, AmiosTelnet
 
 __all__ = ["AmiosSSH", "AmiosTelnet"]
 ```
-### sample code 3
+### example code 3
 Add device_type and created class as key and value to CLASS_MAPPER_BASE_ALT for ssh and CLASS_MAPPER_ALT for telnet  
 ```python
 # _wrapper.py
