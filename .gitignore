@@ -141,3 +141,8 @@ temporary/
 
 # macOS
 .DS_Store
+
+# Robot Framework log
+log.html
+report.html
+output.xml

@@ -5,7 +5,7 @@ from netmiko import BaseConnection
 
 
 class Amios(BaseConnection):
-    """Apresia AMIOS用クラス"""
+    """Apresia AMIOS's class"""
 
     def disable_paging(
         self,

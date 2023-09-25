@@ -6,9 +6,9 @@ __all__ = ["NetmikoLibrary"]
 
 @library(scope="SUITE", version="1.0.0")
 class NetmikoLibrary(NetmikoWrapper):
-    """NetmikoLibraryはネットワーク機器へSSH/Telnet接続を行い、CLI上の操作を可能にするRobot Frameworkライブラリです。
+    """NetmikoLibrary is a Robot Framework library that provides SSH/Telnet connections to network devices and enables operations on the CLI.
 
-    このライブラリはnetmikoパッケージを利用しています。
+    This library uses the netmiko package.
     """
 
     pass
