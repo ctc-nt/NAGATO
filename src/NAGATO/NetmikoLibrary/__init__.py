@@ -1,8 +1,6 @@
 from ._wrapper import NetmikoWrapper
 from . import set_templates
 from robot.api.deco import library
-import os
-import NAGATO
 
 __all__ = ["NetmikoLibrary"]
 
