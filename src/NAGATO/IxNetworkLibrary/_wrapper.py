@@ -3,8 +3,8 @@ from robot.api import logger
 from robot.api.deco import keyword
 
 
-class IxnNetworkRestpyWrapper:
-    """IxnNetworkRestpy Wrapper Class"""
+class IxNetworkRestpyWrapper:
+    """IxNetworkRestpy Wrapper Class"""
 
     def __init__(self):
         self.session_assistant: SessionAssistant = None
