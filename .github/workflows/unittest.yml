@@ -13,7 +13,7 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     env:
-      PYTHONPATH: ${{ github.workspace }}/src/NAGATO
+      PYTHONPATH: ${{ github.workspace }}/src
 
     steps:
       - uses: actions/checkout@v3
