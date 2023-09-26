@@ -1,5 +1,5 @@
 from ._wrapper import NetmikoWrapper
-from . import set_templates
+from .set_templates import set_templates
 from robot.api.deco import library
 
 __all__ = ["NetmikoLibrary"]
@@ -10,5 +10,6 @@ class NetmikoLibrary(NetmikoWrapper):
 
     このライブラリはnetmikoパッケージを利用しています。
     """
-
-    pass
+    def __init__(self):
+        super().__init__()
+        set_templates()
