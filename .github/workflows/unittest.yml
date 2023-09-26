@@ -12,6 +12,8 @@ jobs:
         platform: ["ubuntu-latest"]
 
     runs-on: ${{ matrix.platform }}
+    env:
+      PYTHONPATH: ${{ github.workspace }}/src/NAGATO
 
     steps:
       - uses: actions/checkout@v3
