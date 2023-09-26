@@ -1,5 +1,6 @@
-from ._wrapper import IxnNetworkRestpyWrapper
 from robot.api.deco import library
+
+from ._wrapper import IxnNetworkRestpyWrapper
 
 __all__ = ["IxNetworkLibrary"]
 
@@ -15,4 +16,5 @@ class IxNetworkLibrary(IxnNetworkRestpyWrapper):
     - Windows IxNetwork GUI
     - Windows IxNetwork Connection Manager
     """
+
     pass

@@ -1,13 +1,14 @@
 import os
 import shutil
+
 import ntc_templates
+
 import NAGATO
 
 
 def set_templates():
     """copy ntc-templates and merge it with nagato's templates."""
     if not os.getenv("NET_TEXTFSM"):
-
         # get installed templates path
         ntc_templates_path = os.path.join(ntc_templates.__path__[0], "templates")
         nagato_templates_path = os.path.join(NAGATO.__path__[0], "templates")
@@ -29,7 +30,7 @@ def set_templates():
 
                 # merge index of nagato
                 if file == "index":
-                    with open(os.path.join(dest_templates_path, "index"), mode='a') as ntc_index:
+                    with open(os.path.join(dest_templates_path, "index"), mode="a") as ntc_index:
                         with open(os.path.join(nagato_templates_path, "index")) as nagato_index:
                             nagato_index_contents = nagato_index.read()
                             ntc_index.write(f"\n{nagato_index_contents}")

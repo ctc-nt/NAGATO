@@ -17,9 +17,7 @@ class SNMP:
     """NetworkUtils.SNMPはSNMPに関する操作を提供するRobot Frameworkライブラリです。"""
 
     @keyword
-    def snmpwalk(
-        self, host: str, oid: str, port: int = 161, community: str = "public"
-    ) -> dict:
+    def snmpwalk(self, host: str, oid: str, port: int = 161, community: str = "public") -> dict:
         """``host`` に対し、指定した ``oid`` に対するGetNext Requestを実行します。
         その後、取得した全てのOIDとその値を返します。
 
@@ -62,9 +60,7 @@ class SNMP:
         return object_dict
 
     @keyword
-    def get_request(
-        self, host: str, oid: str, port: int = 161, community: str = "public"
-    ) -> str:
+    def get_request(self, host: str, oid: str, port: int = 161, community: str = "public") -> str:
         """``host`` に対し、指定した ``oid`` に対するSNMP GetRequestを実行し、そのOIDの値を返します。
 
         Example:
@@ -88,9 +84,7 @@ class SNMP:
 
         if errorIndication:
             logger.error(errorIndication)
-            raise PySnmpError(
-                f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}"
-            )
+            raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
         elif errorStatus:
             logger.error(
                 "%s at %s"
@@ -99,9 +93,7 @@ class SNMP:
                     errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
                 )
             )
-            raise PySnmpError(
-                f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}"
-            )
+            raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
         else:
             varBind = varBinds[0]
             logger.info(f"{varBind[0]} = {varBind[1]}")

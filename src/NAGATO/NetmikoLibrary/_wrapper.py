@@ -1,12 +1,13 @@
 import os
 from functools import wraps
-from typing import Iterator, Sequence, TextIO, Union, Any
+from typing import Any, Iterator, Sequence, TextIO, Union
 
-from .apresia.apresia_amios import AmiosSSH, AmiosTelnet
 from netmiko import BaseConnection, ConnectHandler
 from robot.api import logger
 from robot.api.deco import keyword
 from robot.libraries.BuiltIn import BuiltIn, RobotNotRunningError
+
+from .apresia.apresia_amios import AmiosSSH, AmiosTelnet
 
 CLASS_MAPPER_BASE_ALT = dict()
 CLASS_MAPPER_BASE_ALT["apresia_amios"] = AmiosSSH
@@ -82,7 +83,7 @@ class NetmikoWrapper:
         """SSH/Telnet connection based on the given connection information.
 
         ``alias``  is a a unique name that identifies this connection.
-        The ``alias`` can be specified as an optional ``host`` argument for each keyword 
+        The ``alias`` can be specified as an optional ``host`` argument for each keyword
         to specify the device to run on.
 
         Example:
@@ -94,9 +95,7 @@ class NetmikoWrapper:
 
         if not session_log:
             try:
-                session_log = os.path.join(
-                    BuiltIn().get_variable_value("${OUTPUT DIR}"), f"{alias}.log"
-                )
+                session_log = os.path.join(BuiltIn().get_variable_value("${OUTPUT DIR}"), f"{alias}.log")
             except RobotNotRunningError:
                 session_log = None
 
@@ -181,25 +180,18 @@ class NetmikoWrapper:
         | Log | ${output} |
         """
 
-        output = self.connections[host].send_command(
-            command_string=command_string, *args, **kwargs
-        )
+        output = self.connections[host].send_command(command_string=command_string, *args, **kwargs)
 
         return output
 
     @keyword
     @host_specify
     @robot_log
-    def send_config_set(
-        self,
-        config_commands: Union[str, Sequence[str], Iterator[str], TextIO, None] = None,
-        host: str = "",
-        **kwargs,
-    ) -> str:
-        """Sends the configuration commands specified in ``config_commands`` and 
+    def send_config_set(self, config_commands: Union[str, Sequence[str], Iterator[str], TextIO, None] = None, host: str = "", **kwargs) -> str:
+        """Sends the configuration commands specified in ``config_commands`` and
         returns a display of the CLI during that time.
 
-        The ``config_commands`` can be an iterable object containing multiple configuration commands to be sent. 
+        The ``config_commands`` can be an iterable object containing multiple configuration commands to be sent.
         (Usually it is of type list.)
         If an Iterable object is specified, configuration commands are sent and executed in sequence.
 
@@ -212,9 +204,7 @@ class NetmikoWrapper:
         | ${output} = | `Send Config Set` | ${commands} | host=Cisco8000 |
         """
 
-        return self.connections[host].send_config_set(
-            config_commands=config_commands, **kwargs
-        )
+        return self.connections[host].send_config_set(config_commands=config_commands, **kwargs)
 
     @keyword
     @host_specify
@@ -255,9 +245,7 @@ class NetmikoWrapper:
         | `Establish Connection` | host=Cisco8000 |
         """
 
-        return self.connections[host].read_until_pattern(
-            pattern=pattern, *args, **kwargs
-        )
+        return self.connections[host].read_until_pattern(pattern=pattern, *args, **kwargs)
 
     @keyword
     @host_specify
@@ -334,7 +322,7 @@ class NetmikoWrapper:
     def enable(self, host: str = "", *args, **kwargs) -> str:
         """Transfers to privileged mode and returns a prompt display after the transition.
 
-        If password input is required for privileged mode transition, 
+        If password input is required for privileged mode transition,
         the password must be supplied as the value of the keyword argument ``secret`` when calling `Connect`.
 
         Example:

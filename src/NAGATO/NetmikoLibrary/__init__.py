@@ -1,8 +1,10 @@
-from ._wrapper import NetmikoWrapper
-from .set_templates import set_templates
 from robot.api.deco import library
 
+from ._wrapper import NetmikoWrapper
+from .set_templates import set_templates
+
 __all__ = ["NetmikoLibrary"]
+
 
 @library(scope="SUITE", version="1.0.0")
 class NetmikoLibrary(NetmikoWrapper):
@@ -10,6 +12,7 @@ class NetmikoLibrary(NetmikoWrapper):
 
     This library uses the netmiko package.
     """
+
     def __init__(self):
         super().__init__()
         set_templates()
