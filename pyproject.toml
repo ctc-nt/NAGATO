@@ -40,6 +40,9 @@ dev = [
 [tool.setuptools.package-dir]
 NAGATO = "src/NAGATO"
 
+[tool.black]
+line-length = 300
+
 [tool.isort]
 profile = "black"
 
