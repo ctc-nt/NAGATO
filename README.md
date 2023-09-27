@@ -59,7 +59,11 @@ This command will also install the latest of the following packages:
 Usage
 -----
 To use NAGATO in Robot Framework tests,  
-you must first import the libraries　you want to use using the library settings.
+you must import the libraries　you want to use using the library settings.
+
+One of the advantages of the Robot Framework is that it can be written  
+in a form similar to natural language,  
+so write tests that are as easy-to-understand as possible.
 
 Below is an example of a robot file created using NetmikoLibrary and IOSXRKeywords.resource.
 
