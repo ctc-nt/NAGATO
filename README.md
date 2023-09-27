@@ -58,7 +58,7 @@ This command will also install the latest of the following packages:
 
 Usage
 -----
-To use NAGATO for testing a robotic framework,  
+To use NAGATO in Robot Framework tests,  
 you must first import the libraries　you want to use using the library settings.
 
 Below is an example of a robot file created using NetmikoLibrary and IOSXRKeywords.resource.
