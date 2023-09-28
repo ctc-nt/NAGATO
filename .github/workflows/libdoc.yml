@@ -1,0 +1,52 @@
+name: libdoc
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
+jobs:
+  libdoc:
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+        platform: ["ubuntu-latest"]
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+
+      - name: Install dependencies
+        run: python3 -m pip install -r requirements.txt
+
+      - name: Create IxNetworkLibrary libdoc
+        run: python3 -m robot.libdoc ./src/NAGATO/IxNetworkLibrary ./Docs/IxNetworkLibrary.html
+
+      - name: Create NetmikoLibrary libdoc
+        run: python3 -m robot.libdoc ./src/NAGATO/NetmikoLibrary ./Docs/NetmikoLibrary.html
+
+      - name: Create NetworkUtils libdoc
+        run: python3 -m robot.libdoc ./src/NAGATO/NetworkUtils ./Docs/NetworkUtils.html
+
+      - name: Diff
+        id: diff
+        run: |
+          git add -N .
+          git diff --name-only --exit-code
+        continue-on-error: true
+
+      - name: Commit & Push
+        run: |
+            git config user.name github-actions[bot]
+            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+            git add .
+            git commit --author=. -m 'Formatter applied'
+            git push
+        if: steps.diff.outcome == 'failure'
