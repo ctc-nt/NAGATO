@@ -6,41 +6,44 @@ Network Automation Gears and Test Orchestrator.
 
 Contents
 - [Introduction](#introduction)
-- [Documentation](#documentation)
+- [Libraries](#libraries)
+- [High-Level Keywords](#high-level-keywords)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Support](#support)
 
 Introduction
 -------------
-NAGATO is an OSS that provides a framework of components required for network verification automation, with the robot framework as its foundation.  
+NAGATO provides components for network test automation, that is based on Robot Framework.  
 The project is hosted on [GitHub](https://github.com/ctc-nt/NAGATO).
 
 NAGATO provides the following:  
-- Robot Framework tools dedicated to automating infrastructure tests/verifications
-- System to automatically generate tests/verifications incorporating the created tools
+- Robot Framework tools dedicated to automating infrastructure tests
+- System to automatically generate tests incorporating the created tools
 
 ![nagato](/images/Nagato_Scope_of_Provision.png)
 
-Documentation
+Libraries
 -------------
 The RobotFramework Libraries in NAGATO is the following:
-- IxNetworkLibrary(TODO: libdocのurlリンクさせる)
-    - Provide operations on IxNetwork
-- NetmikoLibrary(TODO: libdocのurlリンクさせる)
-    - Provide operations on network devices through ssh/telent connections
-- NetworkUtils(TODO: libdocのurlリンクさせる)
-    - Provide various operations from the terminal
 
-The RobotFramework resource files in NAGATO is the following:
-- IOSXRKeywords.resource
-    - Provides high-level keywords defining the basic operations of IOSXR using NetmikoLibrary
-
-For more information on available keywords and libraries in general,  
-please refer to the Docs that appear by clicking on the respective library link.
+ LIBRARY NAME | DESCRIPTION |
+| ---- | ---- |
+| IxNetworkLibrary | Provide operations on IxNetwork |
+| NetmikoLibrary | Provide operations on network devices through ssh/telent connections |
+| NetworkUtils | Provide various operations from the terminal |
 
 For general information about using test libraries with Robot Framework, see
 [Robot Framework User Guide](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-test-libraries).
+
+High-Level Keywords
+-------------
+The RobotFramework resource files in NAGATO is the following:
+
+ LIBRARY NAME | DESCRIPTION |
+| ---- | ---- |
+| IOSXRKeywords.resource | Provides high-level keywords defining the basic operations of IOSXR using NetmikoLibrary |
+
 
 Installation
 ------------
