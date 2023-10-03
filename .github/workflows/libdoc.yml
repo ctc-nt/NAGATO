@@ -16,7 +16,7 @@ jobs:
     runs-on: ${{ matrix.platform }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -27,16 +27,16 @@ jobs:
         run: python3 -m pip install -r requirements.txt
 
       - name: Create IxNetworkLibrary libdoc
-        run: python3 -m robot.libdoc --name NAGATO.IxNetworkLibrary ./src/NAGATO/IxNetworkLibrary ./Doc/IxNetworkLibrary.html
+        run: python3 -m robot.libdoc --name NAGATO.IxNetworkLibrary ./src/NAGATO/IxNetworkLibrary ./Docs/IxNetworkLibrary.html
 
       - name: Create NetmikoLibrary libdoc
-        run: python3 -m robot.libdoc --name NAGATO.NetmikoLibrary ./src/NAGATO/NetmikoLibrary ./Doc/NetmikoLibrary.html
+        run: python3 -m robot.libdoc --name NAGATO.NetmikoLibrary ./src/NAGATO/NetmikoLibrary ./Docs/NetmikoLibrary.html
 
       - name: Create NetworkUtils libdoc
-        run: python3 -m robot.libdoc --name NAGATO.NetworkUtils ./src/NAGATO/NetworkUtils ./Doc/NetworkUtils.html
+        run: python3 -m robot.libdoc --name NAGATO.NetworkUtils ./src/NAGATO/NetworkUtils ./Docs/NetworkUtils.html
 
       - name: Create IOSXRKeywords libdoc
-        run: python3 -m robot.libdoc --name NAGATO.IOSXRKeywords ./src/NAGATO/Resources/IOSXRKeywords.resource ./Doc/IOSXRKeywords.html
+        run: python3 -m robot.libdoc --name NAGATO.IOSXRKeywords ./src/NAGATO/Resources/IOSXRKeywords.resource ./Docs/IOSXRKeywords.html
 
       - name: Diff
         id: diff
