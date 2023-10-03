@@ -19,7 +19,7 @@ The project is hosted on [GitHub](https://github.com/ctc-nt/NAGATO).
 
 NAGATO provides the following:  
 - Robot Framework tools for automating infrastructure tests
-- It is more correct to generate robot files for tests, not tests
+- System to automatically generate robot files for tests incorporating the created tools
 
 ![nagato](/images/Nagato_Scope_of_Provision.png)
 
