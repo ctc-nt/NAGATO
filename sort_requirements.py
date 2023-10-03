@@ -3,7 +3,7 @@ import sys
 
 for file in sys.argv[1:]:
     with open(file) as f:
-        data = f.read().splitlines()
+        data = f.readlines()
         data.sort()
         sorted_data = '\n'.join(data)
 
