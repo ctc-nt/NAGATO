@@ -6,39 +6,36 @@ build-backend = "setuptools.build_meta"
 name = "nagato"
 version = "0.0.1"
 authors = [
-    {name = "Takumi Nohara", email = "takumi.nohara.571@ctc-g.co.jp"},
+  {name = "Takumi Nohara", email = "takumi.nohara.571@ctc-g.co.jp"}
 ]
 description = "NAGATO: Network Automation Gears and Test Orchestrator"
 readme = "README.md"
 requires-python = ">=3.8"
 license = {file = "LICENSE"}
 classifiers = [
-    "Framework :: Robot Framework",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
+  "Framework :: Robot Framework",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9"
 ]
 dependencies = [
-    "ixnetwork-restpy>=1.1.10",
-    "netmiko>=4.0.0",
-    "ntc-templates>=3.5.0",
-    "pysnmplib>=5.0.20",
-    "robotframework>=5.0.0"
+  "ixnetwork-restpy>=1.1.10",
+  "netmiko>=4.0.0",
+  "ntc-templates>=3.5.0",
+  "pysnmplib>=5.0.20",
+  "robotframework>=5.0.0"
 ]
 
 [project.optional-dependencies]
 dev = [
-    "black",
-    "ipython",
-    "isort",
-    "pytest"
+  "black",
+  "ipython",
+  "isort",
+  "pytest"
 ]
-
-[tool.setuptools.package-dir]
-NAGATO = "src/NAGATO"
 
 [tool.black]
 line-length = 300
@@ -46,5 +43,17 @@ line-length = 300
 [tool.isort]
 profile = "black"
 
+[tool.robotidy]
+diff = true
+configure = [
+  "NormalizeAssignments:equal_sign_type=space_and_equal_sign",
+  "NormalizeAssignments:equal_sign_type_variables=space_and_equal_sign",
+  "NormalizeTags:normalize_case=False",
+  "ReplaceRunKeywordIf:enabled=False",
+  "SplitTooLongLine:enabled=False"
+]
+
+[tool.setuptools.package-dir]
+NAGATO = "src/NAGATO"
+
 # TODO: 環境変数(NET_TEXTFSM)、alias(-dでlog格納先を指定)周りの設定
-# TODO: formatter、unittest、libdocをCI/CDで回す
