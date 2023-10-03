@@ -14,12 +14,12 @@ Contents
 
 Introduction
 -------------
-NAGATO provides components for network test automation, that is based on Robot Framework.  
+NAGATO provides components for network test automation. It is based on Robot Framework.  
 The project is hosted on [GitHub](https://github.com/ctc-nt/NAGATO).
 
 NAGATO provides the following:  
-- Robot Framework tools dedicated to automating infrastructure tests
-- System to automatically generate tests incorporating the created tools
+- Robot Framework tools for automating infrastructure tests
+- It is more correct to generate robot files for tests, not tests
 
 ![nagato](/images/Nagato_Scope_of_Provision.png)
 
@@ -47,12 +47,12 @@ The RobotFramework resource files in NAGATO is the following:
 
 Installation
 ------------
-The recommended installation method is using pip:
+Execute the following command:
 ```
 pip install git+https://github.com/ctc-nt/NAGATO@main
 ```
 
-This command will also install the latest of the following packages:
+The command will also install the following latest-packages:
 - [robotframework](https://pypi.org/project/robotframework/)
 - [ixnetwork-restpy](https://pypi.org/project/ixnetwork-restpy/)
 - [netmiko](https://pypi.org/project/netmiko/)
@@ -62,13 +62,13 @@ This command will also install the latest of the following packages:
 Usage
 -----
 To use NAGATO in Robot Framework tests,  
-you must import the libraries　you want to use using the library settings.
+import the libraries you want to use in the settings section.
 
-One of the advantages of the Robot Framework is that it can be written  
-in a form similar to natural language,  
-so write tests that are as easy-to-understand as possible.
+One of the advantages to use Robot Framework  
+in a form closer to Natural Language,  
+so write tests as easy-to-understand as possible.
 
-Below is an example of a robot file created using NetmikoLibrary and IOSXRKeywords.resource.
+Below is an example of a robot file using NetmikoLibrary and IOSXRKeywords.resource.
 
 ```robotframework
 *** Settings ***
@@ -96,14 +96,14 @@ Execute Command And Verify Parsed Output
     [Documentation]    Send the command, get the parsed output, and verify that it is as expected
     ...                If parsing is not needed, the use_textfsm argument is not necessary.
 
-    ${parsed_output} =    NAGATO.NetmikoLibrary.Send Command    command_string=show version    use_textfsm=${True}
+    ${parsed_output} =    NAGATO.NetmikoLibrary.Send Command    command_string=show version    use_textfsm=${True}  host=${device}[alias]
     Should Be Equal    ${output}[0][hardware]    ASR9K
 
 Get Normalized Running Config
     [Documentation]    Get only the configuration contents that do not contain date data 
     ...                from the output of show running-config
 
-    ${output} =    NAGATO.NetmikoLibrary.Send Command     command_string=show running-config
+    ${output} =    NAGATO.NetmikoLibrary.Send Command     command_string=show running-config    host=${device}[alias]
     ${normalized_config} =    IOSXRKeywords.Normalize Config Text IOS-XR    ${output}
     Builtin.Log    ${normalized_config}
 ```
