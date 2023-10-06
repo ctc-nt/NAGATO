@@ -32,7 +32,7 @@ platforms_alt_str = "\n" + platforms_alt_str
 
 
 def robot_log(func):
-    """Decorator to display the return value as Log in Robot Framework's log.html."""
+    """Displays the return value as a log in Robot Framework's log.html."""
 
     @wraps(func)
     def _robot_log(*args, **kwargs):
@@ -44,21 +44,18 @@ def robot_log(func):
     return _robot_log
 
 
-def host_specify(func):
-    """Decorator that passes ``self.cursor`` to host if the ``host`` argument is not specified.
-
-    ``self.cursor`` contains the alias of the first device connected during scenario execution.
-    """
+def connection_specify(func):
+    """Passes ``self.cursor`` to the connection if the ``alias`` argument is not specified."""
 
     @wraps(func)
-    def _host_specify(*args, **kwargs):
+    def _connection_specify(*args, **kwargs):
         self = args[0]
-        if "host" in kwargs:
+        if "alias" in kwargs:
             return func(*args, **kwargs)
         else:
-            return func(*args, host=self.cursor, **kwargs)
+            return func(*args, alias=self.cursor, **kwargs)
 
-    return _host_specify
+    return _connection_specify
 
 
 class NetmikoWrapper:
@@ -69,25 +66,14 @@ class NetmikoWrapper:
         self.connections: dict[str, BaseConnection] = {}
 
     @keyword
-    def connect(
-        self,
-        device_type: str,
-        host: str,
-        alias: str,
-        username: str,
-        password: str,
-        port: int = None,
-        session_log: str = None,
-        **kwargs,
-    ):
-        """SSH/Telnet connection based on the given connection information.
+    def connect(self, alias: str, device_type: str, host: str, username: str, password: str, port: int = None, session_log: str = None, **kwargs) -> None:
+        """Creates an SSH or Telnet connection based on the given arguments.
 
-        ``alias``  is a a unique name that identifies this connection.
-        The ``alias`` can be specified as an optional ``host`` argument for each keyword
-        to specify the device to run on.
+        ``alias`` is a unique name that identifies this connection.
+        The ``alias`` can be specified as an optional ``alias`` argument for each keyword to specify the connection to run on.
 
         Example:
-        | `Connect` | device_type=cisco_xr | host=192.168.1.1 | alias=Cisco8000 | username=cisco | password=C1sco123! | port=22 |
+        | `Connect` | alias=Cisco8000 | device_type=cisco_xr | host=192.168.1.1 | username=cisco | password=C1sco123! | port=22 |
         """
 
         if not self.cursor:
@@ -105,14 +91,7 @@ class NetmikoWrapper:
             port = 22
 
         logger.write(
-            msg=f"""接続情報:
-            {host=}
-            {alias=}
-            {username=}
-            {password=}
-            {port=}
-            {device_type=}
-            {session_log=}""",
+            msg=f"""Connection info:{alias=}\n{device_type=}\n{host=}\n{username=}\n{password=}\n{port=}\n{session_log=}""",
             level="INFO",
         )
 
@@ -128,7 +107,7 @@ class NetmikoWrapper:
             )
 
         except ValueError as error:
-            # If the specified device_type does not exist in the platforms supported by Netmiko, look for it in CLASS_MAPPER_ALT.
+            # If the given device_type does not exist in the platforms supported by Netmiko, look for it in CLASS_MAPPER_ALT.
 
             if device_type not in platforms_alt:
                 message = "".join((*error.args, "\n\nAnd: ", platforms_alt_str))
@@ -145,15 +124,15 @@ class NetmikoWrapper:
             )
 
     @keyword
-    @host_specify
-    def disconnect(self, host: str = ""):
+    @connection_specify
+    def disconnect(self, alias: str = ""):
         """Disconnects the connection.
 
         Example:
-        | `Disconnect` | host=Cisco8000 |
+        | `Disconnect` | alias=Cisco8000 |
         """
 
-        self.connections[host].disconnect()
+        self.connections[alias].disconnect()
 
     @keyword
     def disconnect_all(self):
@@ -167,27 +146,27 @@ class NetmikoWrapper:
             connection.disconnect()
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def send_command(self, command_string: str, host: str = "", *args, **kwargs):
+    def send_command(self, command_string: str, alias: str = "", *args, **kwargs):   
         """Sends the command specified in ``command_string`` and returns CLI output.
 
         This keyword wraps the ``send_command`` method of the netmiko package.
         The arguments given to this keyword conform to the ``send_command`` method of the netmiko package.
 
         Example:
-        | ${output} = | `Send Command` | show ip interface brief | host=Cisco8000 |
+        | ${output} = | `Send Command` | show ip interface brief | alias=Cisco8000 |
         | Log | ${output} |
         """
 
-        output = self.connections[host].send_command(command_string=command_string, *args, **kwargs)
+        output = self.connections[alias].send_command(command_string=command_string, *args, **kwargs)
 
         return output
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def send_config_set(self, config_commands: Union[str, Sequence[str], Iterator[str], TextIO, None] = None, host: str = "", **kwargs) -> str:
+    def send_config_set(self, config_commands: Union[str, Sequence[str], Iterator[str], TextIO, None] = None, alias: str = "", **kwargs) -> str:
         """Sends the configuration commands specified in ``config_commands`` and
         returns a display of the CLI during that time.
 
@@ -201,14 +180,14 @@ class NetmikoWrapper:
         Example:
         | @{commands} = | Create List | interface Gi1/1 |
         | ... | | ip address 192.168.1.1 255.255.255.0 |
-        | ${output} = | `Send Config Set` | ${commands} | host=Cisco8000 |
+        | ${output} = | `Send Config Set` | ${commands} | alias=Cisco8000 |
         """
 
-        return self.connections[host].send_config_set(config_commands=config_commands, **kwargs)
+        return self.connections[alias].send_config_set(config_commands=config_commands, **kwargs)
 
     @keyword
-    @host_specify
-    def write_channel(self, out_data: str, host: str = ""):
+    @connection_specify
+    def write_channel(self, out_data: str, alias: str = ""):
         """Sends the value of ``out_data`` to the communication channel.
 
         The value to be sent does not include line feed codes unless explicitly stated.
@@ -218,39 +197,39 @@ class NetmikoWrapper:
         | `Write Channel` | shutdown -h now\\n |
         """
 
-        self.connections[host].write_channel(out_data=out_data)
+        self.connections[alias].write_channel(out_data=out_data)
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def read_channel(self, host: str = ""):
+    def read_channel(self, alias: str = ""):
         """Reads the communication channel. Then returns the read string.
 
         Example:
-        | ${output} = | `Read Channel` | host=Cisco8000 |
+        | ${output} = | `Read Channel` | alias=Cisco8000 |
         | Should Be Equal | ${output} | press return to get started |
         """
 
-        return self.connections[host].read_channel()
+        return self.connections[alias].read_channel()
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def read_until_pattern(self, pattern: str, host: str = "", *args, **kwargs) -> str:
+    def read_until_pattern(self, pattern: str, alias: str = "", *args, **kwargs) -> str:
         """Reads the communication channel until the value specified in ``pattern`` is found.
         It then returns the string read up to that point, including the value of patten.
 
         Example:
         | ${output} = | `Read Until Pattern` | pattern=login: |
-        | `Establish Connection` | host=Cisco8000 |
+        | `Establish Connection` | alias=Cisco8000 |
         """
 
-        return self.connections[host].read_until_pattern(pattern=pattern, *args, **kwargs)
+        return self.connections[alias].read_until_pattern(pattern=pattern, *args, **kwargs)
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def read_until_prompt(self, host: str = "", *args, **kwargs) -> str:
+    def read_until_prompt(self, alias: str = "", *args, **kwargs) -> str:
         """Read the communication channel until a prompt is detected.
         It then returns the string read up to that point, including prompts.
 
@@ -258,35 +237,35 @@ class NetmikoWrapper:
         | ${output} = | `Read Until Prompt` |
         """
 
-        return self.connections[host].read_until_prompt(*args, **kwargs)
+        return self.connections[alias].read_until_prompt(*args, **kwargs)
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def serial_login(self, host: str = "", *args, **kwargs) -> str:
+    def serial_login(self, alias: str = "", *args, **kwargs) -> str:
         """Performs CLI login operations in serial communications.
 
         Example:
-        | `Serial Login` | host=Cisco8000 |
+        | `Serial Login` | alias=Cisco8000 |
         """
 
-        return self.connections[host].serial_login(*args, **kwargs)
+        return self.connections[alias].serial_login(*args, **kwargs)
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def telnet_login(self, host: str = "", *args, **kwargs) -> str:
+    def telnet_login(self, alias: str = "", *args, **kwargs) -> str:
         """Performs CLI login operations in Telnet communications.
 
         Example:
-        | `Telnet Login` | host=Cisco8000 |
+        | `Telnet Login` | alias=Cisco8000 |
         """
 
-        return self.connections[host].telnet_login(*args, **kwargs)
+        return self.connections[alias].telnet_login(*args, **kwargs)
 
     @keyword
-    @host_specify
-    def session_preparation(self, host: str = ""):
+    @connection_specify
+    def session_preparation(self, alias: str = ""):
         """Prepare for CLI operation after connection is established.
 
         This keyword performs the following
@@ -295,68 +274,68 @@ class NetmikoWrapper:
         - Disable page breaks in the terminal
 
         Example:
-        | `Establish Connection` | host=Cisco8000 |
-        | `Session Preparation` | host=Cisco8000 |
+        | `Establish Connection` | alias=Cisco8000 |
+        | `Session Preparation` | alias=Cisco8000 |
         """
 
-        self.connections[host].session_preparation()
+        self.connections[alias].session_preparation()
 
     @keyword
-    @host_specify
-    def establish_connection(self, host: str = ""):
-        """Establishes a connection to the destination specified in ``host`` .
+    @connection_specify
+    def establish_connection(self, alias: str = ""):
+        """Establishes a connection to the destination specified in ``alias`` .
 
         The information used to establish the connection is that given by `Connect` .
 
         Example:
-        | `Connect` | device_type=cisco_xr | host=192.168.1.1 | alias=Cisco8000 | username=cisco | password=C1sco123! | port=22 |
-        | `Disconnect` | host=Cisco8000 |
-        | `Establish Connection` | host=Cisco8000 |
+        | `Connect` | device_type=cisco_xr | alias=192.168.1.1 | alias=Cisco8000 | username=cisco | password=C1sco123! | port=22 |
+        | `Disconnect` | alias=Cisco8000 |
+        | `Establish Connection` | alias=Cisco8000 |
         """
 
-        self.connections[host].establish_connection()
+        self.connections[alias].establish_connection()
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def enable(self, host: str = "", *args, **kwargs) -> str:
+    def enable(self, alias: str = "", *args, **kwargs) -> str:
         """Transfers to privileged mode and returns a prompt display after the transition.
 
         If password input is required for privileged mode transition,
         the password must be supplied as the value of the keyword argument ``secret`` when calling `Connect`.
 
         Example:
-        | ${output} = | `Enable` | host=Cisco8000 |
+        | ${output} = | `Enable` | alias=Cisco8000 |
         | Should Contain | ${output} | # |
         """
 
-        return self.connections[host].enable(*args, **kwargs)
+        return self.connections[alias].enable(*args, **kwargs)
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def exit_enable_mode(self, host: str = "", *args, **kwargs):
+    def exit_enable_mode(self, alias: str = "", *args, **kwargs):
         """Exits from privileged mode and returns a prompt display after transition.
 
         Example:
-        | `Enable` | host=Cisco8000 |
-        | ${output} = | `Send Command` | command_string=show running-config | host=Cisco8000 |
-        | `Exit Enable Mode` | host=Cisco8000 |
+        | `Enable` | alias=Cisco8000 |
+        | ${output} = | `Send Command` | command_string=show running-config | alias=Cisco8000 |
+        | `Exit Enable Mode` | alias=Cisco8000 |
         """
 
-        return self.connections[host].exit_enable_mode(*args, **kwargs)
+        return self.connections[alias].exit_enable_mode(*args, **kwargs)
 
     @keyword
-    @host_specify
+    @connection_specify
     @robot_log
-    def call(self, method: str, host: str = "", *args, **kwargs) -> Any:
+    def call(self, method: str, alias: str = "", *args, **kwargs) -> Any:
         """Executes the function given as ``method`` and returns its return value.
 
         The functions given must be executable by netmiko.
 
         Example:
-        | ${output} = | `Call` | send_command | command_string=show ip interface brief | host=Cisco8000 |
+        | ${output} = | `Call` | send_command | command_string=show ip interface brief | alias=Cisco8000 |
         | Log | ${output} |
         """
 
-        return eval("self.connections[host]." + method + "(*args, **kwargs)")
+        return eval("self.connections[alias]." + method + "(*args, **kwargs)")
