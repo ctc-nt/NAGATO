@@ -43,7 +43,7 @@ Running Config Should Be Equal IOS-XR
     Lists Should Be Equal    ${expect_config_list}    ${running_config_list}
 
 Config File Should Exist IOS-XR
-    [Documentation]    check and return content of config file
+    [Documentation]    Check if file exists
     [Arguments]    ${config_directory_path}    ${file_name}    ${host}
 
     ${output} =    NAGATO.NetmikoLibrary.Send Command    command_string=dir ${config_directory_path}    host=${host}
