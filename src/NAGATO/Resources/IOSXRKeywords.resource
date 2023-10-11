@@ -1,16 +1,15 @@
 *** Settings ***
-Documentation    High-level keywords for operating IOS-XR
+Documentation       High-level keywords for operating IOS-XR
 
-Library    NAGATO.NetmikoLibrary
-Library    Collections
-Library    String
+Library             NAGATO.NetmikoLibrary
+Library             Collections
+Library             String
 
 
 *** Keywords ***
 Normalize Config Text IOS-XR
     [Documentation]    Converts the config to a line-by-line list and returns the list with unnecessary strings stripped.
     [Arguments]    ${config_text}
-    [Return]    @{config_completed_normalization}
 
     @{stripped_config_list} =    Create List
     @{config_list} =    Split String    ${config_text}    separator=\n
@@ -29,6 +28,7 @@ Normalize Config Text IOS-XR
     ${config_completed_normalization} =    Get Matches    ${config_list_normalized_2}    regexp=^(?!.*\\d{2}:\\d{2}:\\d{2}\.\\d{3}\\s\\w{3}).*$
     Remove Values From List    ${config_completed_normalization}    ${EMPTY}
     BuiltIn.Log    ${config_completed_normalization}
+    RETURN    @{config_completed_normalization}
 
 Running Config Should Be Equal IOS-XR
     [Documentation]    Verify that the output of show running-config is as expected.

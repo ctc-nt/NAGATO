@@ -1,0 +1,76 @@
+name: formatter
+
+on:
+  - push
+
+jobs:
+  formatter:
+
+    permissions:
+      actions: write
+      checks: write
+      contents: write
+      deployments: write
+      issues: write
+      packages: write
+      pull-requests: write
+      repository-projects: write
+      security-events: write
+      statuses: write
+
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+        platform: ["ubuntu-latest"]
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+
+      - run: pip install -r requirements-dev.txt
+
+      - name: black
+        run: |
+          black ./src/NAGATO/
+          black ./src/NAGATO/ --check
+
+      - name: isort
+        run: |
+          isort ./src/NAGATO/
+          isort ./src/NAGATO/ --check-only
+
+      - name: robotidy
+        run: |
+          robotidy ./src/NAGATO/
+          robotidy ./src/NAGATO/ --check
+
+      - name: Sort requirements
+        run: |
+          python3 ./sort_requirements.py ./requirements.txt ./requirements-dev.txt
+
+      - name: Sort dependencies
+        run: |
+          toml-sort ./pyproject.toml --sort-inline-arrays --in-place
+          toml-sort ./pyproject.toml --sort-inline-arrays --in-place --check
+
+      - name: Diff
+        id: diff
+        run: |
+          git add -N .
+          git diff --name-only --exit-code
+        continue-on-error: true
+
+      - name: Commit & Push
+        run: |
+            git config user.name github-actions[bot]
+            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+            git add .
+            git commit --author=. -m 'Formatter applied'
+            git push
+        if: steps.diff.outcome == 'failure'
