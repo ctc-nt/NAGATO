@@ -1,0 +1,7 @@
+DUT_1:
+  host: 172.17.17.91
+  port: 22
+  alias: cisco_xr_1
+  username: root
+  password: Passw0rd!
+  device_type: cisco_xr
