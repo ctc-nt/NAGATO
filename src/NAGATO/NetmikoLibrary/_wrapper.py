@@ -148,7 +148,7 @@ class NetmikoWrapper:
     @keyword
     @connection_specify
     @robot_log
-    def send_command(self, command_string: str, alias: str = "", *args, **kwargs):   
+    def send_command(self, command_string: str, alias: str = "", *args, **kwargs):
         """Sends the command specified in ``command_string`` and returns CLI output.
 
         This keyword wraps the ``send_command`` method of the netmiko package.
