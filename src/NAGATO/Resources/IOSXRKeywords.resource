@@ -46,7 +46,6 @@ Load And Commit Replace IOS-XR
     [Documentation]    Load ${file_path} and commit replace
     [Arguments]    ${file_path}    ${host}
 
-    # Enter Configuring Mode
     NAGATO.NetmikoLibrary.Enter Config Mode    host=${host}
 
     # Load and Commit Repalce
@@ -63,7 +62,6 @@ Load And Commit Replace IOS-XR
 
     NAGATO.NetmikoLibrary.Read Until Pattern    pattern=\\(config\\)#    host=${host}
 
-    # Exit Configuring Mode
     NAGATO.NetmikoLibrary.Exit Config Mode    host=${host}
 
 Get File Content IOS-XR
