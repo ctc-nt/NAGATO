@@ -42,34 +42,12 @@ Running Config Should Be Equal IOS-XR
     
     Lists Should Be Equal    ${expect_config_list}    ${running_config_list}
 
-Config File Should Exist IOS-XR
-    [Documentation]    Check if file exists
-    [Arguments]    ${config_directory_path}    ${file_name}    ${host}
-
-    ${output} =    NAGATO.NetmikoLibrary.Send Command    command_string=dir ${config_directory_path}    host=${host}
-
-    @{stripped_output} =    Create List
-    @{splitted_output} =    Split String    ${output}    separator=\n
-
-    # In each element of config, remove unnecessary spaces at the beginning and end of the string and store them in a separate list
-    FOR    ${line}    IN    @{splitted_output}
-        ${stripped_line} =    Strip String    ${line}
-        Collections.Append To List    ${stripped_output}    ${stripped_line}
-    END
-
-    # Returns a list that has only one element including file_name
-    ${matching_element} =    Get Matches    ${stripped_output}    regexp=^.*\\s${file_name}$
-
-    ${matching_count} =    Get Length    ${matching_element}
-
-    Length Should Be    1    ${matching_count}
-
 Load And Commit Replace IOS-XR
     [Documentation]    Load ${file_path} and commit replace
     [Arguments]    ${file_path}    ${host}
 
     # Enter Configuring Mode
-    NAGATO.NetmikoLibrary.Send Command    command_string=configure terminal    expect_string=\\(config\\)#    host=${host}
+    NAGATO.NetmikoLibrary.Enter Config Mode    host=${host}
 
     # Load and Commit Repalce
     ${load_output} =    NAGATO.NetmikoLibrary.Send Command    command_string=load ${file_path}    host=${host}
@@ -85,8 +63,10 @@ Load And Commit Replace IOS-XR
 
     NAGATO.NetmikoLibrary.Write Channel    out_data=yes${\n}    host=${host}
 
+    NAGATO.NetmikoLibrary.Read Until Pattern    pattern=\\(config\\)#    host=${host}
+
     # Exit Configuring Mode
-    NAGATO.NetmikoLibrary.Send Command    command_string=end    expect_string=#    host=${host}
+    NAGATO.NetmikoLibrary.Exit Config Mode    host=${host}
 
 Get File Content IOS-XR
     [Documentation]    Get and return the content of file_name

@@ -3,7 +3,7 @@ Documentation    `Load And Commit Replace IOS-XR` Unittest
 
 Variables    unittest.yml
 Library    NAGATO.NetmikoLibrary
-Resource    ../../../src/NAGATO/Resources/IOSXRKeywords.resource
+Resource    NAGATO/Resources/IOSXRKeywords.resource
 
 Suite Setup    Connect    &{DUT_1}
 Suite Teardown    Disconnect All
