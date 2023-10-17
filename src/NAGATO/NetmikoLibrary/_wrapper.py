@@ -339,3 +339,27 @@ class NetmikoWrapper:
         """
 
         return eval("self.connections[alias]." + method + "(*args, **kwargs)")
+
+    @keyword
+    @host_specify
+    @robot_log
+    def enter_config_mode(self, host: str = "", *args, **kwargs):
+        """Enters Configuration Mode.
+
+        Example:
+        | `Enter Config Mode` | host=Cisco8000 |
+        """
+
+        return self.connections[host].config_mode(*args, **kwargs)
+
+    @keyword
+    @host_specify
+    @robot_log
+    def exit_config_mode(self, host: str = "", *args, **kwargs):
+        """Exits from Configuration Mode.
+
+        Example:
+        | `Exit Config Mode` | host=Cisco8000 |
+        """
+
+        return self.connections[host].exit_config_mode(*args, **kwargs)

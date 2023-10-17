@@ -41,3 +41,37 @@ Running Config Should Be Equal IOS-XR
     ${running_config_list} =    Normalize Config Text IOS-XR    ${running_config}
 
     Lists Should Be Equal    ${expect_config_list}    ${running_config_list}
+
+Load And Commit Replace IOS-XR
+    [Documentation]    Load ${file_path} and commit replace
+    [Arguments]    ${file_path}    ${host}
+
+    NAGATO.NetmikoLibrary.Enter Config Mode    host=${host}
+
+    # Load and Commit Repalce
+    ${load_output} =    NAGATO.NetmikoLibrary.Send Command    command_string=load ${file_path}    host=${host}
+
+    ${result} =    Run Keyword And Return Status
+    ...    Should Contain    ${load_output}    ERROR
+
+    IF    ${result}    Fail    msg=Got an Error when loading ${file_path}
+
+    NAGATO.NetmikoLibrary.Send Command    command_string=commit replace    expect_string=\\[no\\]:    host=${host}
+
+    NAGATO.NetmikoLibrary.Write Channel    out_data=yes${\n}    host=${host}
+
+    NAGATO.NetmikoLibrary.Read Until Pattern    pattern=\\(config\\)#    host=${host}
+
+    NAGATO.NetmikoLibrary.Exit Config Mode    host=${host}
+
+Get File Content IOS-XR
+    [Documentation]    Get and return the content of file_name
+    [Arguments]    ${file_name}    ${host}
+
+    ${content} =    NAGATO.NetmikoLibrary.Send Command    command_string=run cat ${file_name}    host=${host}
+
+    ${result} =    Run Keyword And Return Status
+    ...    Should Contain    ${content}    No such file or directory
+
+    IF    ${result}    Fail    msg=No such file
+    RETURN    ${content}
