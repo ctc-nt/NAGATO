@@ -48,7 +48,7 @@ Load And Commit Replace IOS-XR
 
     NAGATO.NetmikoLibrary.Enter Config Mode    alias=${alias}
 
-    # Load and Commit Repalce
+    # Load and Commit Replace
     ${load_output} =    NAGATO.NetmikoLibrary.Send Command    command_string=load ${file_path}    alias=${alias}
 
     ${result} =    Run Keyword And Return Status
