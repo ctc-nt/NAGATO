@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       High-level keywords for operating IOS-XR
+Documentation       High-level keywords for operating Cisco IOS-XR
 
 Library             NAGATO.NetmikoLibrary
 Library             Collections
@@ -20,21 +20,21 @@ Normalize Config Text
         Collections.Append To List    ${stripped_config_list}    ${stripped_line}
     END
 
-    # Returns a list that excludes elements beginning with !
+    # Strips strings beginning with "!"
     ${config_list_normalized_1} =    Get Matches    ${stripped_config_list}    regexp=^(?!\!).*$
-    # Returns a list excluding elements containing the Building configuration string
+    # Strips a Building configuration string
     ${config_list_normalized_2} =    Get Matches    ${config_list_normalized_1}    regexp=^(?!.*Building\\sconfiguration).*$
-    # Returns a list excluding elements with time
+    # Strips timestamps
     ${config_completed_normalization} =    Get Matches    ${config_list_normalized_2}    regexp=^(?!.*\\d{2}:\\d{2}:\\d{2}\.\\d{3}\\s\\w{3}).*$
+    # Strips empty lines
     Remove Values From List    ${config_completed_normalization}    ${EMPTY}
-    BuiltIn.Log    ${config_completed_normalization}
+
     RETURN    @{config_completed_normalization}
 
 Running Config Should Be Equal
-    [Documentation]    Verify that the output of show running-config is as expected.
+    [Documentation]    Checks that the output of show running-config is as expected.
     [Arguments]    ${expect_config}    ${alias}
 
-    BuiltIn.Log    ${expect_config}
     ${running_config} =    NAGATO.NetmikoLibrary.Send Command    command_string=show running-config    alias=${alias}
 
     ${expect_config_list} =    Normalize Config Text    ${expect_config}
@@ -43,7 +43,7 @@ Running Config Should Be Equal
     Lists Should Be Equal    ${expect_config_list}    ${running_config_list}
 
 Load And Commit Replace
-    [Documentation]    Load ${file_path} and commit replace
+    [Documentation]    Executes "load ${file_path}" and "commit replace".
     [Arguments]    ${file_path}    ${alias}
 
     NAGATO.NetmikoLibrary.Enter Config Mode    alias=${alias}
@@ -65,7 +65,7 @@ Load And Commit Replace
     NAGATO.NetmikoLibrary.Exit Config Mode    alias=${alias}
 
 Get File Content
-    [Documentation]    Get and return the content of file_name
+    [Documentation]    Get and return the content of file_name.
     [Arguments]    ${file_name}    ${alias}
 
     ${content} =    NAGATO.NetmikoLibrary.Send Command    command_string=run cat ${file_name}    alias=${alias}
