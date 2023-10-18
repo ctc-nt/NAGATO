@@ -7,7 +7,7 @@ Library             String
 
 
 *** Keywords ***
-Normalize Config Text IOS-XR
+Normalize Config Text
     [Documentation]    Converts the config to a line-by-line list and returns the list with unnecessary strings stripped.
     [Arguments]    ${config_text}
 
@@ -30,19 +30,19 @@ Normalize Config Text IOS-XR
     BuiltIn.Log    ${config_completed_normalization}
     RETURN    @{config_completed_normalization}
 
-Running Config Should Be Equal IOS-XR
+Running Config Should Be Equal
     [Documentation]    Verify that the output of show running-config is as expected.
     [Arguments]    ${expect_config}    ${alias}
 
     BuiltIn.Log    ${expect_config}
     ${running_config} =    NAGATO.NetmikoLibrary.Send Command    command_string=show running-config    alias=${alias}
 
-    ${expect_config_list} =    Normalize Config Text IOS-XR    ${expect_config}
-    ${running_config_list} =    Normalize Config Text IOS-XR    ${running_config}
+    ${expect_config_list} =    Normalize Config Text    ${expect_config}
+    ${running_config_list} =    Normalize Config Text    ${running_config}
 
     Lists Should Be Equal    ${expect_config_list}    ${running_config_list}
 
-Load And Commit Replace IOS-XR
+Load And Commit Replace
     [Documentation]    Load ${file_path} and commit replace
     [Arguments]    ${file_path}    ${alias}
 
@@ -64,7 +64,7 @@ Load And Commit Replace IOS-XR
 
     NAGATO.NetmikoLibrary.Exit Config Mode    alias=${alias}
 
-Get File Content IOS-XR
+Get File Content
     [Documentation]    Get and return the content of file_name
     [Arguments]    ${file_name}    ${alias}
 
