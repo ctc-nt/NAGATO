@@ -37,18 +37,18 @@ jobs:
 
       - name: black
         run: |
-          black ./src/NAGATO/
-          black ./src/NAGATO/ --check
+          black ./
+          black ./ --check
 
       - name: isort
         run: |
-          isort ./src/NAGATO/
-          isort ./src/NAGATO/ --check-only
+          isort ./
+          isort ./ --check-only
 
       - name: robotidy
         run: |
-          robotidy ./src/NAGATO/
-          robotidy ./src/NAGATO/ --check
+          robotidy ./
+          robotidy ./ --check
 
       - name: Sort requirements
         run: |
