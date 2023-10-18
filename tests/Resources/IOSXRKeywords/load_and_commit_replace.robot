@@ -1,12 +1,12 @@
 *** Settings ***
-Documentation    `Load And Commit Replace` Unittest
+Documentation       `Load And Commit Replace` Unittest
 
-Variables    unittest.yml
-Library    NAGATO.NetmikoLibrary
-Resource    NAGATO/Resources/Cisco_IOS_XR.resource
+Variables           unittest.yml
+Library             NAGATO.NetmikoLibrary
+Resource            NAGATO/Resources/Cisco_IOS_XR.resource
 
-Suite Setup    Connect    &{DUT_1}
-Suite Teardown    Disconnect All
+Suite Setup         Connect    &{DUT_1}
+Suite Teardown      Disconnect All
 
 
 *** Test Cases ***

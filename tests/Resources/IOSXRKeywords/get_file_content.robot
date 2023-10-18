@@ -1,12 +1,12 @@
 *** Settings ***
-Documentation    `Config File Should Exist` Unittest
+Documentation       `Config File Should Exist` Unittest
 
-Variables    unittest.yml
-Library    NAGATO.NetmikoLibrary
-Resource    NAGATO/Resources/Cisco_IOS_XR.resource
+Variables           unittest.yml
+Library             NAGATO.NetmikoLibrary
+Resource            NAGATO/Resources/Cisco_IOS_XR.resource
 
-Suite Setup    Connect    &{DUT_1}
-Suite Teardown    Disconnect All
+Suite Setup         Connect    &{DUT_1}
+Suite Teardown      Disconnect All
 
 
 *** Test Cases ***
