@@ -51,8 +51,8 @@ jobs:
       - name: Create NetworkUtils libdoc
         run: python3 -m robot.libdoc --name NAGATO.NetworkUtils ./src/NAGATO/NetworkUtils ./Docs/NetworkUtils.html
 
-      - name: Create IOSXRKeywords libdoc
-        run: python3 -m robot.libdoc --name NAGATO.IOSXRKeywords ./src/NAGATO/Resources/IOSXRKeywords.resource ./Docs/IOSXRKeywords.html
+      - name: Create Cisco_IOS_XR libdoc
+        run: python3 -m robot.libdoc --name NAGATO.Cisco_IOS_XR ./src/NAGATO/Resources/Cisco_IOS_XR.resource ./Docs/Cisco_IOS_XR.html
 
       - name: Diff
         id: diff

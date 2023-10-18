@@ -42,7 +42,7 @@ The RobotFramework resource files in NAGATO is the following:
 
  LIBRARY NAME | DESCRIPTION |
 | ---- | ---- |
-| IOSXRKeywords.resource | Provides high-level keywords defining the basic operations of IOSXR using NetmikoLibrary |
+| Cisco_IOS_XR.resource | Provides high-level keywords defining the basic operations of Cisco IOS-XR using NetmikoLibrary |
 
 
 Installation
@@ -68,7 +68,7 @@ One of the advantages to use Robot Framework
 in a form closer to Natural Language,  
 so write tests as easy-to-understand as possible.
 
-Below is an example of a robot file using NetmikoLibrary and IOSXRKeywords.resource.
+Below is an example of a robot file using NetmikoLibrary and Cisco_IOS_XR.resource.
 
 ```robotframework
 *** Settings ***
@@ -79,7 +79,7 @@ Documentation          This example demonstrates executing a command on a remote
 ...                    teardown. This saves some time when executing several test cases.
 
 Library                NAGATO.NetmikoLibrary
-Resource               NAGATO/Resources/IOSXRKeywords.resource
+Resource               NAGATO/Resources/Cisco_IOS_XR.resource
 Suite Setup            Connect   &{device}
 Suite Teardown         Disconnect All
 
@@ -104,7 +104,7 @@ Get Normalized Running Config
     ...                from the output of show running-config
 
     ${output} =    NAGATO.NetmikoLibrary.Send Command     command_string=show running-config    host=${device}[alias]
-    ${normalized_config} =    IOSXRKeywords.Normalize Config Text IOS-XR    ${output}
+    ${normalized_config} =    Cisco_IOS_XR.Normalize Config Text    ${output}
     Builtin.Log    ${normalized_config}
 ```
 
