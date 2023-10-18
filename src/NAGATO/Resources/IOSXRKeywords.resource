@@ -32,10 +32,10 @@ Normalize Config Text IOS-XR
 
 Running Config Should Be Equal IOS-XR
     [Documentation]    Verify that the output of show running-config is as expected.
-    [Arguments]    ${expect_config}    ${host}
+    [Arguments]    ${expect_config}    ${alias}
 
     BuiltIn.Log    ${expect_config}
-    ${running_config} =    NAGATO.NetmikoLibrary.Send Command    command_string=show running-config    host=${host}
+    ${running_config} =    NAGATO.NetmikoLibrary.Send Command    command_string=show running-config    alias=${alias}
 
     ${expect_config_list} =    Normalize Config Text IOS-XR    ${expect_config}
     ${running_config_list} =    Normalize Config Text IOS-XR    ${running_config}
@@ -44,31 +44,31 @@ Running Config Should Be Equal IOS-XR
 
 Load And Commit Replace IOS-XR
     [Documentation]    Load ${file_path} and commit replace
-    [Arguments]    ${file_path}    ${host}
+    [Arguments]    ${file_path}    ${alias}
 
-    NAGATO.NetmikoLibrary.Enter Config Mode    host=${host}
+    NAGATO.NetmikoLibrary.Enter Config Mode    alias=${alias}
 
-    # Load and Commit Repalce
-    ${load_output} =    NAGATO.NetmikoLibrary.Send Command    command_string=load ${file_path}    host=${host}
+    # Load and Commit Replace
+    ${load_output} =    NAGATO.NetmikoLibrary.Send Command    command_string=load ${file_path}    alias=${alias}
 
     ${result} =    Run Keyword And Return Status
     ...    Should Contain    ${load_output}    ERROR
 
     IF    ${result}    Fail    msg=Got an Error when loading ${file_path}
 
-    NAGATO.NetmikoLibrary.Send Command    command_string=commit replace    expect_string=\\[no\\]:    host=${host}
+    NAGATO.NetmikoLibrary.Send Command    command_string=commit replace    expect_string=\\[no\\]:    alias=${alias}
 
-    NAGATO.NetmikoLibrary.Write Channel    out_data=yes${\n}    host=${host}
+    NAGATO.NetmikoLibrary.Write Channel    out_data=yes${\n}    alias=${alias}
 
-    NAGATO.NetmikoLibrary.Read Until Pattern    pattern=\\(config\\)#    host=${host}
+    NAGATO.NetmikoLibrary.Read Until Pattern    pattern=\\(config\\)#    alias=${alias}
 
-    NAGATO.NetmikoLibrary.Exit Config Mode    host=${host}
+    NAGATO.NetmikoLibrary.Exit Config Mode    alias=${alias}
 
 Get File Content IOS-XR
     [Documentation]    Get and return the content of file_name
-    [Arguments]    ${file_name}    ${host}
+    [Arguments]    ${file_name}    ${alias}
 
-    ${content} =    NAGATO.NetmikoLibrary.Send Command    command_string=run cat ${file_name}    host=${host}
+    ${content} =    NAGATO.NetmikoLibrary.Send Command    command_string=run cat ${file_name}    alias=${alias}
 
     ${result} =    Run Keyword And Return Status
     ...    Should Contain    ${content}    No such file or directory
