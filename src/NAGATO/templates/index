@@ -14,3 +14,4 @@
 # because it is appended to ntc template's index
 
 apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
+juniper_junos_show_chassis_environment.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] en[[vironment]]

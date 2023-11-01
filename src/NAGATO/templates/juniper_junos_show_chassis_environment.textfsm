@@ -1,0 +1,7 @@
+Value Item ((\S+?\s){1,})
+Value Status (OK|Check)
+
+Start
+  ^Class\s+Item\s+Status\s+Measurement$$
+  ^(\w+)?\s+${Item}\s+${Status}\s+.*$$ -> Record
+
