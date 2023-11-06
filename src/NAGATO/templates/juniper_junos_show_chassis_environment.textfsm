@@ -1,5 +1,5 @@
-Value Item ((\S+?\s){1,})
-Value Status (OK|Check)
+Value Item (((\S+?\s){1,})\S+)
+Value Status (OK|Check|Absent)
 
 Start
   ^Class\s+Item\s+Status\s+Measurement$$
