@@ -1,4 +1,4 @@
-Value Item (((\S+?\s){1,})\S+)
+Value Item (\S+(\s\S+)*)
 Value Status (OK|Check|Absent)
 
 Start
