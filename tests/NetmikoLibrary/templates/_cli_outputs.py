@@ -17,8 +17,4 @@ Routing Engine status:
 
 Routing Engine status:
   Slot 1:
-    Current state                  Backup
-    
-Routing Engine status:
-  Slot 10:
-    Current state                  Disable"""
+    Current state                  Backup"""

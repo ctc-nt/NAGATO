@@ -22,4 +22,4 @@ def test_juniper_junos_show_chassis_routing_engine():
     output = re_table.ParseText(show_chassis_routing_engine)
     print(f"\n{output=}")
 
-    assert output == [["Slot 0", "Master"], ["Slot 1", "Backup"], ["Slot 10", "Disable"]]
+    assert output == [["Slot 0", "Master"], ["Slot 1", "Backup"]]

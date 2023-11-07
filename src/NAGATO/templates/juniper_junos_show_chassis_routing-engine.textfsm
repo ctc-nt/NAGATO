@@ -1,4 +1,4 @@
-Value Slot (\w+\s\d+)
+Value Slot (Slot\s(0|1))
 Value CurrentState (Master|Backup|Disable)
 
 Start
