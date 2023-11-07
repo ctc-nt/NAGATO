@@ -1,0 +1,7 @@
+Value Slot (\w+\s\d+)
+Value CurrentState (Master|Backup|Disable)
+
+Start
+  ^Routing\sEngine\sstatus:$$
+  ^\s+${Slot}:$$
+  ^\s+Current\sstate\s+${CurrentState}$$ -> Record
