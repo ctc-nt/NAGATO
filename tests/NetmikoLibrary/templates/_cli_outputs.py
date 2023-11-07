@@ -10,7 +10,7 @@ Temp  PEM 0                          OK         30 degrees C / 86 degrees F
 
 # show chassis routing-engine
 
-show_chassis_routing_engine ="""\
+show_chassis_routing_engine = """\
 Routing Engine status:
   Slot 0:
     Current state                  Master
