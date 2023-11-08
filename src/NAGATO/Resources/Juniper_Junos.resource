@@ -11,6 +11,6 @@ Request System Halt
     [Documentation]    Halt the system with specified ${option}.
     [Arguments]    ${alias}    ${option}=member 0 both-routing-engines
 
-    NAGATO.NetmikoLibrary.Send Command    command_string=request system halt ${target_system}    expect_string=Halt the system ?    alias=${alias}
+    NAGATO.NetmikoLibrary.Send Command    command_string=request system halt ${option}    expect_string=Halt the system ?    alias=${alias}
 
     NAGATO.NetmikoLibrary.Send Command    command_string=yes    expect_string=Shutdown NOW!    alias=${alias}

@@ -5,7 +5,7 @@ Variables           unittest.yml
 Library             NAGATO.NetmikoLibrary
 Resource            NAGATO/Resources/Juniper_Junos.resource
 
-Suite Setup         Connect    &{JUNOS_2}
+Suite Setup         Connect    &{JUNOS_1}
 Suite Teardown      Disconnect All
 
 
@@ -13,9 +13,9 @@ Suite Teardown      Disconnect All
 Fail_01
     [Documentation]    `option` is incorrect and the others are correct
 
-    Request System Halt    option=wrong_option    alias=${JUNOS_2}[alias]
+    Request System Halt    option=wrong_option    alias=${JUNOS_1}[alias]
 
 Success_01
     [Documentation]    `All arguments are collect`
-
-    Request System Halt    alias=${JUNOS_2}[alias]
+    
+    Request System Halt    option=${EMPTY}    alias=${JUNOS_1}[alias]
