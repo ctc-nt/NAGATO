@@ -5,6 +5,7 @@ Library             NAGATO.NetmikoLibrary
 Library             Collections
 Library             String
 
+
 *** Keywords ***
 Request System Reboot
     [Documentation]    Reboot the system with specified ${option}.
@@ -13,5 +14,3 @@ Request System Reboot
     NAGATO.NetmikoLibrary.Send Command    command_string=request system reboot ${option}    expect_string=Reboot the system ?    alias=${alias}
 
     NAGATO.NetmikoLibrary.Send Command    command_string=yes    expect_string=Shutdown NOW!    alias=${alias}
-
-
