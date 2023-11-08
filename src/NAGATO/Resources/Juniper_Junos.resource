@@ -8,8 +8,8 @@ Library             String
 
 *** Keywords ***
 Request System Halt
-    [Documentation]    Halt the system specified in ${target_system}.user
-    [Arguments]    ${alias}    ${target_system}=member 0 both-routing-engines
+    [Documentation]    Halt the system with specified ${option}.
+    [Arguments]    ${alias}    ${option}=member 0 both-routing-engines
 
     NAGATO.NetmikoLibrary.Send Command    command_string=request system halt ${target_system}    expect_string=Halt the system ?    alias=${alias}
 
