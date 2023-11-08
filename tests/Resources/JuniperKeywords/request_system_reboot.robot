@@ -10,10 +10,6 @@ Suite Teardown      Disconnect All
 
 
 *** Test Cases ***
-Fail_01
-    [Documentation]    `option` is incorrect and the others are correct
-    Request System Reboot    option=wrong_option    alias=${JUNOS_1}[alias]
-
 Success_01
     [Documentation]    `All arguments are collect`
     Request System Reboot    option=${EMPTY}    alias=${JUNOS_1}[alias]
@@ -24,3 +20,7 @@ Success_01
         Sleep    180s    reason=To wait until reboot successfully
         Connect    &{JUNOS_1}    alias=assertion_success
     END
+
+Fail_01
+    [Documentation]    `option` is incorrect and the others are correct
+    Request System Reboot    option=wrong_option    alias=${JUNOS_1}[alias]
