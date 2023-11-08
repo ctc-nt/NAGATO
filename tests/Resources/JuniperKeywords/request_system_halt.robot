@@ -17,5 +17,5 @@ Fail_01
 
 Success_01
     [Documentation]    `All arguments are collect`
-    
+
     Request System Halt    option=${EMPTY}    alias=${JUNOS_1}[alias]
