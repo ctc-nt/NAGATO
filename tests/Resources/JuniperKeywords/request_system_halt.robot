@@ -8,14 +8,14 @@ Resource            NAGATO/Resources/Juniper_Junos.resource
 Suite Setup         Connect    &{JUNOS_1}
 Suite Teardown      Disconnect All
 
+
 *** Test Cases ***
 Fail_01
     [Documentation]    One argument is incorrect and the others are correct
-    ${status} =   Run Keyword And Return Status    
+    ${status} =    Run Keyword And Return Status
     ...    Request System Halt    member=wrong_member    alias=${JUNOS_1}[alias]
     Should Be Equal    ${status}    ${False}
 
-    
 Success_01
     [Documentation]    All arguments are collect
 
