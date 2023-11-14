@@ -54,6 +54,9 @@ jobs:
       - name: Create Cisco_IOS_XR libdoc
         run: python3 -m robot.libdoc --name NAGATO.Cisco_IOS_XR ./src/NAGATO/Resources/Cisco_IOS_XR.resource ./Docs/Cisco_IOS_XR.html
 
+      - name: Create Juniper_Junos libdoc
+        run: python3 -m robot.libdoc --name NAGATO.Juniper_Junos ./src/NAGATO/Resources/Juniper_Junos.resource ./Docs/Juniper_Junos.html
+
       - name: Diff
         id: diff
         run: |
