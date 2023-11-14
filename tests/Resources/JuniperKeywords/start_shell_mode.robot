@@ -19,5 +19,5 @@ Success_01
 Fail_01
     [Documentation]    One argument is incorrect and others are correct.
 
-    ${output} =    Run Keyword And Return Status    Start Shell Mode    alias=${JUNOS_1}[alias]    user=root    root_password=wrong_pw
-    Run Keyword If    ${False}    Should Contain    ${output}    ReadTimeout:
+    ${status} =    Run Keyword And Return Status    Start Shell Mode    alias=${JUNOS_1}[alias]    user=root    root_password=wrong_pw
+    Should Be Equal    ${status}    ${False}
