@@ -1,11 +1,13 @@
 *** Settings ***
 Documentation       `Start Shell Mode` Unittest
+
 Variables           unittest.yml
 Library             NAGATO.NetmikoLibrary
 Resource            NAGATO/Resources/Juniper_Junos.resource
 
-Suite Setup         Connect    &{JUNOS_1}                
+Suite Setup         Connect    &{JUNOS_1}
 Suite Teardown      Disconnect All
+
 
 *** Test Cases ***
 Success_01
