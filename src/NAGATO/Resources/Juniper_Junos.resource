@@ -2,8 +2,7 @@
 Documentation       High-level keywords for operating Juniper Junos
 
 Library             NAGATO.NetmikoLibrary
-Library             Collections
-Library             String
+
 
 
 *** Keywords ***
