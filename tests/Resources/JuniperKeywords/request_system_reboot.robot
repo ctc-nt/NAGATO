@@ -14,7 +14,7 @@ Success_01
     [Documentation]    `All arguments are collect`
     Request System Reboot    option=${EMPTY}    alias=${JUNOS_1}[alias]
 
-    # Assert if the system successfully reboot. 
+    # Assert if the system successfully reboot.
     Wait Until Keyword Succeeds    300 s    60s    Establish Connection    alias=${JUNOS_1}[alias]
 
 Fail_01

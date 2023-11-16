@@ -4,7 +4,6 @@ Documentation       High-level keywords for operating Juniper Junos
 Library             NAGATO.NetmikoLibrary
 
 
-
 *** Keywords ***
 Request System Reboot
     [Documentation]    Reboot the system with specified ${option}.
