@@ -40,5 +40,5 @@ Success_01
 
     # Confirm not to be able to ssh connection to assert if halt successfully or not
     Disconnect    alias=${JUNOS_1}[alias]
-    ${status} =    Run Keyword And Return Status    Connect    assert_halt    ${JUNOS_1}[device_type]    ${JUNOS_1}[host]    ${JUNOS_1}[username]    ${JUNOS_1}[password]
-    Should Be Equal    ${status}    ${False}
+    Run Keyword And Expect Error    EOFError    
+    ...    Connect    alias=assert_halt    device_type=${JUNOS_1}[device_type]    host=${JUNOS_1}[host]    username=${JUNOS_1}[username]    password=${JUNOS_1}[password]
