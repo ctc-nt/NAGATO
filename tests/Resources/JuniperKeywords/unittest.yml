@@ -1,0 +1,7 @@
+JUNOS_1:
+  host: 192.168.128.131
+  port: 22
+  alias: juniper_junos
+  username: user
+  password: Passw0rd!
+  device_type: juniper_junos
