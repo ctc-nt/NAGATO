@@ -2,7 +2,6 @@
 Documentation       `Request System Reboot` Unittest
 
 Variables           unittest.yml
-Library             NAGATO.NetmikoLibrary
 Resource            NAGATO/Resources/Juniper_Junos.resource
 
 Suite Setup         Connect    &{JUNOS_1}
