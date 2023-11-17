@@ -14,7 +14,7 @@ Request System Halt
     ...    expect_string=Halt the system ?    alias=${alias}
 
     NAGATO.NetmikoLibrary.Write Channel    out_data=yes    alias=${alias}
-    
+
 Request System Reboot
     [Documentation]    Reboot the system with specified ${option}.
     [Arguments]    ${alias}    ${option}=both-routing-engines
@@ -22,4 +22,3 @@ Request System Reboot
     NAGATO.NetmikoLibrary.Send Command    command_string=request system reboot ${option}    expect_string=Reboot the system ?    alias=${alias}
 
     NAGATO.NetmikoLibrary.Send Command    command_string=yes    expect_string=Shutdown NOW!    alias=${alias}
-
