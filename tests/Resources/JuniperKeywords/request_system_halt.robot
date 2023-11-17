@@ -2,7 +2,6 @@
 Documentation       `Request System Halt` Unittest
 
 Variables           unittest.yml
-Library             NAGATO.NetmikoLibrary
 Resource            NAGATO/Resources/Juniper_Junos.resource
 
 Suite Setup         Connect    &{JUNOS_1}
@@ -11,10 +10,28 @@ Suite Teardown      Disconnect All
 
 *** Test Cases ***
 Fail_01
-    [Documentation]    One argument is incorrect and the others are correct
-    ${status} =    Run Keyword And Return Status
-    ...    Request System Halt    member=wrong_member    alias=${JUNOS_1}[alias]
-    Should Be Equal    ${status}    ${False}
+    [Documentation]    `member` is incorrect and the others are correct
+    Run Keyword And Expect Error    ReadTimeout:*    Request System Halt    member=wrong_member    alias=${JUNOS_1}[alias]
+
+Fail_02
+    [Documentation]    `routing-engine` is incorrect and the others are correct
+    Run Keyword And Expect Error    ReadTimeout:*    Request System Halt    routing-engine=wrong_re    alias=${JUNOS_1}[alias]
+
+Fail_03
+    [Documentation]    `at-time` is incorrect and the others are correct
+    Run Keyword And Expect Error    ReadTimeout:*    Request System Halt    at-time=at wrong_time    alias=${JUNOS_1}[alias]
+
+Fail_04
+    [Documentation]    `in-minutes` is incorrect and the others are correct
+    Run Keyword And Expect Error    ReadTimeout:*    Request System Halt    in-minutes=in worng_min    alias=${JUNOS_1}[alias]
+
+Fail_05
+    [Documentation]    `media` is incorrect and the others are correct
+    Run Keyword And Expect Error    ReadTimeout:*    Request System Halt    media=wrong_media    alias=${JUNOS_1}[alias]
+
+Fail_06
+    [Documentation]    `message` is incorrect and the others are correct
+    Run Keyword And Expect Error    ReadTimeout:*    Request System Halt    message=wrong_msg    alias=${JUNOS_1}[alias]
 
 Success_01
     [Documentation]    All arguments are collect
