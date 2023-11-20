@@ -1,0 +1,11 @@
+Value PROTOCOL (\S)
+Value NETWORK ([0-9a-f:.]*)
+Value PREFIX (\d+)
+Value DISTANCE (\d+)
+Value METRIX (\d+)
+Value VIAIP ([0-9a-f:.]*)
+Value TIMESTAMP (\S+)
+
+Start
+  ^${PROTOCOL}\s+${NETWORK}\/${PREFIX}
+  ^\s+(?:\[${DISTANCE}/${METRIX}\])\svia\s${VIAIP},\s${TIMESTAMP} -> Record
