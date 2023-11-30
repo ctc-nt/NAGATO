@@ -30,10 +30,19 @@ def set_templates():
 
                 # merge index of nagato
                 if file == "index":
-                    with open(os.path.join(dest_templates_path, "index"), mode="a") as ntc_index:
-                        with open(os.path.join(nagato_templates_path, "index")) as nagato_index:
-                            nagato_index_contents = nagato_index.read()
-                            ntc_index.write(f"\n{nagato_index_contents}")
+                    # read ntc-templates index content
+                    with open(os.path.join(dest_templates_path, "index"), mode="r") as ntc_index_reader:
+                        ntc_contents: list = ntc_index_reader.readlines()
+                    # read nagato templates index content
+                    with open(os.path.join(nagato_templates_path, "index"), mode="r") as nagato_index_reader:
+                        nagato_index_contents = nagato_index_reader.read()
+
+                    target_index = ntc_contents.index("Template, Hostname, Platform, Command" + "\n")
+                    ntc_contents.insert(target_index + 1, "\n" + nagato_index_contents + "\n")
+
+                    # overwrite merged contents to dest index file
+                    with open(os.path.join(dest_templates_path, "index"), mode="w") as ntc_index_writer:
+                        ntc_index_writer.writelines(ntc_contents)
 
         # set NET_TEXTFSM
         os.environ["NET_TEXTFSM"] = dest_templates_path
