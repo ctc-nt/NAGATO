@@ -1,0 +1,20 @@
+Value Filldown INTERFACE (\S+)
+Value Filldown STATUS (Up|Down|mLACP\s+hot\s+standby)
+Value LINKS (\d+)
+Value List PORT (\S+)
+Value DEVICE (\S+)
+Value Required STATE (\S+)
+Value PORT_ID (\d+x\d+\,\s+\d+x\d+)
+Value B_W (\d+)
+
+
+
+
+Start
+  ^${INTERFACE}\s*$$ -> Continue.Record
+  ^\s+Status\:\s+${STATUS}\s*$$ 
+  ^\s+Minimum\s+active\s+links\s+/\s+bandwidth:\s+${LINKS}\s+/\s+\d+\s+kbps$$
+  ^\s+Port\s+Device\s+State\s+Port\s+ID\s+B\/W\,\s+kbps\s*$$ -> State
+
+State
+  ^\s+${PORT}\s+${DEVICE}\s+${STATE}\s+${PORT_ID}\s+${B_W}*$$ 
