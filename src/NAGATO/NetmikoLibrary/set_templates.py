@@ -16,7 +16,7 @@ def set_templates():
         # set destination templates path
         if os.name == "posix":
             dest_templates_path = os.path.join(os.environ["HOME"], ".NAGATO", "templates")
-        if os.name == "nt":
+        elif os.name == "nt":
             dest_templates_path = os.path.join(os.environ["LOCALAPPDATA"], "NAGATO", "templates")
 
         if not os.path.isdir(dest_templates_path):
