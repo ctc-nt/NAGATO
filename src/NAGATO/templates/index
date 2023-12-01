@@ -1,19 +1,11 @@
-# This file is appended to ntc template's index after NetmikoLibrary's import.
-# 
-# Regular expressions are supported in all fields except the first.
-# Last field supports variable length command completion.
-# abc[[xyz]] is expanded to abc(x(y(z)?)?)?, regexp inside [[]] is not supported
-#
-# Rules of Ordering:
-#  - OS in alphabetical order
-#  - Template name in length order (longest to shortest)
-#  - When Length is the same, use alphabetical order
-#  - Keep space between OS's
-# 
-# Header "Template, Hostname, Platform, Command" is not necessary 
-# because it is appended to ntc template's index
+
+# The following lines are inserted to ntc_templates' index by NetmikoLibrary. 
 
 apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
-juniper_junos_show_chassis_environment.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] en[[vironment]]
-juniper_junos_show_chassis_routing-engine.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] ro[[uting-engine]]
+
 cisco_xr_show_route_ipv6.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6
+
+juniper_junos_show_chassis_routing-engine.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] ro[[uting-engine]]
+juniper_junos_show_chassis_environment.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] en[[vironment]]
+
+# Insert End
