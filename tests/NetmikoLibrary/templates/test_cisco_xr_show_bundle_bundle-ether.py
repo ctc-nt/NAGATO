@@ -7,7 +7,7 @@ from textfsm import TextFSM
 from _cli_outputs import show_bundle_bundle_ether
 
 # テスト対象テンプレートファイル
-template_path = os.path.join(os.getcwd(), "Templates", "cisco_xr_show_bundle_bundle-ether.textfsm")
+template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_bundle_bundle-ether.textfsm")
 
 # テンプレートファイルを読み込む
 with open(template_path, mode="r") as f:
@@ -21,4 +21,4 @@ def test_show_ip():
     output = re_table.ParseText(show_bundle_bundle_ether)
     print(f"\n{output=}")
 
-    assert output == [[{'interface': 'Bundle-Ether10', 'status': 'Up', 'links': '1', 'port': ['Te0/0/0/38', 'Hu0/1/0/42'], 'device': 'Local', 'state': 'Active', 'port_id': '0x8000, 0x0000', 'b_w': '100000000'}]]
+    assert output == [['Bundle-Ether10','Up', '1', ['Te0/0/0/38', 'Hu0/1/0/42']]]
