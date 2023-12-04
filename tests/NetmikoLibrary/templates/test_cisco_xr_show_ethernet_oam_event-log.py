@@ -1,10 +1,11 @@
 import os
+
 import pytest
-from textfsm import TextFSM
 
 # cli_outputs.pyからテストデータを取得
 # 将来, AMIOSのバージョンアップに伴ってCLIの出力が変わった場合に, 変更するファイルが1つだけで済むようにする
 from _cli_outputs import show_ethernet_oam_event_log
+from textfsm import TextFSM
 
 # テスト対象テンプレートファイル
 template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_ethernet_oam_event-log.textfsm")
@@ -21,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_ethernet_oam_event_log)
     print(f"\n{output=}")
 
-    assert output == [['TenGigE0/0/0/38','Mon Dec 04 11:26:38 JST', 'Dying gasp']]
+    assert output == [["TenGigE0/0/0/38", "Mon Dec 04 11:26:38 JST", "Dying gasp"]]
