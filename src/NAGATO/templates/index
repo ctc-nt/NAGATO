@@ -4,6 +4,7 @@
 apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
 
 cisco_xr_show_route_ipv6.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6
+cisco_xr_show_ipv6_interface.textfsm, .*, cisco_xr, sh[[ow]] ipv6 interface
 
 juniper_junos_show_chassis_routing-engine.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] ro[[uting-engine]]
 juniper_junos_show_chassis_environment.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] en[[vironment]]
