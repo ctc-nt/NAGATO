@@ -19,7 +19,7 @@ Routing Engine status:
   Slot 1:
     Current state                  Backup"""
 
-# show ipv6 interface 
+# show ipv6 interface
 
 show_ipv6_interface = """\
 Mon Dec  4 14:26:35.893 JST
