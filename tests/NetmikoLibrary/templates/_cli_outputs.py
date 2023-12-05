@@ -47,8 +47,31 @@ Bundle-Ether10
   Te0/0/0/38            Local            Active       0x8000, 0x0000    10000000
       Link is Active
   Hu0/1/0/42            Local            Active       0x8000, 0x0000   100000000
-      Link is Active
-"""
+      Link is Active"""
+
+# show ethernet oam event-log
+
+show_ethernet_oam_event_log = """\
+Mon Dec  4 11:27:06.463 JST
+Local Action Taken:
+    N/A    - No action needed         EFD    - Interface brought down using EFD
+    None   - No action taken          Err.D  - Interface error-disabled        
+    Logged - System logged           
+
+TenGigE0/0/0/38
+================================================================================
+                                                                       Breaching
+Time                    Type                    Loc'n Action Threshold Value
+----------------------- ----------------------- ----- ------ --------- ---------
+Mon Dec 04 11:26:38 JST Dying gasp              Local Logged       N/A       N/A
+Mon Dec 04 11:26:38 JST Frame fail              Local Logged       N/A       N/A
+
+TenGigE0/0/0/39
+================================================================================
+                                                                       Breaching
+Time                    Type                    Loc'n Action Threshold Value
+----------------------- ----------------------- ----- ------ --------- ---------
+Mon Dec 04 11:26:38 JST Frame                   Local Logged       N/A       N/A"""
 
 # show ipv6 interface
 
@@ -79,5 +102,4 @@ TenGigE0/0/0/1 is Shutdown, ipv6 protocol is Down, Vrfid is default (0x60000000)
   Dropped protocol request: 0
   Dropped glean request: 0
   RA DNS Server Address Count: 0
-  RA DNS Search list Count: 0
-"""
+  RA DNS Search list Count: 0"""
