@@ -11,6 +11,4 @@ Start
 
 Member
   ^\s+${PORT}.*$$ 
-  ^\s+\S+\s*$$  -> Start
-
- 
+  ^\s+Link\s+is\s+Active\s+$$
