@@ -47,8 +47,7 @@ Bundle-Ether10
   Te0/0/0/38            Local            Active       0x8000, 0x0000    10000000
       Link is Active
   Hu0/1/0/42            Local            Active       0x8000, 0x0000   100000000
-      Link is Active
-"""
+      Link is Active"""
 
 # show ethernet oam event-log
 
@@ -73,3 +72,34 @@ TenGigE0/0/0/39
 Time                    Type                    Loc'n Action Threshold Value
 ----------------------- ----------------------- ----- ------ --------- ---------
 Mon Dec 04 11:26:38 JST Frame                   Local Logged       N/A       N/A"""
+
+# show ipv6 interface
+
+show_ipv6_interface = """\
+Mon Dec  4 14:26:35.893 JST
+TenGigE0/0/0/1 is Shutdown, ipv6 protocol is Down, Vrfid is default (0x60000000)
+  IPv6 is enabled, link-local address is fe80::4eec:fff:fe16:aa61 [TENTATIVE]
+  Global unicast address(es):
+    ::ffff:192.168.100.2, subnet is ::ffff:192.168.100.2/128 [TENTATIVE]
+  Joined group address(es): ff02::2 ff02::1
+  MTU is 1514 (1500 is available to IPv6)
+  ICMP redirects are disabled
+  ICMP unreachables are enabled
+  ND DAD is enabled, number of DAD attempts 1
+  ND reachable time is 0 milliseconds
+  ND cache entry limit is 1000000000
+  ND advertised retransmit interval is 0 milliseconds
+  ND router advertisements are sent every 160 to 240 seconds
+  ND router advertisements live for 1800 seconds
+  Hosts use stateless autoconfig for addresses.
+  Outgoing access list is not set
+  Inbound  common access list is not set, access list is not set
+  Table Id is 0xe0800000
+  Complete protocol adjacency: 0
+  Complete glean adjacency: 0
+  Incomplete protocol adjacency: 0
+  Incomplete glean adjacency: 0
+  Dropped protocol request: 0
+  Dropped glean request: 0
+  RA DNS Server Address Count: 0
+  RA DNS Search list Count: 0"""
