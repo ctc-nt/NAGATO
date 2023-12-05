@@ -65,4 +65,11 @@ TenGigE0/0/0/38
 Time                    Type                    Loc'n Action Threshold Value
 ----------------------- ----------------------- ----- ------ --------- ---------
 Mon Dec 04 11:26:38 JST Dying gasp              Local Logged       N/A       N/A
-"""
+Mon Dec 04 11:26:38 JST Frame fail              Local Logged       N/A       N/A
+
+TenGigE0/0/0/39
+================================================================================
+                                                                       Breaching
+Time                    Type                    Loc'n Action Threshold Value
+----------------------- ----------------------- ----- ------ --------- ---------
+Mon Dec 04 11:26:38 JST Frame                   Local Logged       N/A       N/A"""
