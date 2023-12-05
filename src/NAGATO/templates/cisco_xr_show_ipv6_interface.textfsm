@@ -1,0 +1,11 @@
+Value interface (\S+\d+/\d+/\d+/\d+)
+Value status (enabled|stalled|disabled)
+Value link_local_address ([0-9a-f:.]*)
+Value unicast_address ([0-9a-f:.]*)
+Value ip_address ([0-9a-f:.]*\/\d+)
+
+Start
+ ^${interface}.*$$
+ ^\s+IPv6\s+is\s+${status},\s+link-local\s+address\s+is\s+${link_local_address}\s+\[TENTATIVE\]
+ ^\s+Global\s+unicast\s+address\(es\):
+ ^\s+${unicast_address},\s+subnet\s+is\s+${ip_address}\s+\[TENTATIVE\] -> Record
