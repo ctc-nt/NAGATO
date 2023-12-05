@@ -1,5 +1,5 @@
 Value INTERFACE (\S+)
-Value STATUS (Up|Down|mLACP\s+hot\s+standby)
+Value STATUS (Up|Down|Admin\s+down|Bundle\s+shut|mLACP\s+cold\s+standby|mLACP\s+hot\s+standby|Nak|Partner\s+down|PE\s+isolated)
 Value LINKS (\d+)
 Value List PORT (\S+\d+/\d+/\d+/\d+)
 
