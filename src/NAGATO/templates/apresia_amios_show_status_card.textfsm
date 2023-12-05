@@ -1,11 +1,11 @@
-Value Card (Manage\s+\d)
-Value Type (ApCA120-48X|ApCA120-32X8Q2C)
-Value Status (Active|Initializing|Out\s+of\s+service|Fault|Soft\s+updating)
-Value Config (Sync|Unsync|-)
-Value Temp_Major (Normal|Warning|Critical)
-Value Temp_Minor (Normal|High|Low)
-Value Firmware (\d+\.\d+\.\d+|-|Broken|Unknown)
+Value CARD (Manage\s+\d)
+Value TYPE (ApCA120-48X|ApCA120-32X8Q2C)
+Value STATUS (Active|Initializing|Out\s+of\s+service|Fault|Soft\s+updating)
+Value CONFIG (Sync|Unsync|-)
+Value TEMP_MAJOR (Normal|Warning|Critical)
+Value TEMP_MINOR (Normal|High|Low)
+Value FIRMWARE (\d+\.\d+\.\d+|-|Broken|Unknown)
 
 Start
-  ^${Card}\s+${Type}\s+${Status}\s+${Config}\s+${Temp_Major}\s+${Temp_Minor}\s+${Firmware}\s*$$ -> Record
+  ^${CARD}\s+${TYPE}\s+${STATUS}\s+${CONFIG}\s+${TEMP_MAJOR}\s+${TEMP_MINOR}\s+${FIRMWARE}\s*$$ -> Record
   ^.*$$

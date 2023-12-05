@@ -3,6 +3,7 @@
 
 apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
 
+cisco_xr_show_ipv6_interface.textfsm, .*, cisco_xr, sh[[ow]] ipv6 interface
 cisco_xr_show_route_ipv6.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6
 cisco_xr_show_bundle_bundle-ether.textfsm, .*, cisco_xr, sh[[ow]] bundle bundle-ether (\d+)
 
