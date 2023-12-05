@@ -1,10 +1,11 @@
 import os
+
 import pytest
-from textfsm import TextFSM
 
 # cli_outputs.pyからテストデータを取得
 # 将来, AMIOSのバージョンアップに伴ってCLIの出力が変わった場合に, 変更するファイルが1つだけで済むようにする
 from _cli_outputs import show_ethernet_oam_event_log
+from textfsm import TextFSM
 
 # テスト対象テンプレートファイル
 template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_ethernet_oam_event-log.textfsm")
