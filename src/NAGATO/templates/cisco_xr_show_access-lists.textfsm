@@ -1,0 +1,8 @@
+Value Filldown LIST_NAME (\S+)
+Value STATUS (\d+\s+\S+[\s\w.]+)
+
+Start
+ ^ipv4\s+access-list\s+${LIST_NAME}$$
+ ^\s+${STATUS}$$ -> Record
+
+EOF
