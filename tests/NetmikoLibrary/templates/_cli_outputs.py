@@ -103,3 +103,15 @@ TenGigE0/0/0/1 is Shutdown, ipv6 protocol is Down, Vrfid is default (0x60000000)
   Dropped glean request: 0
   RA DNS Server Address Count: 0
   RA DNS Search list Count: 0"""
+
+# show access-lists
+
+show_access_lists = """\
+Tue Dec  5 19:16:06.952 JST
+ipv4 access-list Test-ACL_1
+ 10 deny ipv4 host 172.17.17.20 any
+ 20 permit ipv4 172.17.17.0 0.0.0.255 any
+ipv4 access-list Test-ACL_2
+  10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet
+  20 deny tcp any any
+"""
