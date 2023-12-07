@@ -1,8 +1,8 @@
-Value Filldown LIST_NAME (\S+)
-Value STATUS (\d+\s+\S+[\s\w.]+)
+Value Filldown NAME (\S+)
+Value ENTRY (\d+\s+(permit|deny|remark)\s+[\s\w\.]+)
 
 Start
- ^ipv4\s+access-list\s+${LIST_NAME}$$
- ^\s+${STATUS}$$ -> Record
+ ^ipv4\s+access-list\s+${NAME}$$
+ ^\s+${ENTRY}$$ -> Record
 
 EOF

@@ -112,6 +112,6 @@ ipv4 access-list Test-ACL_1
  10 deny ipv4 host 172.17.17.20 any
  20 permit ipv4 172.17.17.0 0.0.0.255 any
 ipv4 access-list Test-ACL_2
-  10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet
-  20 deny tcp any any
-"""
+ 10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet
+ 20 deny tcp any any"""
+
