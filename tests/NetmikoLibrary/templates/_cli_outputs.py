@@ -114,3 +114,18 @@ ipv4 access-list Test-ACL_1
 ipv4 access-list Test-ACL_2
  10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet
  20 deny tcp any any"""
+
+# show ntp associations
+
+show_ntp_associations = """\
+Wed Dec  6 13:33:14.814 JST
+
+      address         ref clock     st  when  poll reach  delay  offset    disp
+ ~172.17.17.90 vrf MGMT
+                   .INIT.           16     -   512    0    0.00   0.000   15937
+ *~172.17.17.248 vrf MGMT
+                   .INIT.           16     -   512    0    0.00   0.000   15937
+ ~172.17.17.254 vrf MGMT
+                   .INIT.           16     -   512    0    0.00   0.000   15937
+ * sys_peer, # selected, + candidate, - outlayer, x falseticker, ~ configured"""
+
