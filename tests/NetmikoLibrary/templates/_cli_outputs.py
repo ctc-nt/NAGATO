@@ -128,4 +128,3 @@ Wed Dec  6 13:33:14.814 JST
  ~172.17.17.254 vrf MGMT
                    .INIT.           16     -   512    0    0.00   0.000   15937
  * sys_peer, # selected, + candidate, - outlayer, x falseticker, ~ configured"""
-
