@@ -114,3 +114,12 @@ ipv4 access-list Test-ACL_1
 ipv4 access-list Test-ACL_2
  10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet
  20 deny tcp any any"""
+
+# show bgp neighbor brief
+
+show_bgp_neighbor_brief = """\
+Thu Dec  7 11:03:46.913 JST
+
+Neighbor        Spk    AS Description                          Up/Down  NBRState 
+100.100.0.2       0   100                                      00:00:00 Active 
+2001:10::2        0   100                                      00:56:58 Established """
