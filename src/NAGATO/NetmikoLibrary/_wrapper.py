@@ -2,7 +2,7 @@ import os
 from functools import wraps
 from typing import Any, Iterator, Sequence, TextIO, Union
 
-from netmiko import BaseConnection, ConnectHandler
+from netmiko import BaseConnection, ConnectHandler, redispatch
 from robot.api import logger
 from robot.api.deco import keyword
 from robot.libraries.BuiltIn import BuiltIn, RobotNotRunningError
@@ -363,3 +363,17 @@ class NetmikoWrapper:
         """
 
         return self.connections[alias].exit_config_mode(*args, **kwargs)
+    
+    @keyword
+    @connection_specify
+    @robot_log
+    def redispatch(self, alias: str = "", device_type: str = "", session_prep: bool = True, *args, **kwargs):
+        """Dynamically change Netmiko object's class to proper class.
+        Generally used with terminal_server device_type when you need to redispatch after interacting
+        with terminal server.
+
+        Example:
+        | `Redispatch` | alias=Cisco8000 | device_type=cisco_xr | session_prep=True |
+        """
+
+        return redispatch(self.connections[alias], device_type, session_prep, *args, **kwargs)
