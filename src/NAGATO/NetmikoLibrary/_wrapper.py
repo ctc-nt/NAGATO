@@ -366,8 +366,7 @@ class NetmikoWrapper:
     
     @keyword
     @connection_specify
-    @robot_log
-    def redispatch(self, alias: str = "", device_type: str = "", session_prep: bool = True, *args, **kwargs):
+    def redispatch(self, alias: str = "", device_type: str = None , session_prep: bool = True):
         """Dynamically change Netmiko object's class to proper class.
         Generally used with terminal_server device_type when you need to redispatch after interacting
         with terminal server.
@@ -376,4 +375,4 @@ class NetmikoWrapper:
         | `Redispatch` | alias=Cisco8000 | device_type=cisco_xr | session_prep=True |
         """
 
-        return redispatch(self.connections[alias], device_type, session_prep, *args, **kwargs)
+        redispatch(self.connections[alias], device_type, session_prep)
