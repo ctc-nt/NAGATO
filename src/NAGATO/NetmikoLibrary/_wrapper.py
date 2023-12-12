@@ -363,7 +363,7 @@ class NetmikoWrapper:
         """
 
         return self.connections[alias].exit_config_mode(*args, **kwargs)
-    
+
     @keyword
     @connection_specify
     def redispatch(self, alias: str = "", device_type: str = None , session_prep: bool = True):
