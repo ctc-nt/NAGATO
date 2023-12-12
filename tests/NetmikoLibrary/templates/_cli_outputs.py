@@ -118,13 +118,13 @@ ipv4 access-list Test-ACL_2
 # show ntp associations
 
 show_ntp_associations = """\
-Wed Dec  6 13:33:14.814 JST
+Mon Dec 11 22:34:21.714 JST
 
       address         ref clock     st  when  poll reach  delay  offset    disp
  ~172.17.17.90 vrf MGMT
-                   .INIT.           16     -   512    0    0.00   0.000   15937
- *~172.17.17.248 vrf MGMT
-                   .INIT.           16     -   512    0    0.00   0.000   15937
+                   .STEP.           16     -   512    0    0.00   0.000   15937
+*~172.17.17.248 vrf MGMT
+                   133.243.238.243   2    50    64  377    1.49  46.866   5.106
  ~172.17.17.254 vrf MGMT
-                   .INIT.           16     -   512    0    0.00   0.000   15937
+                   .STEP.           16     -   512    0    0.00   0.000   15937
  * sys_peer, # selected, + candidate, - outlayer, x falseticker, ~ configured"""

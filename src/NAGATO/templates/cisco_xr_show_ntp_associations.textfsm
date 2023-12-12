@@ -2,5 +2,5 @@ Value List ADDRESS ([~*+#-x]+\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}\s+\S+\s+\S+)
 
 Start
  ^\s+address\s+ref\s+clock\s+st\s+when\s+poll\s+reach\s+delay\s+offset\s+disp$$
- ^\s+${ADDRESS}$$ 
+ ^(\s+)?${ADDRESS}$$ 
  ^\s+\*\s+sys_peer,\s+#\s+selected,\s+\+\s+candidate,\s+-\s+outlayer,\s+x\s+falseticker,\s+~\s+configured$$
