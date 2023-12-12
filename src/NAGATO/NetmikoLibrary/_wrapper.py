@@ -366,7 +366,7 @@ class NetmikoWrapper:
 
     @keyword
     @connection_specify
-    def redispatch(self, alias: str = "", device_type: str = None , session_prep: bool = True):
+    def redispatch(self, alias: str = "", device_type: str = None, session_prep: bool = True):
         """Dynamically change Netmiko object's class to proper class.
         Generally used with terminal_server device_type when you need to redispatch after interacting
         with terminal server.
