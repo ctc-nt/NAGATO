@@ -22,4 +22,4 @@ def test_juniper_junos_show_chassis_environment():
     output = re_table.ParseText(show_ntp_associations)
     print(f"\n{output=}")
 
-    assert output == [[["~172.17.17.90 vrf MGMT", "*~172.17.17.248 vrf MGMT", "~172.17.17.254 vrf MGMT"]]]
+    assert output == [["*~172.19.69.1", "172.24.114.33"], ["~2001:db8::feed", ".INIT."], ["~2001:db8::beef vrf vrf_1", ".INIT."]]

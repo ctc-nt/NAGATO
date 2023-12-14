@@ -128,13 +128,11 @@ Neighbor        Spk    AS Description                          Up/Down  NBRState
 # show ntp associations
 
 show_ntp_associations = """\
-Mon Dec 11 22:34:21.714 JST
-
-      address         ref clock     st  when  poll reach  delay  offset    disp
- ~172.17.17.90 vrf MGMT
-                   .STEP.           16     -   512    0    0.00   0.000   15937
-*~172.17.17.248 vrf MGMT
-                   133.243.238.243   2    50    64  377    1.49  46.866   5.106
- ~172.17.17.254 vrf MGMT
-                   .STEP.           16     -   512    0    0.00   0.000   15937
- * sys_peer, # selected, + candidate, - outlayer, x falseticker, ~ configured"""
+Wed Jul 30 04:03:13.471 PST DST
+  
+     address         ref clock     st  when  poll reach  delay  offset    disp
+*~172.19.69.1      172.24.114.33     3    25    64    3    2.89  57550122  39377
+ ~2001:db8::feed   .INIT.           16     -    64    0    0.00   0.000   15937
+ ~2001:db8::beef vrf vrf_1
+                  .INIT.           16     -    64    0    0.00   0.000   16000
+* sys_peer, # selected, + candidate, - outlayer, x falseticker, ~ configured"""
