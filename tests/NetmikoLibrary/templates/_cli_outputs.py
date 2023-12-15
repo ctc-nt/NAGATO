@@ -124,3 +124,18 @@ Neighbor        Spk    AS Description                          Up/Down  NBRState
 100.100.0.2       0   100                                      00:00:00 Active 
 2001:10::2        0   100                                      00:56:58 Established 
 10.10.10.10       0 65001 this is test thisistest 1            00:00:00 Idle """
+
+# show protocols ipv4 ospf
+
+show_protocols_ipv4_ospf = """
+Routing Protocol OSPF 1
+  Router Id: 55.55.55.55
+  Distance: 110
+  Non-Stop Forwarding: Enabled
+  Redistribution:
+    connected
+    isis 3
+  Area 0
+    MPLS/TE enabled
+    GigabitEthernet 0/3/0/3
+    Loopback0"""
