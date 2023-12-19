@@ -151,3 +151,19 @@ static                           0          0          0           0
 vxlan                            0          0          0           0            
 ospf 1                           0          0          0           0            
 Total                            3          1          0           864     """
+
+# show ospfv3 neighbor
+show_ospfv3_neighbor = """
+Mon Feb 16 01:42:20.842 JST
+
+* Indicates MADJ interface
+
+Neighbors for OSPFv3 TEST
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+2.2.2.2         1     FULL/BDR        00:00:36    192.168.1.2     GigabitEthernet0/0/0/5
+    Neighbor is up for 00:18:29
+192.168.16.10   5     FULL/DR          0:00:33    192.168.48.189      GigabitEthernet 0/3/0/3
+    Neighbor is up for 18:45:27
+
+Total neighbor count: 1"""
