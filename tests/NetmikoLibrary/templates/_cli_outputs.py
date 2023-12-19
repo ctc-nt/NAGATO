@@ -139,3 +139,15 @@ Routing Protocol OSPF 1
     MPLS/TE enabled
     GigabitEthernet 0/3/0/3
     Loopback0"""
+
+# show route ipv4 summary
+
+show_route_ipv4_summary = """Route Source                     Routes     Backup     Deleted     Memory(bytes)
+connected                        1          1          0           432          
+local                            2          0          0           432          
+application fib_mgr              0          0          0           0            
+dagr                             0          0          0           0            
+static                           0          0          0           0            
+vxlan                            0          0          0           0            
+ospf 1                           0          0          0           0            
+Total                            3          1          0           864     """
