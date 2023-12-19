@@ -179,4 +179,3 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
     Neighbor is up for 18:45:27
 
 Total neighbor count: 1"""
-
