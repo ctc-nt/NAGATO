@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_route_ipv4_summary)
     print(f"\n{output=}")
 
-    assert output == [['connected', '1'], ['local', '2'], ['application fib_mgr', '0'], ['dagr', '0'], ['static', '0'], ['vxlan', '0'], ['ospf 1', '0'], ['Total', '3']]
+    assert output == [["connected", "1"], ["local", "2"], ["application fib_mgr", "0"], ["dagr", "0"], ["static", "0"], ["vxlan", "0"], ["ospf 1", "0"], ["Total", "3"]]
