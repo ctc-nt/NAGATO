@@ -125,6 +125,18 @@ Neighbor        Spk    AS Description                          Up/Down  NBRState
 2001:10::2        0   100                                      00:56:58 Established 
 10.10.10.10       0 65001 this is test thisistest 1            00:00:00 Idle """
 
+# show ntp associations
+
+show_ntp_associations = """\
+Wed Jul 30 04:03:13.471 PST DST
+  
+     address         ref clock     st  when  poll reach  delay  offset    disp
+*~172.19.69.1      172.24.114.33     3    25    64    3    2.89  57550122  39377
+ ~2001:db8::feed   .INIT.           16     -    64    0    0.00   -15.0   15937
+ ~2001:db8::beef vrf vrf_1
+                  .INIT.           16     -    64    0    0.00   0.000   16.0
+* sys_peer, # selected, + candidate, - outlayer, x falseticker, ~ configured"""
+
 # show protocols ipv4 ospf
 
 show_protocols_ipv4_ospf = """
@@ -167,3 +179,4 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
     Neighbor is up for 18:45:27
 
 Total neighbor count: 1"""
+
