@@ -2,7 +2,7 @@ Value PROTOCOL (OSPF\s\S+)
 Value ROUTER_ID (\d+.\d+.\d+.\d+)
 Value DISTANCE (\d+)
 Value STATE (Enabled|Disabled)
-Value AREA (Area\s+\d+)
+Value AREA (\d+)
 Value List INTERFACE ([\s\w\/]+)
 
 Start
@@ -10,7 +10,7 @@ Start
  ^\s+Router\s+Id:\s+${ROUTER_ID}$$
  ^\s+Distance:\s+${DISTANCE}$$
  ^\s+Non-Stop\s+Forwarding:\s+${STATE}$$
- ^\s+${AREA}$$ -> Member
+ ^\s+Area\s+${AREA}$$ -> Member
 
 Member
  ^\s+(MPLS/TE\s+\S+)?$$
