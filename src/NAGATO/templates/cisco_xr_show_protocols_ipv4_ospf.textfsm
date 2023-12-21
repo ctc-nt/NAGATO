@@ -1,18 +1,18 @@
-Value Filldown PROTOCOL (OSPF\s\S+)
-Value Filldown ROUTER_ID (\d+.\d+.\d+.\d+)
-Value Filldown DISTANCE (\d+)
-Value Filldown STATE (Enabled|Disabled)
-Value Filldown AREA (Area\s+\d+)
-Value INTERFACE ([\s\w\/]+)
+Value PROTOCOL (OSPF\s\S+)
+Value ROUTER_ID (\d+.\d+.\d+.\d+)
+Value DISTANCE (\d+)
+Value STATE (Enabled|Disabled)
+Value AREA (Area\s+\d+)
+Value List INTERFACE ([\s\w\/]+)
 
 Start
  ^Routing\s+Protocol\s+${PROTOCOL}$$
  ^\s+Router\s+Id:\s+${ROUTER_ID}$$
  ^\s+Distance:\s+${DISTANCE}$$
  ^\s+Non-Stop\s+Forwarding:\s+${STATE}$$
- ^\s+${AREA}$$ -> State
+ ^\s+${AREA}$$ -> Member
 
-State
- ^\s+${INTERFACE}$$ -> Record
-
-EOF
+Member
+ ^\s+(MPLS/TE\s+\S+)?$$
+ ^\s+${INTERFACE}$$ 
+ ^.*$$ -> Record
