@@ -139,7 +139,7 @@ Wed Jul 30 04:03:13.471 PST DST
 
 # show protocols ipv4 ospf
 
-show_protocols_ipv4_ospf = """
+show_protocols_ipv4_ospf = """\
 Routing Protocol OSPF 1
   Router Id: 55.55.55.55
   Distance: 110
@@ -154,7 +154,9 @@ Routing Protocol OSPF 1
 
 # show route ipv4 summary
 
-show_route_ipv4_summary = """Route Source                     Routes     Backup     Deleted     Memory(bytes)
+show_route_ipv4_summary = """\
+Mon Feb 16 01:42:20.842 JST
+Route Source                     Routes     Backup     Deleted     Memory(bytes)
 connected                        1          1          0           432          
 local                            2          0          0           432          
 application fib_mgr              0          0          0           0            
@@ -162,10 +164,10 @@ dagr                             0          0          0           0
 static                           0          0          0           0            
 vxlan                            0          0          0           0            
 ospf 1                           0          0          0           0            
-Total                            3          1          0           864     """
+Total                            3          1          0           864"""
 
 # show ospfv3 neighbor
-show_ospfv3_neighbor = """
+show_ospfv3_neighbor = """\
 Mon Feb 16 01:42:20.842 JST
 
 * Indicates MADJ interface
@@ -178,4 +180,4 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 192.168.16.10   5     FULL/DR          0:00:33    192.168.48.189      GigabitEthernet 0/3/0/3
     Neighbor is up for 18:45:27
 
-Total neighbor count: 1"""
+Total neighbor count: 2"""
