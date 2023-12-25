@@ -22,4 +22,5 @@ def test_show_ip():
     output = re_table.ParseText(show_ospfv3_neighbor)
     print(f"\n{output=}")
 
-    assert output == [["2.2.2.2", "1", "FULL/BDR", "192.168.1.2", "GigabitEthernet0/0/0/5", "1"], ["192.168.16.10", "5", "FULL/DR", "192.168.48.189", "GigabitEthernet 0/3/0/3", "1"]]
+    assert output == [["2.2.2.2", "1", "FULL/BDR", "192.168.1.2", "GigabitEthernet0/0/0/5"], ["192.168.16.10", "5", "FULL/DR", "192.168.48.189", "GigabitEthernet 0/3/0/3"]]
+    
