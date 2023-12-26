@@ -1,4 +1,6 @@
-import os,time
+import os
+import time
+
 from ixnetwork_restpy import Files, SessionAssistant, TestPlatform
 from robot.api import logger
 from robot.api.deco import keyword
@@ -62,9 +64,7 @@ class IxNetworkRestpyWrapper:
         portMap = self.session_assistant.PortMapAssistant()
         vport_list = self.IxNetwork.Vport.find()
         if len(port_list) == len(vport_list):
-
-            for index,port in enumerate(port_list):
-
+            for index, port in enumerate(port_list):
                 if len(port) == 3:
                     portName = vport_list[index].Name
                     portMap.Map(IpAddress=port[0], CardId=port[1], PortId=port[2], Name=portName)
@@ -83,16 +83,16 @@ class IxNetworkRestpyWrapper:
 
     @keyword
     def start_all_protocols(self):
-        self.IxNetwork.StartAllProtocols(Arg1='sync')
+        self.IxNetwork.StartAllProtocols(Arg1="sync")
 
-        self.IxNetwork.info('Verify protocol sessions\n')
-        protocolSummary = self.session_assistant.StatViewAssistant('Protocols Summary')
-        protocolSummary.CheckCondition('Sessions Not Started', protocolSummary.EQUAL, 0)
+        self.IxNetwork.info("Verify protocol sessions\n")
+        protocolSummary = self.session_assistant.StatViewAssistant("Protocols Summary")
+        protocolSummary.CheckCondition("Sessions Not Started", protocolSummary.EQUAL, 0)
         self.IxNetwork.info(protocolSummary)
 
     @keyword
     def stop_all_protocols(self):
-        self.IxNetwork.info('Stopped Packet Protocol.')
+        self.IxNetwork.info("Stopped Packet Protocol.")
         self.IxNetwork.StopAllProtocols()
 
     @keyword
@@ -109,7 +109,6 @@ class IxNetworkRestpyWrapper:
 
     @keyword
     def get_statistics(self, view: str, index: int = 0):
-
         trafficItemStatistics = self.session_assistant.StatViewAssistant(view)
 
         # 取得したstatic viewのStatisticsを返す
@@ -160,19 +159,16 @@ class IxNetworkRestpyWrapper:
 
     @keyword
     def start_capture(self):
-
-        self.IxNetwork.info('Started Packet Capture.')
+        self.IxNetwork.info("Started Packet Capture.")
         self.IxNetwork.StartCapture()
 
     @keyword
     def stop_capture(self):
-
-        self.IxNetwork.info('Stopped Packet Capture.')
+        self.IxNetwork.info("Stopped Packet Capture.")
         self.IxNetwork.StopCapture
 
     @keyword
     def select_captured_vport(self, index: int, vport_name: str):
-
         # indexによりvportを指定する
         vport = self.IxNetwork.Vport.find()[index]
 
@@ -180,10 +176,10 @@ class IxNetworkRestpyWrapper:
         vport.update(Name=vport_name)
 
         # trafficDataをcaptureするための設定
-        vport.RxMode = 'captureAndMeasure'
+        vport.RxMode = "captureAndMeasure"
         vport.Capture.HardwareEnabled = True
 
-        self.IxNetwork.info('Configured Vport for Packet Capture.')
+        self.IxNetwork.info("Configured Vport for Packet Capture.")
 
     @keyword
     def save_capture_file(self):
@@ -194,7 +190,7 @@ class IxNetworkRestpyWrapper:
         # 指定したリモートパスにpcapファイルを保存
         self.IxNetwork.SaveCaptureFiles(self.csvsnapshot.CsvLocation)
 
-        self.IxNetwork.info('Saved pcap file.')
+        self.IxNetwork.info("Saved pcap file.")
 
     @keyword
     def download_capture_file(self, vport_name: str, file_name: str, output_dir: str):
@@ -207,7 +203,7 @@ class IxNetworkRestpyWrapper:
         # HardwareEnabled = Trueによりdataのcaptureが可能になっており,HWがリモートのファイル名に付与されるため、"_HWを追加"
         self.session.DownloadFile(f"{self.csvsnapshot.CsvLocation}/{vport_name}_HW.cap", local_filename)
 
-        self.IxNetwork.info('Downloaded the pcap file.')
+        self.IxNetwork.info("Downloaded the pcap file.")
 
     @keyword
     def start_specified_traffic_item(self, index: int):
