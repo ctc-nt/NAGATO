@@ -377,7 +377,7 @@ class NetmikoWrapper:
         """
 
         redispatch(self.connections[alias], device_type, session_prep)
-        
+
     @keyword
     def send_config_from_file(self, config_file: Union[str, bytes, "PathLike[Any]"], alias: str = "", **kwargs: Any) -> str:
         """Send configuration commands down the SSH channel from a file.
