@@ -1,7 +1,7 @@
-import os
 import io
-from os import PathLike
+import os
 from functools import wraps
+from os import PathLike
 from typing import Any, Iterator, Sequence, TextIO, Union
 
 from netmiko import BaseConnection, ConnectHandler
@@ -367,7 +367,7 @@ class NetmikoWrapper:
         return self.connections[alias].exit_config_mode(*args, **kwargs)
 
     @keyword
-    def send_config_from_file(self, config_file: Union[str, bytes, 'PathLike[Any]'], alias: str = "", **kwargs: Any) -> str:
+    def send_config_from_file(self, config_file: Union[str, bytes, "PathLike[Any]"], alias: str = "", **kwargs: Any) -> str:
         """Send configuration commands down the SSH channel from a file.
 
         Example:
