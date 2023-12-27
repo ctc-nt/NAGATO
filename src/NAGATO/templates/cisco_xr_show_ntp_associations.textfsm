@@ -1,0 +1,9 @@
+Value ADDRESS ([~*+#x]+[0-9a-f:.]+|[~*+#x]+[0-9a-f:.]+\s+vrf\s+\w+)
+Value REF_CLOCK (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}|\.\S+\.)
+
+Start
+ ^\s+address\s+ref\s+clock\s+st\s+when\s+poll\s+reach\s+delay\s+offset\s+disp$$
+ ^(\s)?${ADDRESS}\s+${REF_CLOCK}\s+\d+\s+(\d+|-)\s+\d+\s+\d+\s+\d+.\d+\s+[-\d+\.]+\s+[\d+\.]+$$ -> Record
+ ^(\s)?${ADDRESS}$$
+ ^\s+${REF_CLOCK}\s+\d+\s+(\d+|-)\s+\d+\s+\d+\s+\d+.\d+\s+[-\d+\.]+\s+[\d+\.]+$$ -> Record
+ ^\s+\*\s+sys_peer,\s+#\s+selected,\s+\+\s+candidate,\s+-\s+outlayer,\s+x\s+falseticker,\s+~\s+configured$$

@@ -4,7 +4,7 @@ from functools import wraps
 from os import PathLike
 from typing import Any, Iterator, Sequence, TextIO, Union
 
-from netmiko import BaseConnection, ConnectHandler
+from netmiko import BaseConnection, ConnectHandler, redispatch
 from robot.api import logger
 from robot.api.deco import keyword
 from robot.libraries.BuiltIn import BuiltIn, RobotNotRunningError
@@ -366,6 +366,18 @@ class NetmikoWrapper:
 
         return self.connections[alias].exit_config_mode(*args, **kwargs)
 
+    @connection_specify
+    def redispatch(self, device_type: str, alias: str = "", session_prep: bool = True):
+        """Dynamically change Netmiko object's class to proper class.
+        Generally used with terminal_server device_type when you need to redispatch after interacting
+        with terminal server.
+
+        Example:
+        | `Redispatch` | alias=Cisco8000 | device_type=cisco_xr | session_prep=True |
+        """
+
+        redispatch(self.connections[alias], device_type, session_prep)
+        
     @keyword
     def send_config_from_file(self, config_file: Union[str, bytes, "PathLike[Any]"], alias: str = "", **kwargs: Any) -> str:
         """Send configuration commands down the SSH channel from a file.
