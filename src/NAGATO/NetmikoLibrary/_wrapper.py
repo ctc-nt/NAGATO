@@ -1,6 +1,5 @@
 import io
 import os
-from os import PathLike
 from functools import wraps
 from os import PathLike
 from typing import Any, Iterator, Sequence, TextIO, Union
