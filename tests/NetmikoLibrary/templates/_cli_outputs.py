@@ -150,7 +150,18 @@ Routing Protocol OSPF 1
   Area 0
     MPLS/TE enabled
     GigabitEthernet 0/3/0/3
-    Loopback0"""
+    Loopback0
+  Area 1
+    Loopback1
+
+  Routing Protocol OSPF 2
+  Router Id: 3.3.3.3
+  Distance: 110
+  Non-Stop Forwarding: Disabled
+  Redistribution:
+    None
+  Area 0
+    Loopback3"""
 
 # show route ipv4 summary
 

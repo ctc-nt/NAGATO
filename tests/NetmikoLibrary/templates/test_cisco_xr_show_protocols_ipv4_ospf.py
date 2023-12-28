@@ -22,4 +22,6 @@ def test_show_ip():
     output = re_table.ParseText(show_protocols_ipv4_ospf)
     print(f"\n{output=}")
 
-    assert output == [["OSPF 1", "55.55.55.55", "110", "Enabled", "0", ["GigabitEthernet 0/3/0/3", "Loopback0"]]]
+    assert output == [["OSPF 1", "55.55.55.55", "110", "Enabled", "0", ["GigabitEthernet 0/3/0/3", "Loopback0"]],
+                      ["OSPF 1", "55.55.55.55", "110", "Enabled", "1", ["Loopback1"]],
+                      ["OSPF 2", "3.3.3.3", "110", "Disabled", "0", ["Loopback3"]]]
