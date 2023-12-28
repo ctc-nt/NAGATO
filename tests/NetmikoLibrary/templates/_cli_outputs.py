@@ -202,6 +202,20 @@ vxlan                            0          0          0           0
 ospf 1                           0          0          0           0            
 Total                            3          1          0           864"""
 
+show_route_ipv6_summary = """\
+Thu Dec 28 08:23:03.504 UTC
+Route Source                     Routes     Backup     Deleted     Memory(bytes)
+local-iid sidmgr                 0          0          0           0            
+connected                        1          0          0           216          
+connected l2tpv3_xconnect        0          0          0           0            
+local                            1          0          0           216          
+local-srv6 xtc_srv6              0          0          0           0            
+static                           0          0          0           0            
+vxlan                            0          0          0           0            
+ospf 1                           0          0          0           0            
+ospf 2                           0          0          0           0            
+Total                            2          0          0           432"""
+
 # show ospfv3 neighbor
 show_ospfv3_neighbor = """\
 Mon Feb 16 01:42:20.842 JST
