@@ -1,4 +1,4 @@
-Value PROTOCOL ([\w\s]+\b)
+Value PROTOCOL ([\w\s\-]+\b)
 Value ROUTES (\d+)
 
 Start
