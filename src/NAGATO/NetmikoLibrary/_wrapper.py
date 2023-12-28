@@ -379,6 +379,7 @@ class NetmikoWrapper:
 
         return self.connections[alias].exit_config_mode(*args, **kwargs)
 
+    @keyword
     @connection_specify
     def redispatch(self, device_type: str, alias: str = "", session_prep: bool = True):
         """Dynamically change Netmiko object's class to proper class.
