@@ -163,6 +163,31 @@ Routing Protocol OSPF 2
   Area 0
     Loopback3"""
 
+# show protocols ipv6 ospfv3
+
+show_protocols_ipv6_ospf = """\
+Routing Protocol OSPFv3 1
+  Router Id: 10.0.0.1
+  Distance: 110
+  Graceful Restart: Enabled
+  Redistribution:
+    None
+  Area 0
+    HundredGigE 0/2/0/2
+    Loopback1
+  Area 1
+    Loopback2
+
+Routing Protocol OSPFv3 2
+  Router Id: 1.1.1.1
+  Distance: 110
+  Graceful Restart: Disabled
+  Redistribution:
+    None
+  Area 0
+    Loopback3
+"""
+
 # show route ipv4 summary
 
 show_route_ipv4_summary = """\
