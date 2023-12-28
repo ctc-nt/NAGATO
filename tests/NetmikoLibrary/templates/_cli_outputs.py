@@ -136,3 +136,98 @@ Wed Jul 30 04:03:13.471 PST DST
  ~2001:db8::beef vrf vrf_1
                   .INIT.           16     -    64    0    0.00   0.000   16.0
 * sys_peer, # selected, + candidate, - outlayer, x falseticker, ~ configured"""
+
+# show protocols ipv4 ospf
+
+show_protocols_ipv4_ospf = """\
+Routing Protocol OSPF 1
+  Router Id: 55.55.55.55
+  Distance: 110
+  Non-Stop Forwarding: Enabled
+  Redistribution:
+    connected
+    isis 3
+  Area 0
+    MPLS/TE enabled
+    GigabitEthernet 0/3/0/3
+    Loopback0
+  Area 1
+    Loopback1
+
+Routing Protocol OSPF 2
+  Router Id: 3.3.3.3
+  Distance: 110
+  Non-Stop Forwarding: Disabled
+  Redistribution:
+    None
+  Area 0
+    Loopback3"""
+
+# show protocols ipv6 ospfv3
+
+show_protocols_ipv6_ospf = """\
+Routing Protocol OSPFv3 1
+  Router Id: 10.0.0.1
+  Distance: 110
+  Graceful Restart: Enabled
+  Redistribution:
+    None
+  Area 0
+    HundredGigE 0/2/0/2
+    Loopback1
+  Area 1
+    Loopback2
+
+Routing Protocol OSPFv3 2
+  Router Id: 1.1.1.1
+  Distance: 110
+  Graceful Restart: Disabled
+  Redistribution:
+    None
+  Area 0
+    Loopback3
+"""
+
+# show route ipv4 summary
+
+show_route_ipv4_summary = """\
+Mon Feb 16 01:42:20.842 JST
+Route Source                     Routes     Backup     Deleted     Memory(bytes)
+connected                        1          1          0           432          
+local                            2          0          0           432          
+application fib_mgr              0          0          0           0            
+dagr                             0          0          0           0            
+static                           0          0          0           0            
+vxlan                            0          0          0           0            
+ospf 1                           0          0          0           0            
+Total                            3          1          0           864"""
+
+show_route_ipv6_summary = """\
+Thu Dec 28 08:23:03.504 UTC
+Route Source                     Routes     Backup     Deleted     Memory(bytes)
+local-iid sidmgr                 0          0          0           0            
+connected                        1          0          0           216          
+connected l2tpv3_xconnect        0          0          0           0            
+local                            1          0          0           216          
+local-srv6 xtc_srv6              0          0          0           0            
+static                           0          0          0           0            
+vxlan                            0          0          0           0            
+ospf 1                           0          0          0           0            
+ospf 2                           0          0          0           0            
+Total                            2          0          0           432"""
+
+# show ospfv3 neighbor
+show_ospfv3_neighbor = """\
+Mon Feb 16 01:42:20.842 JST
+
+* Indicates MADJ interface
+
+Neighbors for OSPFv3 TEST
+
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+2.2.2.2         1     FULL/BDR        00:00:36    192.168.1.2     GigabitEthernet0/0/0/5
+    Neighbor is up for 00:18:29
+192.168.16.10   5     FULL/DR          0:00:33    192.168.48.189      GigabitEthernet 0/3/0/3
+    Neighbor is up for 18:45:27
+
+Total neighbor count: 2"""
