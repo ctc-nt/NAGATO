@@ -154,7 +154,7 @@ Routing Protocol OSPF 1
   Area 1
     Loopback1
 
-  Routing Protocol OSPF 2
+Routing Protocol OSPF 2
   Router Id: 3.3.3.3
   Distance: 110
   Non-Stop Forwarding: Disabled
