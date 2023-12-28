@@ -1,4 +1,3 @@
-import io
 import os
 from functools import wraps
 from os import PathLike
@@ -186,6 +185,20 @@ class NetmikoWrapper:
         """
 
         return self.connections[alias].send_config_set(config_commands=config_commands, **kwargs)
+
+    @keyword
+    @connection_specify
+    @robot_log
+    def send_config_from_file(self, config_file: Union[str, bytes, "PathLike[Any]"], alias: str = "", **kwargs) -> str:
+        """Sends configuration commands down the SSH channel from a file.
+        The file is processed line-by-line and each command is sent down the SSH channel.
+
+        **kwargs are passed to send_config_set method.
+
+        Example:
+        | ${output} = | `Send Config From File` | config_file=./configs.txt | alias=Cisco8000 |
+        """
+        return self.connections[alias].send_config_from_file(config_file=config_file, **kwargs)
 
     @keyword
     @connection_specify
@@ -377,12 +390,3 @@ class NetmikoWrapper:
         """
 
         redispatch(self.connections[alias], device_type, session_prep)
-
-    @keyword
-    def send_config_from_file(self, config_file: Union[str, bytes, "PathLike[Any]"], alias: str = "", **kwargs: Any) -> str:
-        """Send configuration commands down the SSH channel from a file.
-
-        Example:
-        | `Send Config From File` | config_file=test.txt  | alias=Cisco8000 |
-        """
-        return self.connections[alias].send_config_from_file(config_file, **kwargs)
