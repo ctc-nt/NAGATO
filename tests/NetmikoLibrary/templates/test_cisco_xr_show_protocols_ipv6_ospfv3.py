@@ -22,6 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_protocols_ipv6_ospf)
     print(f"\n{output=}")
 
-    assert output == [["1", "10.0.0.1", "110", "Enabled", "0", ["HundredGigE 0/2/0/2", "Loopback1"]],
-                      ["1", "10.0.0.1", "110", "Enabled", "1", ["Loopback2"]],
-                      ["2", "1.1.1.1", "110", "Disabled", "0", ["Loopback3"]]]
+    assert output == [["1", "10.0.0.1", "110", "Enabled", "0", ["HundredGigE 0/2/0/2", "Loopback1"]], ["1", "10.0.0.1", "110", "Enabled", "1", ["Loopback2"]], ["2", "1.1.1.1", "110", "Disabled", "0", ["Loopback3"]]]
