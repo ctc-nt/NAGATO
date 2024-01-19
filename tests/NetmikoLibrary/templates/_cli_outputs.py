@@ -288,3 +288,15 @@ Partner key:    0x0002
 Partner port:   0x8000, 0x0004
 Partner state:   Act   T/o   Agg   Sync   Coll   Dist  (Def) (Exp)
 Collector max delay:   65535"""
+
+admin_show_platform = """\
+Tue Jan 16 11:02:22.547 JST
+Location  Card Type               HW State      SW State      Config State
+----------------------------------------------------------------------------
+0/0       A9K-4HG-FLEX-SE         OPERATIONAL   OPERATIONAL   NSHUT
+0/1       A9K-4HG-FLEX-SE         OPERATIONAL   OPERATIONAL   NSHUT
+0/RSP0    A9K-RSP5-SE             OPERATIONAL   OPERATIONAL   NSHUT
+0/RSP1    A9K-RSP5-SE             OPERATIONAL   OPERATIONAL   NSHUT
+0/FT0     ASR-9906-FAN            OPERATIONAL   N/A           NSHUT
+0/FT1     ASR-9906-FAN            OPERATIONAL   N/A           NSHUT
+0/PT0     A9K-AC-PEM-V3           OPERATIONAL   N/A           NSHUT"""

@@ -1,0 +1,11 @@
+Value LOCATION (\S+)
+Value CARD_TYPE (\S+)
+Value HW_STATE (\S+)
+Value SW_STATE (\S+)
+Value CONFIG_STATE (\S+)
+
+Start
+  ^\-+ -> Parse
+
+Parse
+  ^${LOCATION}\s+${CARD_TYPE}\s+${HW_STATE}\s+${SW_STATE}\s+(${CONFIG_STATE})? -> Record
