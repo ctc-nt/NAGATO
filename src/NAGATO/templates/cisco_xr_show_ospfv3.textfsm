@@ -1,0 +1,11 @@
+Value AREA (\S+)
+Value AREA_TYPE (\S+)
+
+Start
+ ^\s+Area\s+${AREA}(\s+\S+)?$$ -> Member
+
+Member
+# ^\t+It\s+is\s+a\s+${AREA_TYPE}\s+area$$
+ ^\s+It\s+is\s+a\s+${AREA_TYPE}\s+area$$
+ ^\s+Area\s+\S+(\s+\S+)?$$ -> Continue.Record
+ ^\s+Area\s+${AREA}(\s+\S+)?$$

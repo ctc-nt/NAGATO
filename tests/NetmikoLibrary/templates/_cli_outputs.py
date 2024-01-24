@@ -288,3 +288,107 @@ Partner key:    0x0002
 Partner port:   0x8000, 0x0004
 Partner state:   Act   T/o   Agg   Sync   Coll   Dist  (Def) (Exp)
 Collector max delay:   65535"""
+
+show_ospf = """\
+Tue Jan 23 02:02:54.357 UTC
+
+ Routing Process "ospf 1" with ID 1.1.1.1
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Supports only single TOS(TOS0) routes
+ Supports opaque LSA
+ Router is not originating router-LSAs with maximum metric
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA interval 200 msecs. Minimum LSA arrival 100 msecs
+ LSA refresh interval 1800 seconds
+ Flood pacing interval 33 msecs. Retransmission pacing interval 66 msecs
+ Adjacency stagger enabled; initial (per area): 2, maximum: 64
+    Number of neighbors forming: 0, 0 full
+ Maximum number of configured interfaces 1024
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of opaque AS LSA 0. Checksum Sum 00000000
+ Number of DCbitless external and opaque AS LSA 0
+ Number of DoNotAge external and opaque AS LSA 0
+ Number of areas in this router is 1. 0 normal 0 stub 1 nssa
+ External flood list length 0
+ SNMP trap is enabled
+ LSD not connected, revision 0
+ Segment Routing Global Block default (16000-23999), not allocated
+ Segment Routing Local Block, unknown
+ Strict-SPF capability is enabled
+    Area BACKBONE(0) (Inactive)
+	Number of interfaces in this area is 0
+	It is a NSSA area
+	SPF algorithm executed 1 times
+	Number of LSA 0.  Checksum Sum 00000000
+	Number of opaque link LSA 0.  Checksum Sum 00000000
+	Number of DCbitless LSA 0
+	Number of indication LSA 0
+	Number of DoNotAge LSA 0
+	Flood list length 0
+	Number of LFA enabled interfaces 0, LFA revision 0
+	Number of Per Prefix LFA enabled interfaces 0
+	Number of neighbors forming in staggered mode 0, 0 full
+    Area 10
+	Number of interfaces in this area is 0
+	It is a NSSA area
+	SPF algorithm executed 1 times
+	Number of LSA 0.  Checksum Sum 00000000
+	Number of opaque link LSA 0.  Checksum Sum 00000000
+	Number of DCbitless LSA 0
+	Number of indication LSA 0
+	Number of DoNotAge LSA 0
+	Flood list length 0
+	Number of LFA enabled interfaces 0, LFA revision 0
+	Number of Per Prefix LFA enabled interfaces 0
+	Number of neighbors forming in staggered mode 0, 0 full"""
+
+show_ospfv3 = """\
+Wed Jan 24 05:36:22.464 UTC
+
+ Routing Process "ospfv3 1" with ID 2.2.2.2
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA arrival 100 msecs
+ LSA group pacing timer 240 secs
+ Interface flood pacing timer 33 msecs
+ Retransmission pacing timer 66 msecs
+ Maximum number of configured interfaces 1024
+ Maximum number of configured paths 64
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of areas in this router is 1. 0 normal 0 stub 1 nssa
+ Auto cost is enabled. Reference bandwidth 100
+ SNMP trap is enabled
+    Area BACKBONE(0) (Inactive)
+        Number of interfaces in this area is 0
+        It is a NSSA area
+        SPF algorithm executed 0 times
+        Number of LSA 0. Checksum Sum 00000000
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+        Number of LFA enabled interfaces 0, LFA revision 0
+        Number of Per Prefix LFA enabled interfaces 0
+    Area 10
+        Number of interfaces in this area is 0
+        It is a NSSA area
+        SPF algorithm executed 0 times
+        Number of LSA 0. Checksum Sum 00000000
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+        Number of LFA enabled interfaces 0, LFA revision 0
+        Number of Per Prefix LFA enabled interfaces 0"""
