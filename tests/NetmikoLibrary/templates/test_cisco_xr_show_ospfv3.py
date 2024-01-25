@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_ospfv3)
     print(f"\n{output=}")
 
-    assert output == [["BACKBONE(0)", "NSSA"], ["10", "NSSA"]]
+    assert output == [["10", "2.2.2.2", ["BACKBONE(0)", "10"], ["NSSA", "NSSA"]], ["20", "2.2.2.2", ["BACKBONE(0)", "20"], ["NSSA", "NSSA"]]]

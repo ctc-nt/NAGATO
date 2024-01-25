@@ -1,11 +1,13 @@
-Value AREA (\S+)
-Value AREA_TYPE (\S+)
+Value PROCESS (\d+)
+Value ID (\S+)
+Value List AREA (\S+)
+Value List AREA_TYPE (\S+)
 
 Start
- ^\s+Area\s+${AREA}(\s+\S+)?$$ -> Member
+ ^\s+Routing\s+Process\s+\"ospfv3\s+${PROCESS}\"\s+with\s+ID\s+${ID}$$ -> Member
 
 Member
-# ^\t+It\s+is\s+a\s+${AREA_TYPE}\s+area$$
- ^\s+It\s+is\s+a\s+${AREA_TYPE}\s+area$$
- ^\s+Area\s+\S+(\s+\S+)?$$ -> Continue.Record
  ^\s+Area\s+${AREA}(\s+\S+)?$$
+ ^\s+It\s+is\s+a\s+${AREA_TYPE}\s+area$$
+ ^\s+Routing\s+Process\s+\"ospfv3\s+\S+\"\s+with\s+ID\s+\S+$$ -> Continue.Record
+ ^\s+Routing\s+Process\s+\"ospfv3\s+${PROCESS}\"\s+with\s+ID\s+${ID}$$
