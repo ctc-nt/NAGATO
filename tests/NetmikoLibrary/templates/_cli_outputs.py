@@ -231,3 +231,10 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
     Neighbor is up for 18:45:27
 
 Total neighbor count: 2"""
+
+#show access-lists interface
+
+show_access_lists_interface = """\
+Mon Jan 22 11:32:28.599 JST
+Input ACL (common): N/A (interface): N/A
+Output ACL: Test-ACL_1 """
