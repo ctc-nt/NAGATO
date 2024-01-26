@@ -1,0 +1,12 @@
+Value BUNDLE_ETHER_ID (\d+)
+Value List INTERFACE ([\s\w\/]+)
+Value List PERIODIC_TRANSMIT_INTERVAL (\d+)
+
+Start
+ ^Bundle-Ether${BUNDLE_ETHER_ID}$$ -> Member
+
+Member
+ ^Interface\s+${INTERFACE}$$
+ ^Periodic\s+transmit\s+interval:\s+${PERIODIC_TRANSMIT_INTERVAL}ms$$
+ ^Bundle-Ether\d+$$ -> Continue.Record
+ ^Bundle-Ether${BUNDLE_ETHER_ID}$$

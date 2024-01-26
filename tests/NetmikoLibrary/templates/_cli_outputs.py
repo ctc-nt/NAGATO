@@ -232,6 +232,63 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 
 Total neighbor count: 2"""
 
+show_lacp_io = """\
+Fri Jan 12 18:24:45.565 JST
+Bundle-Ether1
+
+Interface TenGigE0/0/0/38
+-------------------------
+Interface handle:            0x04000f40
+Interface media type:        Ethernet
+Periodic transmit interval:  30000ms
+Requested transmit interval: 0ms
+Source MAC address:          4014.823b.f6e6
+Actor system:   0x8000, 90-88-55-5a-b8-ec
+Actor key:      0x0001
+Actor port:     0x8000, 0x0002
+Actor state:     Act  (T/o)  Agg   Sync   Coll   Dist  (Def) (Exp)
+Partner system: 0x8000, 34-88-18-cf-40-63
+Partner key:    0x0001
+Partner port:   0x8000, 0x0002
+Partner state:   Act  (T/o)  Agg   Sync   Coll   Dist  (Def) (Exp)
+Collector max delay:   65535
+
+Interface TenGigE0/0/0/39
+-------------------------
+Interface handle:            0x04000f80
+Interface media type:        Ethernet
+Periodic transmit interval:  30000ms
+Requested transmit interval: 0ms
+Source MAC address:          4014.823b.f6e7
+Actor system:   0x8000, 90-88-55-5a-b8-ec
+Actor key:      0x0001
+Actor port:     0x8000, 0x0001
+Actor state:     Act  (T/o)  Agg   Sync   Coll   Dist  (Def) (Exp)
+Partner system: 0x8000, 34-88-18-cf-40-63
+Partner key:    0x0001
+Partner port:   0x8000, 0x0001
+Partner state:   Act  (T/o)  Agg   Sync   Coll   Dist  (Def) (Exp)
+Collector max delay:   65535
+
+Bundle-Ether2
+
+Interface HundredGigE0/1/0/42
+-----------------------------
+Interface handle:            0x06000240
+Interface media type:        Ethernet
+Periodic transmit interval:  1000ms
+Requested transmit interval: 0ms
+Source MAC address:          4cec.0f1f.1054
+Actor system:   0x8000, 90-88-55-5a-b8-ec
+Actor key:      0x0002
+Actor port:     0x8000, 0x0004
+Actor state:     Act   T/o   Agg   Sync   Coll   Dist  (Def) (Exp)
+Partner system: 0x8000, 34-88-18-cf-40-63
+Partner key:    0x0002
+Partner port:   0x8000, 0x0004
+Partner state:   Act   T/o   Agg   Sync   Coll   Dist  (Def) (Exp)
+Collector max delay:   65535"""
+
 # show access-lists interface
 
 show_access_lists_interface = """\
