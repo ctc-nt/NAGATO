@@ -232,7 +232,7 @@ Neighbor ID     Pri   State           Dead Time   Address         Interface
 
 Total neighbor count: 2"""
 
-#show access-lists interface
+# show access-lists interface
 
 show_access_lists_interface = """\
 Mon Jan 22 11:32:28.599 JST

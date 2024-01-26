@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_access_lists_interface)
     print(f"\n{output=}")
 
-    assert output == [["N/A","N/A","Test-ACL_1"]]
+    assert output == [["N/A", "N/A", "Test-ACL_1"]]
