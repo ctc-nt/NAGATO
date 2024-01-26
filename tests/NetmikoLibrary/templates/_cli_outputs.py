@@ -288,3 +288,10 @@ Partner key:    0x0002
 Partner port:   0x8000, 0x0004
 Partner state:   Act   T/o   Agg   Sync   Coll   Dist  (Def) (Exp)
 Collector max delay:   65535"""
+
+show_bgp_sessions = """\
+Fri Jan 26 00:49:33.172 UTC
+
+Neighbor        VRF                   Spk    AS   InQ  OutQ  NBRState     NSRState
+10.10.10.1      default                 0   100     0     0  Idle         None
+20.20.20.1      default                 0   100     0     0  Idle         None"""
