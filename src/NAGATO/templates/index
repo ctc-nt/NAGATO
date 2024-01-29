@@ -4,6 +4,7 @@
 apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
 
 cisco_xr_show_ethernet_oam_event-log.textfsm, .*, cisco_xr, sh[[ow]] ethern[[et]] oam event-log
+cisco_xr_show_access-lists_interface.textfsm, .*, cisco_xr, sh[[ow]] ac[[cess-lists]] int[[erface]]
 cisco_xr_show_protocols_ipv6_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] proto[[cols]] ipv6 o[[spfv3]]
 cisco_xr_show_bundle_bundle-ether.textfsm, .*, cisco_xr, sh[[ow]] bun[[dle]] bundle-e[[ther]] (\d+)
 cisco_xr_show_bgp_neighbors_brief.textfsm, .*, cisco_xr, sh[[ow]] bg[[p]] nei[[ghbors]] br[[ief]]
