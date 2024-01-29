@@ -288,3 +288,10 @@ Partner key:    0x0002
 Partner port:   0x8000, 0x0004
 Partner state:   Act   T/o   Agg   Sync   Coll   Dist  (Def) (Exp)
 Collector max delay:   65535"""
+
+# show access-lists interface
+
+show_access_lists_interface = """\
+Mon Jan 22 11:32:28.599 JST
+Input ACL (common): N/A (interface): N/A
+Output ACL: Test-ACL_1 """

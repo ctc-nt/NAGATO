@@ -1,0 +1,7 @@
+Value INPUT_COMMON (\S+)
+Value INPUT_INTERFACE (\S+)
+Value OUTPUT_ACL (\S+)
+
+Start
+ ^Input\s+ACL\s+\(common\):\s+${INPUT_COMMON}\s+\(interface\):\s+${INPUT_INTERFACE}(\s+)?$$
+ ^Output\s+ACL:\s+${OUTPUT_ACL}(\s+)?$$
