@@ -492,3 +492,10 @@ Wed Jan 24 06:51:58.760 UTC
 	      Number of LFA enabled interfaces 0, LFA revision 0
 	      Number of Per Prefix LFA enabled interfaces 0
 	      Number of neighbors forming in staggered mode 0, 0 full"""
+
+# show access-lists interface
+
+show_access_lists_interface = """\
+Mon Jan 22 11:32:28.599 JST
+Input ACL (common): N/A (interface): N/A
+Output ACL: Test-ACL_1 """
