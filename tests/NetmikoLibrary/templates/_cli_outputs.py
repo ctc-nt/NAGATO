@@ -295,3 +295,10 @@ show_access_lists_interface = """\
 Mon Jan 22 11:32:28.599 JST
 Input ACL (common): N/A (interface): N/A
 Output ACL: Test-ACL_1 """
+
+show_bgp_sessions = """\
+Fri Jan 26 00:49:33.172 UTC
+
+Neighbor        VRF                   Spk    AS   InQ  OutQ  NBRState     NSRState
+10.10.10.1      default                 0   100     0     0  Idle         None
+20.20.20.1      default                 0   100     0     0  Idle         None"""
