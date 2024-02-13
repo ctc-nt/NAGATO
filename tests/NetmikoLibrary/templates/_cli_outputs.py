@@ -296,7 +296,7 @@ Mon Jan 22 11:32:28.599 JST
 Input ACL (common): N/A (interface): N/A
 Output ACL: Test-ACL_1 """
 
-#show ospf vrf
+# show ospf vrf
 
 show_ospf_vrf = """\
 Tue Jan 23 17:55:39.055 JST
@@ -345,7 +345,7 @@ Tue Jan 23 17:55:39.055 JST
 	Number of Per Prefix LFA enabled interfaces 0
 	Number of neighbors forming in staggered mode 1, 0 full"""
 
-#show ospfv3 vrf
+# show ospfv3 vrf
 
 show_ospfv3_vrf = """\
 Tue Jan 23 18:03:08.550 JST
