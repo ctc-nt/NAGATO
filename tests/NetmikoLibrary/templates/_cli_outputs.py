@@ -500,9 +500,105 @@ Mon Jan 22 11:32:28.599 JST
 Input ACL (common): N/A (interface): N/A
 Output ACL: Test-ACL_1 """
 
+
 show_bgp_sessions = """\
 Fri Jan 26 00:49:33.172 UTC
 
 Neighbor        VRF                   Spk    AS   InQ  OutQ  NBRState     NSRState
 10.10.10.1      default                 0   100     0     0  Idle         None
 20.20.20.1      default                 0   100     0     0  Idle         None"""
+
+# show ospf interface
+
+show_ospf_interface = """\
+Wed Feb  7 15:42:30.033 JST
+
+Interfaces for OSPF 1
+
+TenGigE0/0/0/38 is up, line protocol is up 
+  Internet Address 10.10.10.2/24, Area 0, SID 0, Strict-SPF SID 0
+  Label stack Primary label 0 Backup label 0 SRTE label 0
+  Process ID 1, Router ID 2.2.2.2, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State WAITING, Priority 10, MTU 1500, MaxPktSz 1500
+  Forward reference No, Unnumbered no,  Bandwidth 10000000 
+  RIB LC sync Yes
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:00:009
+    Wait time before Designated router selection 00:00:20
+  Index 1/1, flood queue length 0
+  Next 0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  LS Ack List: current length 0, high water mark 0
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Multi-area interface Count is 0
+  Segment Routing Forwarding MPLS enabled: Yes
+Loopback1 is up, line protocol is up
+  Internet Address 2.2.2.2/32, Area 0, SID 0, Strict-SPF SID 0
+  Label stack Primary label 0 Backup label 0 SRTE label 0
+  Process ID 1, Router ID 1.1.1.1, Network Type LOOPBACK, Cost: 1
+  Loopback interface is treated as a stub Host
+  Transmit Delay is 1 sec, State WAITING, Priority 110, MTU 1500, MaxPktSz 1500
+  Forward reference No, Unnumbered no,  Bandwidth 10000000 
+  RIB LC sync Yes
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:00:009
+    Wait time before Designated router selection 00:00:20
+  Index 1/1, flood queue length 0
+  Next 0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  LS Ack List: current length 0, high water mark 0
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Multi-area interface Count is 0
+  Segment Routing Forwarding MPLS enabled: Yes"""
+
+# show ospfv3 interface
+
+show_ospfv3_interface = """\
+Wed Feb  7 15:43:50.379 JST
+
+TenGigE0/0/0/38 is up, line protocol is up
+  Link Local address fe80::4eec:fff:fee7:e3c6, Interface ID 42
+  Area 0, Process ID 1, Instance ID 0, Router ID 2.2.2.2
+  Network Type BROADCAST, Cost: 10
+  Bandwidth : 10000000
+  RIB LC sync Yes
+  Transmit Delay is 1 sec, State WAITING, MTU 1500,  Priority 10 
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:03
+    Wait time before Designated router selection 00:00:23
+  Index 1/1/1, flood queue length 0
+  Next 0(0)/0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Reference count is 2 
+TenGigE0/0/0/39 is up, line protocol is up
+  Link Local address fe80::4eec:fff:fee7:e3c6, Interface ID 42
+  Area 0, Process ID 1, Instance ID 0, Router ID 1.1.1.1
+  Network Type BROADCAST, Cost: 10
+  Bandwidth : 10000000
+  RIB LC sync Yes
+  Transmit Delay is 1 sec, State WAITING, MTU 1500,  Priority 110 
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:03
+    Wait time before Designated router selection 00:00:23
+  Index 1/1/1, flood queue length 0
+  Next 0(0)/0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Reference count is 2 """
