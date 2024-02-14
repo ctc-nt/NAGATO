@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_ospfv3_interface)
     print(f"\n{output=}")
 
-    assert output == [["TenGigE0/0/0/38", "fe80::4eec:fff:fee7:e3c6", "42", "0", "1", "0", "2.2.2.2", "10", "10000000", "10"]]
+    assert output == [['TenGigE0/0/0/38', 'fe80::4eec:fff:fee7:e3c6', '42', '0', '1', '0', '2.2.2.2', '10', '10000000', '10'], ['TenGigE0/0/0/39', 'fe80::4eec:fff:fee7:e3c6', '42', '0', '1', '0', '1.1.1.1', '10', '10000000', '110']]

@@ -11,6 +11,7 @@ Value PRIORITY (\d+)
 
 
 Start
+ ^\S+\s+is\s+(up|down),\s+line\s+protocol\s+is\s+(up|down) -> Continue.Record
  ^${INTERFACE}\s+is\s+(up|down),\s+line\s+protocol\s+is\s+(up|down)
  ^\s+Link\sLocal\saddress\s+${ADDRESS},\s+Interface\s+ID\s+${INTERFACE_ID}
  ^\s+Area\s+${AREA},\s+Process\sID\s${PROCESS_ID},\sInstance\sID\s${INSTANCE_ID},\sRouter\sID\s+${ROUTER_ID}
