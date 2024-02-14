@@ -8,7 +8,7 @@ Value PRIORITY (\d+)
 
 
 Start
- ^${INTERFACE}\s+is\s+(up|down),\s+line\s+protocol\s+is\s+(up|dpwn)
+ ^${INTERFACE}\s+is\s+(up|down),\s+line\s+protocol\s+is\s+(up|down)
  ^\s+Internet\sAddress\s+${ADDRESS},\s+Area\s+${AREA},\s+SID\s+\d+,\s+Strict-SPF\s+SID\s+\d+
  ^\s+Process\sID\s+${PROCESS_ID},\s+Router\sID\s+${ROUTER_ID},\s+Network\sType\s\S+,\s+Cost:\s+${COST}
  ^\s+Transmit\sDelay\sis\s+\d+\s+sec,\s+State\s+\S+,\s+Priority\s+${PRIORITY},\s+MTU\s+\d+,\s+MaxPktSz\s+\d+$$
