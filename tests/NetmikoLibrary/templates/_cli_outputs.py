@@ -289,6 +289,210 @@ Partner port:   0x8000, 0x0004
 Partner state:   Act   T/o   Agg   Sync   Coll   Dist  (Def) (Exp)
 Collector max delay:   65535"""
 
+show_ospf = """\
+Wed Jan 24 06:41:09.455 UTC
+ Routing Process "ospf 10" with ID 2.2.2.2
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Supports only single TOS(TOS0) routes
+ Supports opaque LSA
+ Router is not originating router-LSAs with maximum metric
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA interval 200 msecs. Minimum LSA arrival 100 msecs
+ LSA refresh interval 1800 seconds
+ Flood pacing interval 33 msecs. Retransmission pacing interval 66 msecs
+ Adjacency stagger enabled; initial (per area): 2, maximum: 64
+    Number of neighbors forming: 0, 0 full
+ Maximum number of configured interfaces 1024
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of opaque AS LSA 0. Checksum Sum 00000000
+ Number of DCbitless external and opaque AS LSA 0
+ Number of DoNotAge external and opaque AS LSA 0
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ External flood list length 0
+ SNMP trap is enabled
+ LSD not connected, revision 0
+ Segment Routing Global Block default (16000-23999), not allocated
+ Segment Routing Local Block, unknown
+ Strict-SPF capability is enabled
+    Area BACKBONE(0) (Inactive)
+	    Number of interfaces in this area is 0
+	    It is a NSSA area
+	    SPF algorithm executed 1 times
+	    Number of LSA 0.  Checksum Sum 00000000
+	    Number of opaque link LSA 0.  Checksum Sum 00000000
+	    Number of DCbitless LSA 0
+	    Number of indication LSA 0
+	    Number of DoNotAge LSA 0
+	    Flood list length 0
+	    Number of LFA enabled interfaces 0, LFA revision 0
+	    Number of Per Prefix LFA enabled interfaces 0
+	    Number of neighbors forming in staggered mode 0, 0 full
+    Area 10
+	    Number of interfaces in this area is 0
+	    It is a NSSA area
+	    SPF algorithm executed 1 times
+	    Number of LSA 0.  Checksum Sum 00000000
+	    Number of opaque link LSA 0.  Checksum Sum 00000000
+	    Number of DCbitless LSA 0
+	    Number of indication LSA 0
+	    Number of DoNotAge LSA 0
+	    Flood list length 0
+	    Number of LFA enabled interfaces 0, LFA revision 0
+	    Number of Per Prefix LFA enabled interfaces 0
+	    Number of neighbors forming in staggered mode 0, 0 full
+
+ Routing Process "ospf 20" with ID 2.2.2.2
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Supports only single TOS(TOS0) routes
+ Supports opaque LSA
+ Router is not originating router-LSAs with maximum metric
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA interval 200 msecs. Minimum LSA arrival 100 msecs
+ LSA refresh interval 1800 seconds
+ Flood pacing interval 33 msecs. Retransmission pacing interval 66 msecs
+ Adjacency stagger enabled; initial (per area): 2, maximum: 64
+    Number of neighbors forming: 0, 0 full
+ Maximum number of configured interfaces 1024
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of opaque AS LSA 0. Checksum Sum 00000000
+ Number of DCbitless external and opaque AS LSA 0
+ Number of DoNotAge external and opaque AS LSA 0
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ External flood list length 0
+ SNMP trap is enabled
+ LSD not connected, revision 0
+ Segment Routing Global Block default (16000-23999), not allocated
+ Segment Routing Local Block, unknown
+ Strict-SPF capability is enabled
+    Area BACKBONE(0) (Inactive)
+	    Number of interfaces in this area is 0
+	    It is a NSSA area
+	    SPF algorithm executed 1 times
+	    Number of LSA 0.  Checksum Sum 00000000
+	    Number of opaque link LSA 0.  Checksum Sum 00000000
+	    Number of DCbitless LSA 0
+	    Number of indication LSA 0
+	    Number of DoNotAge LSA 0
+	    Flood list length 0
+	    Number of LFA enabled interfaces 0, LFA revision 0
+	    Number of Per Prefix LFA enabled interfaces 0
+	    Number of neighbors forming in staggered mode 0, 0 full
+    Area 20
+	    Number of interfaces in this area is 0
+	    It is a NSSA area
+	    SPF algorithm executed 1 times
+	    Number of LSA 0.  Checksum Sum 00000000
+	    Number of opaque link LSA 0.  Checksum Sum 00000000
+	    Number of DCbitless LSA 0
+	    Number of indication LSA 0
+	    Number of DoNotAge LSA 0
+	    Flood list length 0
+	    Number of LFA enabled interfaces 0, LFA revision 0
+	    Number of Per Prefix LFA enabled interfaces 0
+	    Number of neighbors forming in staggered mode 0, 0 full"""
+
+show_ospfv3 = """\
+Wed Jan 24 06:51:58.760 UTC
+ Routing Process "ospfv3 10" with ID 2.2.2.2
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA arrival 100 msecs
+ LSA group pacing timer 240 secs
+ Interface flood pacing timer 33 msecs
+ Retransmission pacing timer 66 msecs
+ Maximum number of configured interfaces 1024
+ Maximum number of configured paths 64
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ Auto cost is enabled. Reference bandwidth 100
+ SNMP trap is enabled
+    Area BACKBONE(0) (Inactive)
+        Number of interfaces in this area is 0
+	      It is a NSSA area
+        SPF algorithm executed 0 times
+        Number of LSA 0. Checksum Sum 00000000
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+        Number of LFA enabled interfaces 0, LFA revision 0
+        Number of Per Prefix LFA enabled interfaces 0
+    Area 10
+	      Number of interfaces in this area is 0
+	      It is a NSSA area
+	      SPF algorithm executed 1 times
+	      Number of LSA 0.  Checksum Sum 00000000
+	      Number of opaque link LSA 0.  Checksum Sum 00000000
+	      Number of DCbitless LSA 0
+	      Number of indication LSA 0
+	      Number of DoNotAge LSA 0
+	      Flood list length 0
+	      Number of LFA enabled interfaces 0, LFA revision 0
+	      Number of Per Prefix LFA enabled interfaces 0
+	      Number of neighbors forming in staggered mode 0, 0 full
+
+ Routing Process "ospfv3 20" with ID 2.2.2.2
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA arrival 100 msecs
+ LSA group pacing timer 240 secs
+ Interface flood pacing timer 33 msecs
+ Retransmission pacing timer 66 msecs
+ Maximum number of configured interfaces 1024
+ Maximum number of configured paths 64
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ Auto cost is enabled. Reference bandwidth 100
+ SNMP trap is enabled
+    Area BACKBONE(0) (Inactive)
+        Number of interfaces in this area is 0
+	      It is a NSSA area
+        SPF algorithm executed 0 times
+        Number of LSA 0. Checksum Sum 00000000
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+        Number of LFA enabled interfaces 0, LFA revision 0
+        Number of Per Prefix LFA enabled interfaces 0
+    Area 20
+	      Number of interfaces in this area is 0
+	      It is a NSSA area
+	      SPF algorithm executed 1 times
+	      Number of LSA 0.  Checksum Sum 00000000
+	      Number of opaque link LSA 0.  Checksum Sum 00000000
+	      Number of DCbitless LSA 0
+	      Number of indication LSA 0
+	      Number of DoNotAge LSA 0
+	      Flood list length 0
+	      Number of LFA enabled interfaces 0, LFA revision 0
+	      Number of Per Prefix LFA enabled interfaces 0
+	      Number of neighbors forming in staggered mode 0, 0 full"""
+
 # show access-lists interface
 
 show_access_lists_interface = """\
@@ -381,3 +585,105 @@ Tue Jan 23 18:03:08.550 JST
         Flood list length 0
         Number of LFA enabled interfaces 0, LFA revision 0
         Number of Per Prefix LFA enabled interfaces 0"""
+
+show_bgp_sessions = """\
+Fri Jan 26 00:49:33.172 UTC
+
+Neighbor        VRF                   Spk    AS   InQ  OutQ  NBRState     NSRState
+10.10.10.1      default                 0   100     0     0  Idle         None
+20.20.20.1      default                 0   100     0     0  Idle         None"""
+
+# show ospf interface
+
+show_ospf_interface = """\
+Wed Feb  7 15:42:30.033 JST
+
+Interfaces for OSPF 1
+
+TenGigE0/0/0/38 is up, line protocol is up 
+  Internet Address 10.10.10.2/24, Area 0, SID 0, Strict-SPF SID 0
+  Label stack Primary label 0 Backup label 0 SRTE label 0
+  Process ID 1, Router ID 2.2.2.2, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State WAITING, Priority 10, MTU 1500, MaxPktSz 1500
+  Forward reference No, Unnumbered no,  Bandwidth 10000000 
+  RIB LC sync Yes
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:00:009
+    Wait time before Designated router selection 00:00:20
+  Index 1/1, flood queue length 0
+  Next 0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  LS Ack List: current length 0, high water mark 0
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Multi-area interface Count is 0
+  Segment Routing Forwarding MPLS enabled: Yes
+Loopback1 is up, line protocol is up
+  Internet Address 2.2.2.2/32, Area 0, SID 0, Strict-SPF SID 0
+  Label stack Primary label 0 Backup label 0 SRTE label 0
+  Process ID 1, Router ID 1.1.1.1, Network Type LOOPBACK, Cost: 1
+  Loopback interface is treated as a stub Host
+  Transmit Delay is 1 sec, State WAITING, Priority 110, MTU 1500, MaxPktSz 1500
+  Forward reference No, Unnumbered no,  Bandwidth 10000000 
+  RIB LC sync Yes
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:00:009
+    Wait time before Designated router selection 00:00:20
+  Index 1/1, flood queue length 0
+  Next 0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  LS Ack List: current length 0, high water mark 0
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Multi-area interface Count is 0
+  Segment Routing Forwarding MPLS enabled: Yes"""
+
+# show ospfv3 interface
+
+show_ospfv3_interface = """\
+Wed Feb  7 15:43:50.379 JST
+
+TenGigE0/0/0/38 is up, line protocol is up
+  Link Local address fe80::4eec:fff:fee7:e3c6, Interface ID 42
+  Area 0, Process ID 1, Instance ID 0, Router ID 2.2.2.2
+  Network Type BROADCAST, Cost: 10
+  Bandwidth : 10000000
+  RIB LC sync Yes
+  Transmit Delay is 1 sec, State WAITING, MTU 1500,  Priority 10 
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:03
+    Wait time before Designated router selection 00:00:23
+  Index 1/1/1, flood queue length 0
+  Next 0(0)/0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Reference count is 2 
+TenGigE0/0/0/39 is up, line protocol is up
+  Link Local address fe80::4eec:fff:fee7:e3c6, Interface ID 42
+  Area 0, Process ID 1, Instance ID 0, Router ID 1.1.1.1
+  Network Type BROADCAST, Cost: 10
+  Bandwidth : 10000000
+  RIB LC sync Yes
+  Transmit Delay is 1 sec, State WAITING, MTU 1500,  Priority 110 
+  No designated router on this network
+  No backup designated router on this network
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    Hello due in 00:00:03
+    Wait time before Designated router selection 00:00:23
+  Index 1/1/1, flood queue length 0
+  Next 0(0)/0(0)/0(0)
+  Last flood scan length is 0, maximum is 0
+  Last flood scan time is 0 msec, maximum is 0 msec
+  Neighbor Count is 0, Adjacent neighbor count is 0
+  Suppress hello for 0 neighbor(s)
+  Reference count is 2 """

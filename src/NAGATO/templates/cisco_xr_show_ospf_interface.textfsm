@@ -1,0 +1,15 @@
+Value INTERFACE (\S+)
+Value ADDRESS (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}\/\d+)
+Value AREA (\d+)
+Value PROCESS_ID (\d+)
+Value ROUTER_ID (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})
+Value COST (\d+)
+Value PRIORITY (\d+)
+
+
+Start
+ ^\S+\s+is\s+(up|down),\s+line\s+protocol\s+is\s+(up|down) -> Continue.Record
+ ^${INTERFACE}\s+is\s+(up|down),\s+line\s+protocol\s+is\s+(up|down)
+ ^\s+Internet\sAddress\s+${ADDRESS},\s+Area\s+${AREA},\s+SID\s+\d+,\s+Strict-SPF\s+SID\s+\d+
+ ^\s+Process\sID\s+${PROCESS_ID},\s+Router\sID\s+${ROUTER_ID},\s+Network\sType\s\S+,\s+Cost:\s+${COST}
+ ^\s+Transmit\sDelay\sis\s+\d+\s+sec,\s+State\s+\S+,\s+Priority\s+${PRIORITY},\s+MTU\s+\d+,\s+MaxPktSz\s+\d+$$
