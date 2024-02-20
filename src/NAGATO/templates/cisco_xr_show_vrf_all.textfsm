@@ -1,0 +1,7 @@
+Value VRF (\S+)
+Value RD ((not set|\d+:\d+))
+
+
+Start
+ ^VRF\s+RD\s+RT\s+AFI\s+SAFI
+ ^${VRF}\s+${RD}\s+.* -> Record

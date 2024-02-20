@@ -764,3 +764,12 @@ TenGigE0/0/0/39 is up, line protocol is up
   Neighbor Count is 0, Adjacent neighbor count is 0
   Suppress hello for 0 neighbor(s)
   Reference count is 2 """
+
+# show vrf all
+
+show_vrf_all = """\
+Tue Feb 20 15:20:51.163 JST
+VRF                  RD                  RT                         AFI   SAFI     
+MGMT                 not set            
+test1                1:100              
+test2                1:200              """
