@@ -765,6 +765,32 @@ TenGigE0/0/0/39 is up, line protocol is up
   Suppress hello for 0 neighbor(s)
   Reference count is 2 """
 
+# show route ipv4
+
+show_route_ipv4 = """\
+Codes: C - connected, S - static, R - RIP, B - BGP
+     D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+     N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+     E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+     i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+     ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+     U - per-user static route, o - ODR, L - local, G  - DAGR
+     A - access/subscriber, (!) - FRR Backup path
+  
+Gateway of last resort is 1.0.0.1 to network 0.0.0.0
+  
+S*   0.0.0.0/0 [1/0] via 1.0.0.1, 13:14:59
+C    1.0.0.0/16 is directly connected, 13:14:59, MgmtEth0/5/CPU0/0
+L    1.0.14.15/32 is directly connected, 13:14:59, MgmtEth0/5/CPU0/0
+O E2 5.2.5.0/24 [110/20] via 3.3.3.1, 00:04:20, GigabitEthernet0/3/0/0 
+O E2 6.2.6.0/24 [110/20] via 3.3.3.1, 00:04:20, GigabitEthernet0/3/0/0
+C    7.2.7.0/24 is directly connected, 00:04:20, GigabitEthernet0/3/0/7
+L    7.2.7.2/32 is directly connected, 00:04:20, GigabitEthernet0/3/0/7
+O E2 8.2.8.0/24 [110/20] via 3.3.3.1, 00:04:20, GigabitEthernet0/3/0/0
+  
+C    10.3.0.0/16 is directly connected, 13:14:59, GigabitEthernet0/0/0/0
+L    10.3.0.2/32 is directly connected, 13:14:59, GigabitEthernet0/0/0/0"""
+
 # show vrf all
 
 show_vrf_all = """\
