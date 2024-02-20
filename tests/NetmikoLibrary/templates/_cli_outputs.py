@@ -500,6 +500,168 @@ Mon Jan 22 11:32:28.599 JST
 Input ACL (common): N/A (interface): N/A
 Output ACL: Test-ACL_1 """
 
+# show ospf vrf
+
+show_ospf_vrf = """\
+Tue Jan 23 17:55:39.055 JST
+
+ VRF test active in Routing Process "ospf 10" with ID 2.2.2.2
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Trigger RP Switchover on detectable process restart (if NSR active)
+ Supports only single TOS(TOS0) routes
+ Supports opaque LSA
+ It is an area border router
+ Router is not originating router-LSAs with maximum metric
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA interval 200 msecs. Minimum LSA arrival 100 msecs
+ LSA refresh interval 1800 seconds
+ Flood pacing interval 33 msecs. Retransmission pacing interval 66 msecs
+ Adjacency stagger enabled; initial (per area): 2, maximum: 64
+    Number of neighbors forming: 1, 0 full
+ Maximum number of configured interfaces 1024
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of opaque AS LSA 0. Checksum Sum 00000000
+ Number of DCbitless external and opaque AS LSA 0
+ Number of DoNotAge external and opaque AS LSA 0
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ External flood list length 0
+ SNMP trap is disabled
+ LSD not connected, revision 0
+ Segment Routing Global Block default (16000-23999), not allocated
+ Segment Routing Local Block, unknown
+ Strict-SPF capability is enabled
+    Area BACKBONE(0) (Inactive)
+	Number of interfaces in this area is 1
+	SPF algorithm executed 1 times
+	Number of LSA 1.  Checksum Sum 0x00ac56
+	Number of opaque link LSA 0.  Checksum Sum 00000000
+	Number of DCbitless LSA 0
+	Number of indication LSA 0
+	Number of DoNotAge LSA 0
+	Flood list length 0
+	Number of LFA enabled interfaces 0, LFA revision 0
+	Number of Per Prefix LFA enabled interfaces 0
+	Number of neighbors forming in staggered mode 1, 0 full
+  
+   VRF test active in Routing Process "ospf 20" with ID 1.1.1.1
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Trigger RP Switchover on detectable process restart (if NSR active)
+ Supports only single TOS(TOS0) routes
+ Supports opaque LSA
+ It is an area border router
+ Router is not originating router-LSAs with maximum metric
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA interval 200 msecs. Minimum LSA arrival 100 msecs
+ LSA refresh interval 1800 seconds
+ Flood pacing interval 33 msecs. Retransmission pacing interval 66 msecs
+ Adjacency stagger enabled; initial (per area): 2, maximum: 64
+    Number of neighbors forming: 1, 0 full
+ Maximum number of configured interfaces 1024
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of opaque AS LSA 0. Checksum Sum 00000000
+ Number of DCbitless external and opaque AS LSA 0
+ Number of DoNotAge external and opaque AS LSA 0
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ External flood list length 0
+ SNMP trap is disabled
+ LSD not connected, revision 0
+ Segment Routing Global Block default (16000-23999), not allocated
+ Segment Routing Local Block, unknown
+ Strict-SPF capability is enabled
+    Area BACKBONE(0) (Inactive)
+	Number of interfaces in this area is 1
+	SPF algorithm executed 1 times
+	Number of LSA 1.  Checksum Sum 0x00ac56
+	Number of opaque link LSA 0.  Checksum Sum 00000000
+	Number of DCbitless LSA 0
+	Number of indication LSA 0
+	Number of DoNotAge LSA 0
+	Flood list length 0
+	Number of LFA enabled interfaces 0, LFA revision 0
+	Number of Per Prefix LFA enabled interfaces 0
+	Number of neighbors forming in staggered mode 1, 0 full"""
+
+# show ospfv3 vrf
+
+show_ospfv3_vrf = """\
+Tue Jan 23 18:03:08.550 JST
+
+ Routing Process "ospfv3 10" with ID 2.2.2.2 VRF test
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Trigger RP Switchover on detectable process restart (if NSR active)
+ It is an area border router
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA arrival 100 msecs
+ LSA group pacing timer 240 secs
+ Interface flood pacing timer 33 msecs
+ Retransmission pacing timer 66 msecs
+ Maximum number of configured interfaces 1024
+ Maximum number of configured paths 64
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ Auto cost is enabled. Reference bandwidth 100
+ SNMP trap is disabled
+    Area BACKBONE(0)
+        Number of interfaces in this area is 1
+        SPF algorithm executed 1 times
+        Number of LSA 3. Checksum Sum 0x012cd4
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+        Number of LFA enabled interfaces 0, LFA revision 0
+        Number of Per Prefix LFA enabled interfaces 0
+        
+
+ Routing Process "ospfv3 20" with ID 1.1.1.1 VRF test
+ Role: Primary Active
+ NSR (Non-stop routing) is Enabled
+ Trigger RP Switchover on detectable process restart (if NSR active)
+ It is an area border router
+ Initial SPF schedule delay 50 msecs
+ Minimum hold time between two consecutive SPFs 200 msecs
+ Maximum wait time between two consecutive SPFs 5000 msecs
+ Initial LSA throttle delay 50 msecs
+ Minimum hold time for LSA throttle 200 msecs
+ Maximum wait time for LSA throttle 5000 msecs
+ Minimum LSA arrival 100 msecs
+ LSA group pacing timer 240 secs
+ Interface flood pacing timer 33 msecs
+ Retransmission pacing timer 66 msecs
+ Maximum number of configured interfaces 1024
+ Maximum number of configured paths 64
+ Number of external LSA 0. Checksum Sum 00000000
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ Auto cost is enabled. Reference bandwidth 100
+ SNMP trap is disabled
+    Area BACKBONE(0)
+        Number of interfaces in this area is 1
+        SPF algorithm executed 1 times
+        Number of LSA 3. Checksum Sum 0x012cd4
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+        Number of LFA enabled interfaces 0, LFA revision 0
+        Number of Per Prefix LFA enabled interfaces 0"""
 
 show_bgp_sessions = """\
 Fri Jan 26 00:49:33.172 UTC
