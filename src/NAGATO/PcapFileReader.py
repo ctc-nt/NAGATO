@@ -34,7 +34,8 @@ class PcapFileReader:
         例えばpysharkで ``${var}.ip.src`` と表現される場合、可変長引数には ``ip`` , ``src`` の順に値を与えます。
 
         Example:
-        | ${ipaddr_src} = | `Get Packet Data` | ${1} | ip | src |
+        | ${capture} = | `Read Pcap File` | /path/to/pcap/file.pcap |
+        | ${ipaddr_src} = | `Get Packet Data` | ${capture} | ${1} | ip | src |
         | Should Be Equal | ${ipaddr_src} | 192.168.1.1 |
         """
 
@@ -66,7 +67,9 @@ class PcapFileReader:
         """``filepath`` に指定した場所のpcapファイルを読み込み、パケットの総数をintで返します
 
         Example:
-        | `Count Total Packets` | /path/to/pcap/file.pcap |
+        | ${capture} = | `Read Pcap File` | /path/to/pcap/file.pcap |
+        | ${packet_num} = | `Count Total Packets` | ${capture} |
+        | Length Should Be | ${packet_num} | 10000 |
         """
 
         if capture is None:
@@ -77,22 +80,20 @@ class PcapFileReader:
         return len(capture)
 
     @keyword
-    def expected_packet_should_exist(self, capture: FileCapture, **packet_info):
+    def expected_packet_should_exist(self, capture: FileCapture, **packet_info) -> None:
         """引数で渡された``key=value``を含むパケットが、pcapファイルに存在するか確認するキーワードです。
 
         データの指定はpysharkの指定方法に準拠していますが、本キーワードでは可変長引数のkeyには以下のように記述してください。
         ex) ip.src=192.168.1.1, icmp.type=8
 
         Example:
-        | `Expected Packet Should Exist` | ip.src=192.168.1.1 | ip.dst=172.16.1.1 |
+        | ${capture} = | `Read Pcap File` | /path/to/pcap/file.pcap |
+        | `Expected Packet Should Exist` | ${capture} | ip.src=192.168.1.1 | ip.dst=172.16.1.1 |
         """
 
-        # pcapファイルの総パケット数を取得
-        total_number = self.count_total_packets(capture)
+        capture.load_packets()
 
-        for number in range(total_number):
-            # Packetオブジェクトを取得
-            packet: Packet = capture[number]
+        for number, packet in enumerate(capture):
 
             # 引数によって指定されたパケットの条件数と``end_sign_count``の数が一致した場合、想定パケットは存在する
             # ここでは初期化を実施
@@ -110,12 +111,12 @@ class PcapFileReader:
                         end_sign_count += 1
 
                 except AttributeError:
-                    # 可変超引数に与えられた条件に1つでも一致しなかった場合、次のパケットの確認に移る
+                    # 可変長引数に与えられた条件に1つでも一致しなかった場合、次のパケットの確認に移る
                     continue
 
             if end_sign_count == len(packet_info):
                 logger.write(f"packet number: {number+1}\n{packet}")
-                # 可変朝引数に与えられた条件に全て一致した場合、全ての処理を終了する
+                # 可変長引数に与えられた条件に全て一致した場合、全ての処理を終了する
                 return
 
         raise Exception("想定パケットがpcapファイルに存在しません")
