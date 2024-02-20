@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_ospfv3_vrf)
     print(f"\n{output=}")
 
-    assert output == [["ospfv3 10", "2.2.2.2", "VRF test", "Active", "Enabled"]]
+    assert output == [['10', '2.2.2.2', 'test', 'Active', 'Enabled'], ['20', '1.1.1.1', 'test', 'Active', 'Enabled']]
