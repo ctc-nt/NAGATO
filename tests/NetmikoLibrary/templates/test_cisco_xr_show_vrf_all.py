@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_vrf_all)
     print(f"\n{output=}")
 
-    assert output == [['MGMT', 'not set'], ['test1', '1:100'], ['test2', '1:200']]
+    assert output == [["MGMT", "not set"], ["test1", "1:100"], ["test2", "1:200"]]

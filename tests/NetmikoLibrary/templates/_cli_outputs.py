@@ -603,7 +603,7 @@ TenGigE0/0/0/39 is up, line protocol is up
   Suppress hello for 0 neighbor(s)
   Reference count is 2 """
 
-# show vrf all 
+# show vrf all
 
 show_vrf_all = """\
 Tue Feb 20 15:20:51.163 JST
