@@ -64,7 +64,7 @@ class PcapFileReader:
 
     @keyword
     def count_total_packets(self, capture: FileCapture) -> int:
-        """``filepath`` に指定した場所のpcapファイルを読み込み、パケットの総数をintで返します
+        """``capture`` のpcapファイルが持つパケットの総数を返します。
 
         Example:
         | ${capture} = | `Read Pcap File` | /path/to/pcap/file.pcap |
