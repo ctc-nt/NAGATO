@@ -1,3 +1,4 @@
 from .IxNetworkLibrary import IxNetworkLibrary
 from .NetmikoLibrary import NetmikoLibrary
-from .NetworkUtils import NetworkUtils
+from .PcapFileReader import PcapFileReader
+from .SNMP import SNMP

@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11"]
-        platform: ["ubuntu-latest"]
+        platform: ["ubuntu-22.04"]
 
     runs-on: ${{ matrix.platform }}
     env:
@@ -23,6 +23,11 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: x64
 
+      - name: Install tshark
+        run: |
+          sudo apt update
+          sudo apt install -y tshark
+          
       - name: Install dependencies
         run: python3 -m pip install -r requirements.txt
 
