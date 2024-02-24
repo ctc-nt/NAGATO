@@ -799,3 +799,111 @@ VRF                  RD                  RT                         AFI   SAFI
 MGMT                 not set            
 test1                1:100              
 test2                1:200              """
+
+# show bgp ipv4 unicast advertised neighbor
+
+show_bgp_ipv4_unicast_advertised_neighbor = """\
+Thu Feb 22 15:01:35.293 JST
+175.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 216
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    ORG AS LOCAL
+    origin: EGP  neighbor as: 200  local pref: 120
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS LOCAL
+    origin: EGP  neighbor as: 200  local pref: 120
+    aspath: 200
+
+176.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 217
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.3
+    ORG AS
+    origin: EGP  neighbor as: 200
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS
+    origin: EGP  neighbor as: 200
+    aspath: 100 200
+
+177.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 213
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    MET ORG AS
+    origin: EGP  neighbor as: 200  metric: 120
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    MET ORG AS
+    origin: EGP  neighbor as: 200  metric: 120
+    aspath: 200
+
+178.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 214
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    ORG AS COMM
+    origin: EGP  neighbor as: 200
+    aspath: 200
+    community: 4713:10
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS COMM
+    origin: EGP  neighbor as: 200
+    aspath: 200
+    community: 4713:10
+
+179.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 215
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    ORG AS
+    origin: IGP  neighbor as: 200
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS
+    origin: IGP  neighbor as: 200
+    aspath: 200"""
+
+# show bgp ipv4 unicast
+
+show_bgp_ipv4_unicast = """\
+Thu Feb 22 14:57:37.624 JST
+BGP routing table entry for 175.3.0.0/24
+Versions:
+  Process           bRIB/RIB  SendTblVer
+  Speaker                 103          103
+Last Modified: Feb 22 14:55:46.633 for 00:01:51
+Paths: (1 available, best #1)
+  Advertised IPv4 Unicast paths to peers (in unique update groups):
+    100.100.0.2
+  Path #1: Received by speaker 0
+  Advertised IPv4 Unicast paths to peers (in unique update groups):
+    100.100.0.2
+  200
+    10.1.1.100 from 10.1.1.100 (192.0.0.1)
+      Origin EGP, metric 120, localpref 100, valid, external, best, group-best
+      Received Path ID 0, Local Path ID 1, version 103
+      Community: 4713:10
+      Origin-AS validity: (disabled)"""
