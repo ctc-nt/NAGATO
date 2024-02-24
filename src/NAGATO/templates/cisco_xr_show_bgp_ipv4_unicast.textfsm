@@ -17,6 +17,6 @@ Peers
 
 ASInfo
   ^\s\s${AS_NUMBER}
-  ^\s+Origin ${ORIGIN}, metric ${METRIC}, localpref ${LOCAL_PREF}, valid, external, best, group-best
+  ^\s+Origin ${ORIGIN}(, metric ${METRIC})?(, localpref ${LOCAL_PREF})?, valid, (external|internal), best, group-best
   ^\s+Community: ${COMMUNITY}
   ^\s*$$ -> Record Start

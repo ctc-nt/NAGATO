@@ -26,7 +26,7 @@ cisco_xr_show_lacp_io.textfsm, .*, cisco_xr, sh[[ow]] la[[cp]] i[[o]]
 cisco_xr_show_vrf_all.textfsm, .*, cisco_xr, sh[[ow]] vrf all
 cisco_xr_show_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] ospfv[[3]]
 cisco_xr_show_ospf.textfsm, .*, cisco_xr, sh[[ow]] ospf
-cisco_xr_show_bgp_ipv4_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast advertised neighbor (\d+.\d+.\d+.\d+/\d+)
+cisco_xr_show_bgp_ipv4_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast advertised neighbor (\d+.\d+.\d+.\d+)
 cisco_xr_show_bgp_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast (\d+.\d+.\d+.\d+/\d+)
 
 juniper_junos_show_chassis_routing-engine.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] ro[[uting-engine]]
