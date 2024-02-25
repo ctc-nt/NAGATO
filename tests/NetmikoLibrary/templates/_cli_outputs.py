@@ -936,3 +936,74 @@ B    110:1:4::/64
 B    110:1:5::/64 
       [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
 """
+
+# show bgp vrf all ipv6 unicast summary
+
+show_bgp_vrf_all_ipv6_unicast_summary = """\
+Sun Feb 25 21:42:25.511 JST
+
+VRF: Test_01
+------------
+BGP VRF Test_01, state: Active
+BGP Route Distinguisher: 651:1
+VRF ID: 0x60000008
+BGP router identifier 10.10.10.10, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800017   RD version: 603
+BGP main routing table version 603
+BGP NSR Initial initsync version 403 (Reached)
+BGP NSR/ISSU Sync-Group versions 603/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             603        603        603        603         603         603
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:110::100     0   110     106       8      603    0    0 00:01:58        100
+10:2:110::100     0   210     106       8      603    0    0 00:01:58        100
+
+
+VRF: Test_02
+------------
+BGP VRF Test_02, state: Active
+BGP Route Distinguisher: 652:2
+VRF ID: 0x60000009
+BGP router identifier 20.20.20.20, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800018   RD version: 403
+BGP main routing table version 603
+BGP NSR Initial initsync version 403 (Reached)
+BGP NSR/ISSU Sync-Group versions 603/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             603        603        603        603         603         603
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:120::100     0   120     107       8      603    0    0 00:02:03        100
+10:2:120::100     0   220     107       8      603    0    0 00:02:09        100
+"""
+
+# show route vrf xxx ipv6 unicast bgp
+
+show_route_vrf_ipv6_unicast_bgp = """\
+Sun Feb 25 21:45:15.755 JST
+
+B    110:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:2::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:3::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:4::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:5::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110"""
