@@ -799,3 +799,140 @@ VRF                  RD                  RT                         AFI   SAFI
 MGMT                 not set            
 test1                1:100              
 test2                1:200              """
+
+# show bgp vrf all ipv4 unicast summary
+
+show_bgp_vrf_all_ipv4_unicast_summary = """\
+Sun Feb 25 19:12:09.983 JST
+
+VRF: Test_01
+------------
+BGP VRF Test_01, state: Active
+BGP Route Distinguisher: 651:1
+VRF ID: 0x60000004
+BGP router identifier 10.10.10.10, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000013   RD version: 735
+BGP main routing table version 736
+BGP NSR Initial initsync version 659 (Not Reached)
+BGP NSR/ISSU Sync-Group versions 0/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             736        736        736        736         736           0
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10.1.110.100      0   110     105       6      736    0    0 00:01:04        100
+10.2.110.100      0   210     105       6      736    0    0 00:01:01        100
+
+
+VRF: Test_02
+------------
+BGP VRF Test_02, state: Active
+BGP Route Distinguisher: 652:2
+VRF ID: 0x60000005
+BGP router identifier 20.20.20.20, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000014   RD version: 736
+BGP main routing table version 736
+BGP NSR Initial initsync version 659 (Not Reached)
+BGP NSR/ISSU Sync-Group versions 0/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             736        736        736        736         736           0
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10.1.120.100      0   120     105       6      736    0    0 00:01:03        100
+10.2.120.100      0   220     105       6      736    0    0 00:01:04        100
+"""
+
+# show route vrf xxx ipv4 unicast bgp
+
+show_route_vrf_ipv4_unicast_bgp = """\
+B    110.1.0.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.1.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.2.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.3.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.4.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.5.0/24 [20/0] via 10.1.110.100, 00:03:46
+"""
+
+# show bgp vrf all ipv6 unicast summary
+
+show_bgp_vrf_all_ipv6_unicast_summary = """\
+Sun Feb 25 19:49:23.548 JST
+
+VRF: Test_01
+------------
+BGP VRF Test_01, state: Active
+BGP Route Distinguisher: 651:1
+VRF ID: 0x60000004
+BGP router identifier 10.10.10.10, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800013   RD version: 703
+BGP main routing table version 703
+BGP NSR Initial initsync version 603 (Reached)
+BGP NSR/ISSU Sync-Group versions 703/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             703        703        703        703         703         703
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:110::100     0   110     105       7      703    0    0 00:01:22        100
+10:2:110::100     0   210     106       7      703    0    0 00:01:36        100
+
+
+VRF: Test_02
+------------
+BGP VRF Test_02, state: Active
+BGP Route Distinguisher: 652:2
+VRF ID: 0x60000005
+BGP router identifier 20.20.20.20, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800014   RD version: 603
+BGP main routing table version 703
+BGP NSR Initial initsync version 603 (Reached)
+BGP NSR/ISSU Sync-Group versions 703/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             703        703        703        703         703         703
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:120::100     0   120     105       7      703    0    0 00:01:27        100
+10:2:120::100     0   220     106       7      703    0    0 00:01:34        100
+"""
+
+# show route vrf xxx ipv6 unicast bgp
+
+show_route_vrf_ipv6_unicast_bgp ="""\
+
+Sun Feb 25 19:49:33.798 JST
+
+B    110:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:2::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:3::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:4::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:5::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+"""
