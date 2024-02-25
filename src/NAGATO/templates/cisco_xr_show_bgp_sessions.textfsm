@@ -1,4 +1,4 @@
-Value NEIGHBOR (\d+.\d+.\d+.\d+)
+Value NEIGHBOR (\d+.\d+.\d+.\d+|[A-F0-9:]+)
 Value VRF (\S+)
 Value SPK (\d+)
 Value AS (\d+)

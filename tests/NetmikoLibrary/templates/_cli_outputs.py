@@ -667,8 +667,10 @@ show_bgp_sessions = """\
 Fri Jan 26 00:49:33.172 UTC
 
 Neighbor        VRF                   Spk    AS   InQ  OutQ  NBRState     NSRState
-10.10.10.1      default                 0   100     0     0  Idle         None
-20.20.20.1      default                 0   100     0     0  Idle         None"""
+10.1.1.100      default                 0   200     0     0  Established  None
+100.100.0.2     default                 0   100     0     0  Established  None
+10:1:1::100     default                 0   200     0     0  Idle         None
+100:100::2      default                 0   100     0     0  Idle         None"""
 
 # show ospf interface
 
