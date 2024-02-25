@@ -28,6 +28,8 @@ cisco_xr_show_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] ospfv[[3]]
 cisco_xr_show_ospf.textfsm, .*, cisco_xr, sh[[ow]] ospf
 cisco_xr_show_bgp_ipv4_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast advertised neighbor (\d+.\d+.\d+.\d+)
 cisco_xr_show_bgp_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast (\d+.\d+.\d+.\d+/\d+)
+cisco_xr_show_bgp_ipv6_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast advertised neighbor ([A-F0-9:]+)
+cisco_xr_show_bgp_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast ([A-F0-9:]+/\d+)
 
 juniper_junos_show_chassis_routing-engine.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] ro[[uting-engine]]
 juniper_junos_show_chassis_environment.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] en[[vironment]]

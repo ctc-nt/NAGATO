@@ -909,3 +909,107 @@ Paths: (1 available, best #1)
       Received Path ID 0, Local Path ID 1, version 103
       Community: 4713:10
       Origin-AS validity: (disabled)"""
+
+# show bgp ipv6 unicast
+
+show_bgp_ipv6_unicast = """\
+Sun Feb 25 16:32:43.126 JST
+BGP routing table entry for 175:3::/96
+Versions:
+  Process           bRIB/RIB  SendTblVer
+  Speaker                 211          211
+Last Modified: Feb 25 16:31:56.278 for 00:00:47
+Paths: (1 available, best #1)
+  Advertised IPv6 Unicast paths to peers (in unique update groups):
+    10:1:4::100                             
+  Path #1: Received by speaker 0
+  Advertised IPv6 Unicast paths to peers (in unique update groups):
+    10:1:4::100                             
+  200
+    100:100::1 from 100:100::1 (10.226.255.12)
+      Origin EGP, localpref 100, valid, internal, best, group-best
+      Received Path ID 0, Local Path ID 1, version 211"""
+
+# show bgp ipv6 unicast advertised neighbor
+
+show_bgp_ipv6_unicast_advertised_neighbor = """\
+
+175:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 102
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+176:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 103
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+177:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 104
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+178:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 105
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+179:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 106
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200"""
