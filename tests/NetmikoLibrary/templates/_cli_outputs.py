@@ -928,7 +928,8 @@ Paths: (1 available, best #1)
   200
     100:100::1 from 100:100::1 (10.226.255.12)
       Origin EGP, localpref 100, valid, internal, best, group-best
-      Received Path ID 0, Local Path ID 1, version 211"""
+      Received Path ID 0, Local Path ID 1, version 211
+"""
 
 # show bgp ipv6 unicast advertised neighbor
 
