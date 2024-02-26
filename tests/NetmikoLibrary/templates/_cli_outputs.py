@@ -919,7 +919,7 @@ Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
 
 # show route vrf xxx ipv6 unicast bgp
 
-show_route_vrf_ipv6_unicast_bgp ="""\
+show_route_vrf_ipv6_unicast_bgp = """\
 
 Sun Feb 25 19:49:33.798 JST
 
