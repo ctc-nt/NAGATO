@@ -22,4 +22,4 @@ def test_show_bgp_ipv4_unicast():
     output = re_table.ParseText(show_bgp_ipv4_unicast)
 
     print(f"\n{output=}")
-    assert output == [['175.3.0.0/24', '100.100.0.2', '200', 'EGP', '120', '100', '4713:10']]
+    assert output == [["175.3.0.0/24", "100.100.0.2", "200", "EGP", "120", "100", "4713:10"]]
