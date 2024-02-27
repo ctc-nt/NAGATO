@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_vrf)
     print(f"\n{output=}")
 
-    assert output == [['test1', '1000:1001', '1000:1002', 'IPV4', '1000:1001']]
+    assert output == [["test1", "1000:1001", "1000:1002", "IPV4", "1000:1001"]]

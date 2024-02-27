@@ -800,9 +800,9 @@ MGMT                 not set
 test1                1:100              
 test2                1:200              """
 
-# show vrf 
+# show vrf
 
-show_vrf =  """\
+show_vrf = """\
 Mon Feb 19 05:35:47.935 UTC
 VRF                  RD                  RT                         AFI   SAFI     
 test1                1000:1001          
