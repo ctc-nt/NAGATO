@@ -1,0 +1,11 @@
+Value VRF (\S+)
+Value RD (\S+|not set)
+Value IMPORT_RT (\S+)
+Value AFI (\S+)
+Value EXPORT_RT (\S+)
+
+Start
+ ^VRF\s+RD\s+RT\s+AFI\s+SAFI
+ ^${VRF}\s+${RD}\s+
+ ^\s+import\s+${IMPORT_RT}\s+${AFI}\s+\S+\s+$$
+ ^\s+export\s+${EXPORT_RT}\s+${AFI}\s+\S+\s+$$
