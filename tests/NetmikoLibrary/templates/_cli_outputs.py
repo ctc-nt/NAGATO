@@ -912,3 +912,117 @@ BGP neighbor is 100.100.0.2
   Local host: 100.100.0.1, Local port: 55522, IF Handle: 0x00000000
   Foreign host: 100.100.0.2, Foreign port: 179
   Last reset 00:00:00"""
+
+# show bgp ipv6 unicast neighbor
+
+show_bgp_ipv6_unicast_neighbors = """\
+Thu Feb 29 01:10:50.884 JST
+
+BGP neighbor is 10:1:4::100
+ Remote AS 300, local AS 100, external link
+ Remote router ID 193.0.0.1
+  BGP state = Established, up for 00:03:40
+  NSR State: NSR Ready
+  Last read 00:00:10, Last read before reset 00:00:00
+  Hold time is 90, keepalive interval is 30 seconds
+  Configured hold time: 180, keepalive: 60, min acceptable hold time: 3
+  Last write 00:00:26, attempted 19, written 19
+  Second last write 00:00:56, attempted 19, written 19
+  Last write before reset 00:00:00, attempted 0, written 0
+  Second last write before reset 00:00:00, attempted 0, written 0
+  Last write pulse rcvd  Feb 29 01:10:40.771 last full not set pulse count 21
+  Last write pulse rcvd before reset 00:00:00
+  Socket not armed for io, armed for read, armed for write
+  Last write thread event before reset 00:00:00, second last 00:00:00
+  Last KA expiry before reset 00:00:00, second last 00:00:00
+  Last KA error before reset 00:00:00, KA not sent 00:00:00
+  Last KA start before reset 00:00:00, second last 00:00:00
+  Precedence: internet
+  Non-stop routing is enabled
+  Enforcing first AS is enabled
+  Multi-protocol capability received
+  Neighbor capabilities:
+    Route refresh: advertised (old + new) and received (new)
+    4-byte AS: advertised
+    Address family IPv6 Unicast: advertised and received
+  Received 110 messages, 0 notifications, 0 in queue
+  Sent 9 messages, 0 notifications, 0 in queue
+  Minimum time between advertisement runs is 30 secs
+  Inbound message logging enabled, 3 messages buffered
+  Outbound message logging enabled, 3 messages buffered
+
+ For Address Family: IPv6 Unicast
+  BGP neighbor version 201
+  Update group: 0.2 Filter-group: 0.2  No Refresh request being processed
+  Route refresh request: received 0, sent 0
+  Policy for incoming advertisements is pass
+  Policy for outgoing advertisements is pass
+  100 accepted prefixes, 100 are bestpaths
+  Exact no. of prefixes denied : 0.
+  Cumulative no. of prefixes denied: 0. 
+  Prefix advertised 100, suppressed 0, withdrawn 0
+  An EoR was received during read-only mode
+  Last ack version 201, Last synced ack version 201
+  Outstanding version objects: current 0, max 1, refresh 0
+  Additional-paths operation: None
+  Advertise routes with local-label via Unicast SAFI
+
+  Connections established 1; dropped 0
+  Local host: 10:1:4::1, Local port: 46913, IF Handle: 0x04001780
+  Foreign host: 10:1:4::100, Foreign port: 179
+  Last reset 00:00:00
+
+BGP neighbor is 100:100::1
+ Remote AS 100, local AS 100, internal link
+ Remote router ID 10.226.255.12
+  BGP state = Established, up for 00:03:56
+  NSR State: NSR Ready
+  Last read 00:00:56, Last read before reset 00:00:00
+  Hold time is 180, keepalive interval is 60 seconds
+  Configured hold time: 180, keepalive: 60, min acceptable hold time: 3
+  Last write 00:00:56, attempted 19, written 19
+  Second last write 00:01:56, attempted 19, written 19
+  Last write before reset 00:00:00, attempted 0, written 0
+  Second last write before reset 00:00:00, attempted 0, written 0
+  Last write pulse rcvd  Feb 29 01:09:55.044 last full not set pulse count 10
+  Last write pulse rcvd before reset 00:00:00
+  Socket not armed for io, armed for read, armed for write
+  Last write thread event before reset 00:00:00, second last 00:00:00
+  Last KA expiry before reset 00:00:00, second last 00:00:00
+  Last KA error before reset 00:00:00, KA not sent 00:00:00
+  Last KA start before reset 00:00:00, second last 00:00:00
+  Precedence: internet
+  Non-stop routing is enabled
+  Multi-protocol capability received
+  Neighbor capabilities:
+    Route refresh: advertised (old + new) and received (old + new)
+    4-byte AS: advertised and received
+    Address family IPv6 Unicast: advertised and received
+  Received 6 messages, 0 notifications, 0 in queue
+  Sent 6 messages, 0 notifications, 0 in queue
+  Minimum time between advertisement runs is 0 secs
+  Inbound message logging enabled, 3 messages buffered
+  Outbound message logging enabled, 3 messages buffered
+
+ For Address Family: IPv6 Unicast
+  BGP neighbor version 201
+  Update group: 0.3 Filter-group: 0.1  No Refresh request being processed
+  NEXT_HOP is always this router
+  Route refresh request: received 0, sent 0
+  100 accepted prefixes, 100 are bestpaths
+  Exact no. of prefixes denied : 0.
+  Cumulative no. of prefixes denied: 0. 
+  Prefix advertised 100, suppressed 0, withdrawn 0
+  AIGP is enabled
+  An EoR was received during read-only mode
+  Last ack version 201, Last synced ack version 201
+  Outstanding version objects: current 0, max 1, refresh 0
+  Additional-paths operation: None
+  Send Multicast Attributes
+  Advertise routes with local-label via Unicast SAFI
+
+  Connections established 1; dropped 0
+  Local host: 100:100::2, Local port: 179, IF Handle: 0x00000000
+  Foreign host: 100:100::1, Foreign port: 41998
+  Last reset 00:00:00
+"""
