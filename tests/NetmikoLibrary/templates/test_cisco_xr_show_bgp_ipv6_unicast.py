@@ -21,5 +21,5 @@ def test_show_bgp_ipv6_unicast_network():
 
     output = re_table.ParseText(show_bgp_ipv6_unicast_network)
 
-    print(f"\n{output=}") 
-    assert output == [['175:3::/96', '10:1:4::100', '200', 'EGP', '', '100', '']]
+    print(f"\n{output=}")
+    assert output == [["175:3::/96", "10:1:4::100", "200", "EGP", "", "100", ""]]
