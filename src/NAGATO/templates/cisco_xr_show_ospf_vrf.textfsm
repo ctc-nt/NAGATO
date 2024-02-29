@@ -1,0 +1,12 @@
+Value VRF (\S+)
+Value PROCESS (\d+)
+Value ID (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})
+Value ROLE (Active|Standby)
+Value NSR_STATE (Disabled|Enabled)
+
+
+
+Start
+ ^\s+VRF\s+${VRF}\s+active\s+in\s+Routing\s+Process\s+"ospf\s+${PROCESS}"\s+with\s+ID\s+${ID}$$
+ ^\s+Role:\s+Primary\s+${ROLE}$$
+ ^\s+NSR\s+\(Non-stop routing\)\s+is\s+${NSR_STATE}$$ -> Record

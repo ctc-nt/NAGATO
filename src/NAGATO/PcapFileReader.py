@@ -33,7 +33,8 @@ class PcapFileReader:
         For example, when expressed as ``packet.ip.src`` in pyshark, the variable arguments are given values in the order of ``ip`` and ``src``.
 
         Example:
-        | ${ipaddr_src} = | `Get Packet Data` | ${1} | ip | src |
+        | ${capture} = | `Read Pcap File` | /path/to/pcap/file.pcap |
+        | ${ipaddr_src} = | `Get Packet Data` | ${capture} | ${1} | ip | src |
         | Should Be Equal | ${ipaddr_src} | 192.168.1.1 |
         """
 
@@ -63,8 +64,9 @@ class PcapFileReader:
         """Return amount of packet in ``capture`` .
 
         Example:
-        | ${number} = | `Count Total Packets` | /path/to/pcap/file.pcap |
-        | Should Be Equal | ${number} | 10000 |
+        | ${capture} = | `Read Pcap File` | /path/to/pcap/file.pcap |
+        | ${packet_num} = | `Count Total Packets` | ${capture} |
+        | Length Should Be | ${packet_num} | 10000 |
         """
 
         capture.load_packets()
@@ -82,14 +84,13 @@ class PcapFileReader:
         Note: Python code cannot give keyword including periods as keyword arguments. Use dictionary unpacking instead.
 
         Example:
-        | `Expected Packet Should Exist` | ip.src=192.168.1.1 | ip.dst=172.16.1.1 |
+        | ${capture} = | `Read Pcap File` | /path/to/pcap/file.pcap |
+        | `Packet Should Exist` | ${capture} | ip.src=192.168.1.1 | ip.dst=172.16.1.1 |
         """
 
-        total_number = self.count_total_packets(capture)
+        capture.load_packets()
 
-        for number in range(total_number):
-
-            packet: Packet = capture[number]
+        for number, packet in enumerate(capture):
 
             end_sign_count = 0
             for key, value in packet_info.items():
