@@ -58,4 +58,4 @@ def test_expected_packet_should_exist():
 
     packet_info = {"ip.src": ip_src, "ip.dst": ip_dst}
 
-    pfr.expected_packet_should_exist(capture, **packet_info)
+    pfr.packet_should_exist(capture, **packet_info)
