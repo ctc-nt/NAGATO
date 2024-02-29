@@ -12,6 +12,7 @@ from pysnmp.hlapi import (
 from robot.api import logger
 from robot.api.deco import keyword, library
 
+
 @library(scope="SUITE", version="1.0.0")
 class SNMP:
     """A library providing keywords for operations relevant to SNMP."""
