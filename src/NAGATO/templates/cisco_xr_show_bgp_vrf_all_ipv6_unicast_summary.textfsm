@@ -1,0 +1,21 @@
+Value Filldown VRF_NAME (\S+)
+Value Filldown VRF_STATE (\S+)
+Value NEIGHBOR ([a-zA-Z0-9:/]+)
+Value SPK (\d+)
+Value AS (\d+)
+Value PCVD (\d+)
+Value SENT (\d+)
+Value TBL_VER (\d+)
+Value IN_Q (\d+)
+Value OUT_Q (\d+)
+Value ST_PFXRCD (\d+)
+
+
+
+Start
+  ^VRF: ${VRF_NAME}
+  ^BGP VRF \S+, state: ${VRF_STATE}
+  ^Neighbor\s+Spk\s+AS MsgRcvd MsgSent\s+TblVer\s+InQ OutQ\s+Up/Down\s+St/PfxRcd
+  ^${NEIGHBOR}\s+${SPK}\s+${AS}\s+${PCVD}\s+${SENT}\s+${TBL_VER}\s+${IN_Q}\s+${OUT_Q} \d+:\d+:\d+\s+${ST_PFXRCD} -> Record
+
+EOF
