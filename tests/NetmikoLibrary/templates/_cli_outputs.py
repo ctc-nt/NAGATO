@@ -890,7 +890,7 @@ Received Path ID 0, Local Path ID 1, version 215
 
 # show bgp ipv4 unicast
 
-show_bgp_ipv4_unicast = """\
+show_bgp_ipv4_unicast_network = """\
 Thu Feb 22 14:57:37.624 JST
 BGP routing table entry for 175.3.0.0/24
 Versions:
@@ -912,7 +912,7 @@ Paths: (1 available, best #1)
 
 # show bgp ipv6 unicast
 
-show_bgp_ipv6_unicast = """\
+show_bgp_ipv6_unicast_network = """\
 Sun Feb 25 16:32:43.126 JST
 BGP routing table entry for 175:3::/96
 Versions:

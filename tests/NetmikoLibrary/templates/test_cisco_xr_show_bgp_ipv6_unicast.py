@@ -4,11 +4,11 @@ import pytest
 
 # cli_outputs.pyからテストデータを取得
 # 将来, AMIOSのバージョンアップに伴ってCLIの出力が変わった場合に, 変更するファイルが1つだけで済むようにする
-from _cli_outputs import show_bgp_ipv6_unicast
+from _cli_outputs import show_bgp_ipv6_unicast_network
 from textfsm import TextFSM
 
 # テスト対象テンプレートファイル
-template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_bgp_ipv6_unicast.textfsm")
+template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_bgp_ipv6_unicast_network.textfsm")
 
 # テンプレートファイルを読み込む
 with open(template_path, mode="r") as f:
@@ -16,10 +16,10 @@ with open(template_path, mode="r") as f:
 
 
 @pytest.mark.textfsm
-def test_show_bgp_ipv6_unicast():
+def test_show_bgp_ipv6_unicast_network():
     """Parse可能なこと"""
 
-    output = re_table.ParseText(show_bgp_ipv6_unicast)
+    output = re_table.ParseText(show_bgp_ipv6_unicast_network)
 
     print(f"\n{output=}") 
     assert output == [['175:3::/96', '10:1:4::100', '200', 'EGP', '', '100', '']]
