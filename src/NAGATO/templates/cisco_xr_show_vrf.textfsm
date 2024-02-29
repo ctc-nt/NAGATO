@@ -1,8 +1,8 @@
 Value VRF (\S+)
-Value RD (\S+|not set)
-Value IMPORT_RT (\S+)
+Value RD ([\d:]+|not set)
+Value IMPORT_RT ([\d:]+|not set)
 Value AFI (\S+)
-Value EXPORT_RT (\S+)
+Value EXPORT_RT ([\d:]+|not set)
 
 Start
  ^VRF\s+RD\s+RT\s+AFI\s+SAFI
