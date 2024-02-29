@@ -1,0 +1,22 @@
+Value Filldown PROTOCOL (\S+|\S+\s\S+)
+Value Filldown NETWORK ([a-zA-Z0-9:/]+)
+Value Filldown PREFIX_LENGTH (\d+)
+Value DISTANCE (\d+)
+Value METRIC (\d+)
+Value NEXT_HOP ([a-zA-Z0-9:/]+)
+Value UPTIME (\S+)
+Value INTERFACE (\S+)
+
+
+Start
+  ^Gateway\s+of\s+last\s+resort.*
+  ^${PROTOCOL}\s+${NETWORK}/${PREFIX_LENGTH}\s+is\sdirectly\sconnected,
+  ^\s+${UPTIME},\s+${INTERFACE} -> Record
+  ^${PROTOCOL}\s+${NETWORK}/${PREFIX_LENGTH} 
+  ^\s+(?:\[${DISTANCE}/${METRIC}\])\s+via\s+${NEXT_HOP},\s+${UPTIME},\s+${INTERFACE} -> Record
+  ^${PROTOCOL}\s+${NETWORK}/${PREFIX_LENGTH} 
+  ^\s+(?:\[${DISTANCE}/${METRIC}\])\s+via\s+${NEXT_HOP},\s+${UPTIME} -> Record
+  ^\s*$$
+  ^\S+\s+\S+\s+\d+\s+\d+:\d+:\d+
+
+EOF

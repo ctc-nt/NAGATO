@@ -4,11 +4,11 @@ import pytest
 
 # cli_outputs.pyからテストデータを取得
 # 将来, AMIOSのバージョンアップに伴ってCLIの出力が変わった場合に, 変更するファイルが1つだけで済むようにする
-from _cli_outputs import show_bgp_sessions
+from _cli_outputs import show_bgp_ipv4_unicast
 from textfsm import TextFSM
 
 # テスト対象テンプレートファイル
-template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_bgp_sessions.textfsm")
+template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_bgp_ipv4_unicast.textfsm")
 
 # テンプレートファイルを読み込む
 with open(template_path, mode="r") as f:
@@ -19,6 +19,8 @@ with open(template_path, mode="r") as f:
 def test_show_ip():
     """Parse可能なこと"""
 
-    output = re_table.ParseText(show_bgp_sessions)
+    output = re_table.ParseText(show_bgp_ipv4_unicast)
     print(f"\n{output=}")
-    assert output == [["10.1.1.100", "default", "0", "200", "0", "0", "Established", "None"], ["100.100.0.2", "default", "0", "100", "0", "0", "Established", "None"], ["10:1:1::100", "default", "0", "200", "0", "0", "Idle", "None"], ["100:100::2", "default", "0", "100", "0", "0", "Idle", "None"]]
+    print(len(output))
+
+    assert output == [["*>", "10.1.2.0/24", "0.0.0.0"], ["*>", "10.1.3.0/24", "0.0.0.0"], ["*>", "40.0.0.0/24", "10.1.1.100"], ["*>", "50.0.0.0/24", "10.1.1.100"], ["*>", "200.0.0.0/24", "10.1.1.100"], ["*>", "201.0.0.0/24", "10.1.1.100"]]
