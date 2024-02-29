@@ -802,6 +802,109 @@ MGMT                 not set
 test1                1:100              
 test2                1:200              """
 
+# show route ipv4 unicast
+
+show_route_ipv4_unicast = """\
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+C    10.1.1.0/24 is directly connected, 00:14:16, TenGigE0/0/0/0
+L    10.1.1.1/32 is directly connected, 00:14:16, TenGigE0/0/0/0
+C    10.1.2.0/24 is directly connected, 00:14:16, Loopback3
+L    10.1.2.1/32 is directly connected, 00:14:16, Loopback3
+C    10.1.3.0/24 is directly connected, 00:14:16, Loopback4
+L    10.1.3.1/32 is directly connected, 00:14:16, Loopback4
+L    10.226.255.12/32 is directly connected, 4d19h, Loopback0
+S    40.0.0.0/24 [1/0] via 10.1.1.100, 00:14:15
+S    50.0.0.0/24 [1/0] via 10.1.1.100, 00:14:15
+C    100.100.0.0/24 is directly connected, 00:14:11, TenGigE0/0/0/39
+L    100.100.0.1/32 is directly connected, 00:14:11, TenGigE0/0/0/39
+L    124.245.240.16/32 is directly connected, 4d19h, Loopback2
+O    200.0.0.0/24 [110/1] via 10.1.1.100, 00:14:06, TenGigE0/0/0/0
+O    201.0.0.0/24 [110/1] via 10.1.1.100, 00:14:06, TenGigE0/0/0/0
+"""
+
+# show bgp ipv4 unicast
+
+show_bgp_ipv4_unicast = """\
+Wed Jan 17 12:06:51.111 JST
+BGP router identifier 10.226.255.12, local AS number 100
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 214
+BGP main routing table version 214
+BGP NSR Initial initsync version 112 (Reached)
+BGP NSR/ISSU Sync-Group versions 214/0
+BGP scan interval 60 secs
+
+Status codes: s suppressed, d damped, h history, * valid, > best
+              i - internal, r RIB-failure, S stale, N Nexthop-discard
+Origin codes: i - IGP, e - EGP, ? - incomplete
+   Network            Next Hop            Metric LocPrf Weight Path
+*> 10.1.2.0/24        0.0.0.0                  0         32768 ?
+*> 10.1.3.0/24        0.0.0.0                  0         32768 ?
+*> 40.0.0.0/24        10.1.1.100               0         32768 ?
+*> 50.0.0.0/24        10.1.1.100               0         32768 ?
+*> 200.0.0.0/24       10.1.1.100               1         32768 ?
+*> 201.0.0.0/24       10.1.1.100               1         32768 ?
+"""
+
+# show route ipv6 unicast
+
+show_route_ipv6_unicast = """\
+C    10:1:2::/64 is directly connected,
+      00:03:13, Loopback3
+C    10:1:3::/64 is directly connected,
+      00:03:13, Loopback4
+S    40::/64 
+      [1/0] via 10:1:1::100, 00:03:13
+S    50::/64 
+      [1/0] via 10:1:1::100, 00:03:13
+O    200::/64 
+      [110/1] via fe80::211:1ff:fe00:1, 00:03:10, TenGigE0/0/0/0
+O    200:0:0:1::/64 
+      [110/1] via fe80::211:1ff:fe00:1, 00:03:10, TenGigE0/0/0/0
+"""
+
+# show bgp ipv6 unicast
+
+show_bgp_ipv6_unicast = """\
+Wed Jan 17 12:34:25.299 JST
+BGP router identifier 10.226.255.12, local AS number 100
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800000   RD version: 209
+BGP main routing table version 209
+BGP NSR Initial initsync version 109 (Reached)
+BGP NSR/ISSU Sync-Group versions 209/0
+BGP scan interval 60 secs
+
+Status codes: s suppressed, d damped, h history, * valid, > best
+              i - internal, r RIB-failure, S stale, N Nexthop-discard
+Origin codes: i - IGP, e - EGP, ? - incomplete
+   Network            Next Hop            Metric LocPrf Weight Path
+*> 10:1:1::/64        ::                       0         32768 ?
+*> 10:1:2::/64        ::                       0         32768 ?
+*> 10:1:3::/64        ::                       0         32768 ?
+*> 40::/64            10:1:1::100              0         32768 ?
+*> 50::/64            10:1:1::100              0         32768 ?
+*> 200::/64           fe80::211:1ff:fe00:1
+                                               1         32768 ?
+*> 200:0:0:1::/64     fe80::211:1ff:fe00:1
+                                               1         32768 ?
+"""
+
 # show bgp ipv4 unicast advertised neighbor
 
 show_bgp_ipv4_unicast_advertised_neighbor = """\
