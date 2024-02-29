@@ -1,0 +1,22 @@
+Value NETWORK ([A-F0-9:]+/\d+)
+Value NEXT_HOP ([A-F0-9:]+)
+Value AS_NUMBER (\d+)
+Value ORIGIN (\S+)
+Value METRIC (\d+)
+Value LOCAL_PREF (\d+)
+Value COMMUNITY (\d+:\d+)
+
+
+Start
+  ^BGP routing table entry for ${NETWORK}
+  ^\s+Advertised IPv6 Unicast paths to peers \(in unique update groups\): -> Peers
+
+Peers
+  ^\s+${NEXT_HOP}(\s+)
+  ^\s+Advertised IPv6 Unicast paths to peers \(in unique update groups\): -> ASInfo
+
+ASInfo
+  ^\s\s${AS_NUMBER}
+  ^\s+Origin ${ORIGIN}(, metric ${METRIC})?(, localpref ${LOCAL_PREF})?, valid, (external|internal), best, group-best
+  ^\s+Community: ${COMMUNITY}
+  ^\s*$$ -> Record Start

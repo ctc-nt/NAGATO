@@ -3,6 +3,10 @@
 
 apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
 
+cisco_xr_show_bgp_ipv4_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast advertised neighbor (\d+.\d+.\d+.\d+)
+cisco_xr_show_bgp_ipv6_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast advertised neighbor ([A-F0-9:]+)
+cisco_xr_show_bgp_ipv4_unicast_network.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast (\d+.\d+.\d+.\d+/\d+)
+cisco_xr_show_bgp_ipv6_unicast_network.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast ([A-F0-9:]+/\d+)
 cisco_xr_show_ethernet_oam_event-log.textfsm, .*, cisco_xr, sh[[ow]] ethern[[et]] oam event-log
 cisco_xr_show_access-lists_interface.textfsm, .*, cisco_xr, sh[[ow]] ac[[cess-lists]] int[[erface]]
 cisco_xr_show_protocols_ipv6_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] proto[[cols]] ipv6 o[[spfv3]]
@@ -12,6 +16,10 @@ cisco_xr_show_protocols_ipv4_ospf.textfsm, .*, cisco_xr, sh[[ow]] proto[[cols]] 
 cisco_xr_show_route_ipv4_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv4 sum[[mary]]
 cisco_xr_show_route_ipv6_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv6 sum[[mary]]
 cisco_xr_show_route_vrf_all_ipv4.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] vrf all ipv4
+cisco_xr_show_route_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv4 unicast
+cisco_xr_show_route_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6 unicast
+cisco_xr_show_bgp_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast
+cisco_xr_show_bgp_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast
 cisco_xr_show_ntp_associations.textfsm, .*, cisco_xr, sh[[ow]] nt[[p]] a[[ssociations]]
 cisco_xr_show_ospfv3_interface.textfsm, .*, cisco_xr, sh[[ow]] ospfv3 int[[erface]]
 cisco_xr_show_ospf_interface.textfsm, .*, cisco_xr, sh[[ow]] ospf int[[erface]]
