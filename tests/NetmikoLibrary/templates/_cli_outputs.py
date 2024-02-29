@@ -1014,3 +1014,73 @@ Received Path ID 0, Local Path ID 1, version 106
     ORG AS 
     origin: EGP  neighbor as: 200  
     aspath: 200"""
+
+# show vrf
+
+show_vrf = """\
+Mon Feb 19 05:35:47.935 UTC
+VRF                  RD                  RT                         AFI   SAFI     
+test1                1000:1001          
+                                         import  1000:1002           IPV4  Unicast  
+                                         export  1000:1001           IPV4  Unicast """
+
+# show route vrf all ipv4
+
+show_route_vrf_all_ipv4 = """\
+VRF: MGMT
+
+
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+C    172.17.17.0/24 is directly connected, 19:33:12, MgmtEth0/RSP0/CPU0/0
+L    172.17.17.91/32 is directly connected, 19:33:12, MgmtEth0/RSP0/CPU0/0
+C    172.31.0.0/24 is directly connected, 19:31:33, MgmtEth0/RSP1/CPU0/0
+L    172.31.0.104/32 is directly connected, 19:31:33, MgmtEth0/RSP1/CPU0/0
+
+VRF: test1
+
+
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+C    50.10.100.0/24 is directly connected, 00:02:24, Loopback1001
+L    50.10.100.1/32 is directly connected, 00:02:24, Loopback1001
+B    50.10.200.0/24 is directly connected, 00:00:21, Loopback1002 (nexthop in vrf test2)
+
+VRF: test2
+
+
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+B    50.10.100.0/24 is directly connected, 00:00:21, Loopback1001 (nexthop in vrf test1)
+C    192.0.0.0/8 is directly connected, 1w3d, EINT0/RSP0/CPU0
+                 is directly connected, 1w3d, EINT0/RSP1/CPU0"""
