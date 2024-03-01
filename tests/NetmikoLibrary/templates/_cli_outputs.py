@@ -667,8 +667,10 @@ show_bgp_sessions = """\
 Fri Jan 26 00:49:33.172 UTC
 
 Neighbor        VRF                   Spk    AS   InQ  OutQ  NBRState     NSRState
-10.10.10.1      default                 0   100     0     0  Idle         None
-20.20.20.1      default                 0   100     0     0  Idle         None"""
+10.1.1.100      default                 0   200     0     0  Established  None
+100.100.0.2     default                 0   100     0     0  Established  None
+10:1:1::100     default                 0   200     0     0  Idle         None
+100:100::2      default                 0   100     0     0  Idle         None"""
 
 # show ospf interface
 
@@ -1026,3 +1028,595 @@ BGP neighbor is 100:100::1
   Foreign host: 100:100::1, Foreign port: 41998
   Last reset 00:00:00
 """
+# show bgp vrf all ipv4 unicast summary
+
+show_bgp_vrf_all_ipv4_unicast_summary = """\
+Sun Feb 25 19:12:09.983 JST
+
+VRF: Test_01
+------------
+BGP VRF Test_01, state: Active
+BGP Route Distinguisher: 651:1
+VRF ID: 0x60000004
+BGP router identifier 10.10.10.10, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000013   RD version: 735
+BGP main routing table version 736
+BGP NSR Initial initsync version 659 (Not Reached)
+BGP NSR/ISSU Sync-Group versions 0/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             736        736        736        736         736           0
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10.1.110.100      0   110     105       6      736    0    0 00:01:04        100
+10.2.110.100      0   210     105       6      736    0    0 00:01:01        100
+
+
+VRF: Test_02
+------------
+BGP VRF Test_02, state: Active
+BGP Route Distinguisher: 652:2
+VRF ID: 0x60000005
+BGP router identifier 20.20.20.20, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000014   RD version: 736
+BGP main routing table version 736
+BGP NSR Initial initsync version 659 (Not Reached)
+BGP NSR/ISSU Sync-Group versions 0/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             736        736        736        736         736           0
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10.1.120.100      0   120     105       6      736    0    0 00:01:03        100
+10.2.120.100      0   220     105       6      736    0    0 00:01:04        100
+"""
+
+# show route vrf xxx ipv4 unicast bgp
+
+show_route_vrf_ipv4_unicast_bgp = """\
+B    110.1.0.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.1.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.2.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.3.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.4.0/24 [20/0] via 10.1.110.100, 00:03:46
+B    110.1.5.0/24 [20/0] via 10.1.110.100, 00:03:46
+"""
+
+# show bgp vrf all ipv6 unicast summary
+
+show_bgp_vrf_all_ipv6_unicast_summary = """\
+Sun Feb 25 19:49:23.548 JST
+
+VRF: Test_01
+------------
+BGP VRF Test_01, state: Active
+BGP Route Distinguisher: 651:1
+VRF ID: 0x60000004
+BGP router identifier 10.10.10.10, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800013   RD version: 703
+BGP main routing table version 703
+BGP NSR Initial initsync version 603 (Reached)
+BGP NSR/ISSU Sync-Group versions 703/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             703        703        703        703         703         703
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:110::100     0   110     105       7      703    0    0 00:01:22        100
+10:2:110::100     0   210     106       7      703    0    0 00:01:36        100
+
+
+VRF: Test_02
+------------
+BGP VRF Test_02, state: Active
+BGP Route Distinguisher: 652:2
+VRF ID: 0x60000005
+BGP router identifier 20.20.20.20, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800014   RD version: 603
+BGP main routing table version 703
+BGP NSR Initial initsync version 603 (Reached)
+BGP NSR/ISSU Sync-Group versions 703/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             703        703        703        703         703         703
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:120::100     0   120     105       7      703    0    0 00:01:27        100
+10:2:120::100     0   220     106       7      703    0    0 00:01:34        100
+"""
+
+# show route vrf xxx ipv6 unicast bgp
+
+show_route_vrf_ipv6_unicast_bgp = """\
+
+Sun Feb 25 19:49:33.798 JST
+
+B    110:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:2::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:3::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:4::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+B    110:1:5::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:01:30, TenGigE0/0/0/0.110
+"""
+
+# show bgp vrf all ipv6 unicast summary
+
+show_bgp_vrf_all_ipv6_unicast_summary = """\
+Sun Feb 25 21:42:25.511 JST
+
+VRF: Test_01
+------------
+BGP VRF Test_01, state: Active
+BGP Route Distinguisher: 651:1
+VRF ID: 0x60000008
+BGP router identifier 10.10.10.10, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800017   RD version: 603
+BGP main routing table version 603
+BGP NSR Initial initsync version 403 (Reached)
+BGP NSR/ISSU Sync-Group versions 603/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             603        603        603        603         603         603
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:110::100     0   110     106       8      603    0    0 00:01:58        100
+10:2:110::100     0   210     106       8      603    0    0 00:01:58        100
+
+
+VRF: Test_02
+------------
+BGP VRF Test_02, state: Active
+BGP Route Distinguisher: 652:2
+VRF ID: 0x60000009
+BGP router identifier 20.20.20.20, local AS number 100
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800018   RD version: 403
+BGP main routing table version 603
+BGP NSR Initial initsync version 403 (Reached)
+BGP NSR/ISSU Sync-Group versions 603/0
+
+BGP is operating in STANDALONE mode.
+
+
+Process       RcvTblVer   bRIB/RIB   LabelVer  ImportVer  SendTblVer  StandbyVer
+Speaker             603        603        603        603         603         603
+
+Neighbor        Spk    AS MsgRcvd MsgSent   TblVer  InQ OutQ  Up/Down  St/PfxRcd
+10:1:120::100     0   120     107       8      603    0    0 00:02:03        100
+10:2:120::100     0   220     107       8      603    0    0 00:02:09        100
+"""
+
+# show route vrf xxx ipv6 unicast bgp
+
+show_route_vrf_ipv6_unicast_bgp = """\
+Sun Feb 25 21:45:15.755 JST
+
+B    110:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:1::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:2::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:3::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:4::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110
+B    110:1:5::/64 
+      [20/0] via fe80::211:1ff:fe00:1, 00:04:45, TenGigE0/0/0/0.110"""
+# show route ipv4 unicast
+
+show_route_ipv4_unicast = """\
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+C    10.1.1.0/24 is directly connected, 00:14:16, TenGigE0/0/0/0
+L    10.1.1.1/32 is directly connected, 00:14:16, TenGigE0/0/0/0
+C    10.1.2.0/24 is directly connected, 00:14:16, Loopback3
+L    10.1.2.1/32 is directly connected, 00:14:16, Loopback3
+C    10.1.3.0/24 is directly connected, 00:14:16, Loopback4
+L    10.1.3.1/32 is directly connected, 00:14:16, Loopback4
+L    10.226.255.12/32 is directly connected, 4d19h, Loopback0
+S    40.0.0.0/24 [1/0] via 10.1.1.100, 00:14:15
+S    50.0.0.0/24 [1/0] via 10.1.1.100, 00:14:15
+C    100.100.0.0/24 is directly connected, 00:14:11, TenGigE0/0/0/39
+L    100.100.0.1/32 is directly connected, 00:14:11, TenGigE0/0/0/39
+L    124.245.240.16/32 is directly connected, 4d19h, Loopback2
+O    200.0.0.0/24 [110/1] via 10.1.1.100, 00:14:06, TenGigE0/0/0/0
+O    201.0.0.0/24 [110/1] via 10.1.1.100, 00:14:06, TenGigE0/0/0/0
+"""
+
+# show bgp ipv4 unicast
+
+show_bgp_ipv4_unicast = """\
+Wed Jan 17 12:06:51.111 JST
+BGP router identifier 10.226.255.12, local AS number 100
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0000000   RD version: 214
+BGP main routing table version 214
+BGP NSR Initial initsync version 112 (Reached)
+BGP NSR/ISSU Sync-Group versions 214/0
+BGP scan interval 60 secs
+
+Status codes: s suppressed, d damped, h history, * valid, > best
+              i - internal, r RIB-failure, S stale, N Nexthop-discard
+Origin codes: i - IGP, e - EGP, ? - incomplete
+   Network            Next Hop            Metric LocPrf Weight Path
+*> 10.1.2.0/24        0.0.0.0                  0         32768 ?
+*> 10.1.3.0/24        0.0.0.0                  0         32768 ?
+*> 40.0.0.0/24        10.1.1.100               0         32768 ?
+*> 50.0.0.0/24        10.1.1.100               0         32768 ?
+*> 200.0.0.0/24       10.1.1.100               1         32768 ?
+*> 201.0.0.0/24       10.1.1.100               1         32768 ?
+"""
+
+# show route ipv6 unicast
+
+show_route_ipv6_unicast = """\
+C    10:1:2::/64 is directly connected,
+      00:03:13, Loopback3
+C    10:1:3::/64 is directly connected,
+      00:03:13, Loopback4
+S    40::/64 
+      [1/0] via 10:1:1::100, 00:03:13
+S    50::/64 
+      [1/0] via 10:1:1::100, 00:03:13
+O    200::/64 
+      [110/1] via fe80::211:1ff:fe00:1, 00:03:10, TenGigE0/0/0/0
+O    200:0:0:1::/64 
+      [110/1] via fe80::211:1ff:fe00:1, 00:03:10, TenGigE0/0/0/0
+"""
+
+# show bgp ipv6 unicast
+
+show_bgp_ipv6_unicast = """\
+Wed Jan 17 12:34:25.299 JST
+BGP router identifier 10.226.255.12, local AS number 100
+BGP generic scan interval 60 secs
+Non-stop routing is enabled
+BGP table state: Active
+Table ID: 0xe0800000   RD version: 209
+BGP main routing table version 209
+BGP NSR Initial initsync version 109 (Reached)
+BGP NSR/ISSU Sync-Group versions 209/0
+BGP scan interval 60 secs
+
+Status codes: s suppressed, d damped, h history, * valid, > best
+              i - internal, r RIB-failure, S stale, N Nexthop-discard
+Origin codes: i - IGP, e - EGP, ? - incomplete
+   Network            Next Hop            Metric LocPrf Weight Path
+*> 10:1:1::/64        ::                       0         32768 ?
+*> 10:1:2::/64        ::                       0         32768 ?
+*> 10:1:3::/64        ::                       0         32768 ?
+*> 40::/64            10:1:1::100              0         32768 ?
+*> 50::/64            10:1:1::100              0         32768 ?
+*> 200::/64           fe80::211:1ff:fe00:1
+                                               1         32768 ?
+*> 200:0:0:1::/64     fe80::211:1ff:fe00:1
+                                               1         32768 ?
+"""
+
+# show bgp ipv4 unicast advertised neighbor
+
+show_bgp_ipv4_unicast_advertised_neighbor = """\
+Thu Feb 22 15:01:35.293 JST
+175.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 216
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    ORG AS LOCAL
+    origin: EGP  neighbor as: 200  local pref: 120
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS LOCAL
+    origin: EGP  neighbor as: 200  local pref: 120
+    aspath: 200
+
+176.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 217
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.3
+    ORG AS
+    origin: EGP  neighbor as: 200
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS
+    origin: EGP  neighbor as: 200
+    aspath: 100 200
+
+177.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 213
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    MET ORG AS
+    origin: EGP  neighbor as: 200  metric: 120
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    MET ORG AS
+    origin: EGP  neighbor as: 200  metric: 120
+    aspath: 200
+
+178.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 214
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    ORG AS COMM
+    origin: EGP  neighbor as: 200
+    aspath: 200
+    community: 4713:10
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS COMM
+    origin: EGP  neighbor as: 200
+    aspath: 200
+    community: 4713:10
+
+179.3.0.0/24 is advertised to 100.100.0.2
+  Path info:
+    neighbor: 10.1.1.100      neighbor router id: 192.0.0.1
+    valid  external  best
+Received Path ID 0, Local Path ID 1, version 215
+  Attributes after inbound policy was applied:
+    next hop: 10.1.1.100
+    ORG AS
+    origin: IGP  neighbor as: 200
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100.100.0.1
+    ORG AS
+    origin: IGP  neighbor as: 200
+    aspath: 200"""
+
+# show bgp ipv4 unicast
+
+show_bgp_ipv4_unicast_network = """\
+Thu Feb 22 14:57:37.624 JST
+BGP routing table entry for 175.3.0.0/24
+Versions:
+  Process           bRIB/RIB  SendTblVer
+  Speaker                 103          103
+Last Modified: Feb 22 14:55:46.633 for 00:01:51
+Paths: (1 available, best #1)
+  Advertised IPv4 Unicast paths to peers (in unique update groups):
+    100.100.0.2
+  Path #1: Received by speaker 0
+  Advertised IPv4 Unicast paths to peers (in unique update groups):
+    100.100.0.2
+  200
+    10.1.1.100 from 10.1.1.100 (192.0.0.1)
+      Origin EGP, metric 120, localpref 100, valid, external, best, group-best
+      Received Path ID 0, Local Path ID 1, version 103
+      Community: 4713:10
+      Origin-AS validity: (disabled)"""
+
+# show bgp ipv6 unicast
+
+show_bgp_ipv6_unicast_network = """\
+Sun Feb 25 16:32:43.126 JST
+BGP routing table entry for 175:3::/96
+Versions:
+  Process           bRIB/RIB  SendTblVer
+  Speaker                 211          211
+Last Modified: Feb 25 16:31:56.278 for 00:00:47
+Paths: (1 available, best #1)
+  Advertised IPv6 Unicast paths to peers (in unique update groups):
+    10:1:4::100                             
+  Path #1: Received by speaker 0
+  Advertised IPv6 Unicast paths to peers (in unique update groups):
+    10:1:4::100                             
+  200
+    100:100::1 from 100:100::1 (10.226.255.12)
+      Origin EGP, localpref 100, valid, internal, best, group-best
+      Received Path ID 0, Local Path ID 1, version 211
+"""
+
+# show bgp ipv6 unicast advertised neighbor
+
+show_bgp_ipv6_unicast_advertised_neighbor = """\
+
+175:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 102
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+176:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 103
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+177:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 104
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+178:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 105
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+
+179:3::/96 is advertised to 100:100::2
+  Path info:
+    neighbor: 10:1:1::100     neighbor router id: 192.0.0.1
+    valid  external  best  
+Received Path ID 0, Local Path ID 1, version 106
+  Attributes after inbound policy was applied:
+    next hop: 10:1:1::100
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200
+  Attributes after outbound policy was applied:
+    next hop: 100:100::1
+    ORG AS 
+    origin: EGP  neighbor as: 200  
+    aspath: 200"""
+
+# show vrf
+
+show_vrf = """\
+Mon Feb 19 05:35:47.935 UTC
+VRF                  RD                  RT                         AFI   SAFI     
+test1                1000:1001          
+                                         import  1000:1002           IPV4  Unicast  
+                                         export  1000:1001           IPV4  Unicast """
+
+# show route vrf all ipv4
+
+show_route_vrf_all_ipv4 = """\
+VRF: MGMT
+
+
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+C    172.17.17.0/24 is directly connected, 19:33:12, MgmtEth0/RSP0/CPU0/0
+L    172.17.17.91/32 is directly connected, 19:33:12, MgmtEth0/RSP0/CPU0/0
+C    172.31.0.0/24 is directly connected, 19:31:33, MgmtEth0/RSP1/CPU0/0
+L    172.31.0.104/32 is directly connected, 19:31:33, MgmtEth0/RSP1/CPU0/0
+
+VRF: test1
+
+
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+C    50.10.100.0/24 is directly connected, 00:02:24, Loopback1001
+L    50.10.100.1/32 is directly connected, 00:02:24, Loopback1001
+B    50.10.200.0/24 is directly connected, 00:00:21, Loopback1002 (nexthop in vrf test2)
+
+VRF: test2
+
+
+Codes: C - connected, S - static, R - RIP, B - BGP, (>) - Diversion path
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2, E - EGP
+       i - ISIS, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, su - IS-IS summary null, * - candidate default
+       U - per-user static route, o - ODR, L - local, G  - DAGR, l - LISP
+       A - access/subscriber, a - Application route
+       M - mobile route, r - RPL, t - Traffic Engineering, (!) - FRR Backup path
+
+Gateway of last resort is not set
+
+B    50.10.100.0/24 is directly connected, 00:00:21, Loopback1001 (nexthop in vrf test1)
+C    192.0.0.0/8 is directly connected, 1w3d, EINT0/RSP0/CPU0
+                 is directly connected, 1w3d, EINT0/RSP1/CPU0"""
