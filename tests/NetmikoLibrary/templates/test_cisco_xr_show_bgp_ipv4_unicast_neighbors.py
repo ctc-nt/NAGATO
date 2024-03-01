@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_bgp_ipv4_unicast_neighbors)
     print(f"\n{output=}")
 
-    assert output == [['10.1.1.100', '200', '100', '192.0.0.1', 'Established', 'NSR Ready', '30'], ['100.100.0.2', '100', '100', '10.226.255.13', 'Established', 'NSR Ready', '0']]
+    assert output == [["10.1.1.100", "200", "100", "192.0.0.1", "Established", "NSR Ready", "30"], ["100.100.0.2", "100", "100", "10.226.255.13", "Established", "NSR Ready", "0"]]
