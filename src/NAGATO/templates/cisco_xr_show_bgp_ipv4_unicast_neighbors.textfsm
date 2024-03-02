@@ -1,0 +1,17 @@
+Value NEIGHBOR_IP (\d+\.\d+\.\d+\.\d+)
+Value REMOTE_AS (\d+)
+Value LOCAL_AS (\d+)
+Value REMOTE_ROUTE_ID (\d+\.\d+\.\d+\.\d+)
+Value STATE (\S+)
+Value NSR_STATE (None|NSR Ready)
+Value MINIMUM_TIME (\d+)
+
+
+Start
+  ^BGP neighbor is ${NEIGHBOR_IP}
+  ^\s+Remote AS ${REMOTE_AS}, local AS ${LOCAL_AS}, (internal|external) link
+  ^\s+Remote router ID ${REMOTE_ROUTE_ID}
+  ^\s+BGP state = ${STATE}, up for \d+\:\d+\:\d+
+  ^\s+NSR State: ${NSR_STATE}
+  ^\s+Minimum time between advertisement runs is ${MINIMUM_TIME} secs
+  ^\s+Last reset \d+\:\d+\:\d+ -> Record

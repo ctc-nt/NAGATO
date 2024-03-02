@@ -9,6 +9,8 @@ cisco_xr_show_bgp_vrf_all_ipv4_unicast_summary.textfsm, .*, cisco_xr, sh[[ow]] b
 cisco_xr_show_bgp_vrf_all_ipv6_unicast_summary.textfsm, .*, cisco_xr, sh[[ow]] bgp vrf all ipv6 unicast summary
 cisco_xr_show_route_vrf_ipv4_unicast_bgp.textfsm, .*, cisco_xr, sh[[ow]] route vrf (\S+) ipv4 unicast bgp
 cisco_xr_show_route_vrf_ipv6_unicast_bgp.textfsm, .*, cisco_xr, sh[[ow]] route vrf (\S+) ipv6 unicast bgp
+cisco_xr_show_bgp_ipv4_unicast_neighbors.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast neighbors
+cisco_xr_show_bgp_ipv6_unicast_neighbors.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast neighbors
 cisco_xr_show_bgp_ipv4_unicast_network.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast (\d+.\d+.\d+.\d+/\d+)
 cisco_xr_show_bgp_ipv6_unicast_network.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast ([A-F0-9:]+/\d+)
 cisco_xr_show_ethernet_oam_event-log.textfsm, .*, cisco_xr, sh[[ow]] ethern[[et]] oam event-log
