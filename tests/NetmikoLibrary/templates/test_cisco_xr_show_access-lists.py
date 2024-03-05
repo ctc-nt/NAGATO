@@ -22,4 +22,10 @@ def test_show_ip():
     output = re_table.ParseText(show_access_lists)
     print(f"\n{output=}")
 
-    assert output == [['Test-ACL_1', '10 deny ipv4 host 172.17.17.20 any'], ['Test-ACL_1', '20 permit ipv4 172.17.17.0 0.0.0.255 any'], ['Test-ACL_2', '10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet'], ['Test-ACL_2', '20 deny tcp any any'], ['Test-ACL_2', '10 permit tcp any any eq 1000 nexthop1 vrf test2 ipv6 ::']]
+    assert output == [
+        ["Test-ACL_1", "10 deny ipv4 host 172.17.17.20 any"],
+        ["Test-ACL_1", "20 permit ipv4 172.17.17.0 0.0.0.255 any"],
+        ["Test-ACL_2", "10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet"],
+        ["Test-ACL_2", "20 deny tcp any any"],
+        ["Test-ACL_2", "10 permit tcp any any eq 1000 nexthop1 vrf test2 ipv6 ::"],
+    ]
