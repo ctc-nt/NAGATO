@@ -113,7 +113,9 @@ ipv4 access-list Test-ACL_1
  20 permit ipv4 172.17.17.0 0.0.0.255 any
 ipv4 access-list Test-ACL_2
  10 permit tcp any 172.16.0.0 0.0.255.255 eq telnet
- 20 deny tcp any any"""
+ 20 deny tcp any any
+ipv6 access-list Test-ACL_3 
+ 10 permit tcp any any eq 1000 nexthop1 vrf test2 ipv6 ::"""
 
 # show bgp neighbors brief
 
