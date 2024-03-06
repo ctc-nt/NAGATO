@@ -1,5 +1,5 @@
 Value Filldown NAME (\S+)
-Value ENTRY (\d+\s+(permit|deny|remark)\s+.*)
+Value ENTRY (.*)
 
 Start
  ^ipv(4|6)\s+access-list\s+${NAME}$$
