@@ -24,6 +24,7 @@ cisco_xr_show_route_ipv6_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv6 sum[
 cisco_xr_show_route_vrf_all_ipv4.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] vrf all ipv4
 cisco_xr_show_route_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv4 unicast
 cisco_xr_show_route_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6 unicast
+cisco_xr_show_interfaces_brief.textfsm, .*, cisco_xr, sh[[ow]] interfaces brief
 cisco_xr_show_bgp_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast
 cisco_xr_show_bgp_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast
 cisco_xr_show_ntp_associations.textfsm, .*, cisco_xr, sh[[ow]] nt[[p]] a[[ssociations]]

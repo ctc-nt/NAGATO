@@ -1622,3 +1622,17 @@ Gateway of last resort is not set
 B    50.10.100.0/24 is directly connected, 00:00:21, Loopback1001 (nexthop in vrf test1)
 C    192.0.0.0/8 is directly connected, 1w3d, EINT0/RSP0/CPU0
                  is directly connected, 1w3d, EINT0/RSP1/CPU0"""
+
+# show interfaces brief
+
+show_interfaces_brief = """\
+Tue Mar 12 08:18:19.561 JST
+
+               Intf       Intf        LineP              Encap  MTU        BW
+               Name       State       State               Type (byte)    (Kbps)
+--------------------------------------------------------------------------------
+                Lo0          up          up           Loopback  1500          0
+    Mg0/RSP0/CPU0/0          up          up               ARPA  1514    1000000
+          Te0/0/0/0          up          up               ARPA  1514   10000000
+        Te0/0/0/0.1          up          up             802.1Q  1518   10000000
+"""
