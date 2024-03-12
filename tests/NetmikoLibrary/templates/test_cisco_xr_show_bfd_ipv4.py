@@ -21,4 +21,4 @@ def test_show_ip():
 
     output = re_table.ParseText(show_bfd_ipv4)
     print(f"\n{output=}")
-    assert output == [['1', '0', '0', '1']]
+    assert output == [["1", "0", "0", "1"]]
