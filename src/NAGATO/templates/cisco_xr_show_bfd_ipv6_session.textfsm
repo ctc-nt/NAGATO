@@ -1,0 +1,10 @@
+Value INTERFACE (\S+)
+Value DEST_ADDR ([a-zA-Z0-9:/]+)
+Value STATE (\S+)
+
+Start
+ ^[-\s]+ -> Session
+
+Session
+ ^${INTERFACE}\s+${DEST_ADDR}\s+$$
+ ^\S+\s+\S+\s+\S+\s+\S+\s+${STATE}\s+$$ -> Record

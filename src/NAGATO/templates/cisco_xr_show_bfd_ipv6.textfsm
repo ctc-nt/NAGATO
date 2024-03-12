@@ -1,0 +1,7 @@
+Value SESSION_UP (\d+)
+Value SESSION_DOWN (\d+)
+Value UNKNOWN_RETRY (\d+)
+Value TOTAL (\d+)
+
+Start
+ ^IPV6 Sessions Up: ${SESSION_UP}, Down: ${SESSION_DOWN}, Unknown/Retry: ${UNKNOWN_RETRY}, Total: ${TOTAL}$$ -> Record
