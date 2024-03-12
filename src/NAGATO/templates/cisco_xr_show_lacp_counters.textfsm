@@ -1,0 +1,12 @@
+Value Filldown BUNDLE_ETHER_ID (\d+)
+Value INTERFACE (\S+)
+Value SENT_COUNT (\d+)
+
+
+Start
+ ^Bundle-Ether${BUNDLE_ETHER_ID}
+ ^\s+LACPDUs\s+Timeouts
+ ^Port\s+Sent\s+Received\s+Excess\s+Expired\s+Defaulted
+ ^${INTERFACE}\s+${SENT_COUNT}\s*\d+\s+\d+\s+\d+\s+\d+$$ -> Record
+
+EOF
