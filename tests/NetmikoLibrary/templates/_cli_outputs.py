@@ -1637,42 +1637,6 @@ Tue Mar 12 08:18:19.561 JST
         Te0/0/0/0.1          up          up             802.1Q  1518   10000000
 """
 
-# show bfd ipv4
-
-show_bfd_ipv4 = """\
-Tue Mar  5 09:47:29.492 JST
-show bfd ipv4 session
-IPV4 Sessions Up: 1, Down: 0, Unknown/Retry: 0, Total: 1
-"""
-
-# show bfd ipv4 session
-
-show_bfd_ipv4_session = """\
-Tue Mar  5 09:47:29.973 JST
-Interface           Dest Addr           Local det time(int*mult)      State     
-                                    Echo             Async   H/W   NPU     
-------------------- --------------- ---------------- ---------------- ----------
-Te0/0/0/38          100.100.0.2     300ms(100ms*3)   6s(2s*3)         UP        
-                                                             No    n/a            """
-
-# shwo bfd ipv6
-
-show_bfd_ipv6 = """\
-Tue Mar  5 09:50:55.825 JST
-show bfd ipv6 session
-IPV6 Sessions Up: 1, Down: 0, Unknown/Retry: 0, Total: 1
-"""
-
-# shwo bfd ipv6 session
-
-show_bfd_ipv6_session = """\
-Tue Mar  5 09:50:56.308 JST
-Interface           Dest Addr      
-                                        Local det time(int*mult)      State     
-H/W                 NPU             Echo             Async           
-------------------- --------------- ---------------- ---------------- ----------
-Te0/0/0/38          fe80::4eec:fff:fee7:e3c6                      
-No                  n/a             0s(0s*0)         300ms(100ms*3)   UP        """
 # show lacp
 
 show_lacp = """\
@@ -1727,3 +1691,40 @@ Port               Last LACP Timeout                  LACP Timeout Transition
 Te0/0/0/38               0                                 0
 
 Te0/0/0/39               0                                 0"""
+
+# show bfd ipv4
+
+show_bfd_ipv4 = """\
+Tue Mar  5 09:47:29.492 JST
+show bfd ipv4 session
+IPV4 Sessions Up: 1, Down: 0, Unknown/Retry: 0, Total: 1
+"""
+
+# show bfd ipv4 session
+
+show_bfd_ipv4_session = """\
+Tue Mar  5 09:47:29.973 JST
+Interface           Dest Addr           Local det time(int*mult)      State     
+                                    Echo             Async   H/W   NPU     
+------------------- --------------- ---------------- ---------------- ----------
+Te0/0/0/38          100.100.0.2     300ms(100ms*3)   6s(2s*3)         UP        
+                                                             No    n/a            """
+
+# shwo bfd ipv6
+
+show_bfd_ipv6 = """\
+Tue Mar  5 09:50:55.825 JST
+show bfd ipv6 session
+IPV6 Sessions Up: 1, Down: 0, Unknown/Retry: 0, Total: 1
+"""
+
+# shwo bfd ipv6 session
+
+show_bfd_ipv6_session = """\
+Tue Mar  5 09:50:56.308 JST
+Interface           Dest Addr      
+                                        Local det time(int*mult)      State     
+H/W                 NPU             Echo             Async           
+------------------- --------------- ---------------- ---------------- ----------
+Te0/0/0/38          fe80::4eec:fff:fee7:e3c6                      
+No                  n/a             0s(0s*0)         300ms(100ms*3)   UP        """
