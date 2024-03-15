@@ -1,0 +1,11 @@
+Value Filldown BUNDLE_ETHER_ID (\d+)
+Value INTERFACE (\S+)
+Value RATE (\d+)
+
+Start
+ ^Bundle-Ether${BUNDLE_ETHER_ID}
+ ^\s+Port\s+\(rate\)\s+State\s+Port ID\s+Key\s+System ID
+ ^Local
+ ^\s+${INTERFACE}\s+${RATE}s\s+\S+\s+\w+,\w+\s+\w+\s+\w+,\S+ -> Record
+
+EOF

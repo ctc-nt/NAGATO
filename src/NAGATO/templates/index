@@ -24,13 +24,17 @@ cisco_xr_show_route_ipv6_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv6 sum[
 cisco_xr_show_route_vrf_all_ipv4.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] vrf all ipv4
 cisco_xr_show_route_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv4 unicast
 cisco_xr_show_route_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6 unicast
+cisco_xr_show_interfaces_brief.textfsm, .*, cisco_xr, sh[[ow]] interfaces brief
 cisco_xr_show_bgp_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast
 cisco_xr_show_bgp_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast
+cisco_xr_show_bfd_ipv4_session.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv4 session
+cisco_xr_show_bfd_ipv6_session.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv6 session
 cisco_xr_show_ntp_associations.textfsm, .*, cisco_xr, sh[[ow]] nt[[p]] a[[ssociations]]
 cisco_xr_show_ospfv3_interface.textfsm, .*, cisco_xr, sh[[ow]] ospfv3 int[[erface]]
 cisco_xr_show_ospf_interface.textfsm, .*, cisco_xr, sh[[ow]] ospf int[[erface]]
 cisco_xr_show_ospfv3_neighbor.textfsm, .*, cisco_xr, sh[[ow]] ospfv[[3]] nei[[ghbor]]
 cisco_xr_show_ipv6_interface.textfsm, .*, cisco_xr, sh[[ow]] ipv6 i[[nterface]]
+cisco_xr_show_lacp_counters.textfsm, .*, cisco_xr, sh[[ow]] la[[cp]] counters
 cisco_xr_show_arm_router-id.textfsm, .*, cisco_xr, sh[[ow]] arm ro[[uter-id]]
 cisco_xr_show_access-lists.textfsm, .*, cisco_xr, sh[[ow]] ac[[cess-lists]] (ipv4|ipv6)?
 cisco_xr_show_bgp_sessions.textfsm, .*, cisco_xr, sh[[ow]] bg[[p]] sessions
@@ -39,9 +43,12 @@ cisco_xr_show_route_ipv6.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6
 cisco_xr_show_ospfv3_vrf.textfsm, .*, cisco_xr, sh[[ow]] ospfv3 vrf (\S+)
 cisco_xr_show_ospf_vrf.textfsm, .*, cisco_xr, sh[[ow]] ospf vrf (\S+)
 cisco_xr_show_lacp_io.textfsm, .*, cisco_xr, sh[[ow]] la[[cp]] i[[o]]
+cisco_xr_show_bfd_ipv4.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv4
+cisco_xr_show_bfd_ipv6.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv6
 cisco_xr_show_vrf_all.textfsm, .*, cisco_xr, sh[[ow]] vrf all
-cisco_xr_show_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] ospfv[[3]]
-cisco_xr_show_ospf.textfsm, .*, cisco_xr, sh[[ow]] ospf
+cisco_xr_show_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] ospfv[[3]]$
+cisco_xr_show_ospf.textfsm, .*, cisco_xr, sh[[ow]] ospf$
+cisco_xr_show_lacp.textfsm, .*, cisco_xr, sh[[ow]] la[[cp]]
 cisco_xr_show_vrf.textfsm, .*, cisco_xr, sh[[ow]] vrf (\S+)
 
 juniper_junos_show_chassis_routing-engine.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] ro[[uting-engine]]

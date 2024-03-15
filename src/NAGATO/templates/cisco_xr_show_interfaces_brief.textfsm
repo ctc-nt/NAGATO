@@ -1,0 +1,12 @@
+Value INTERFACE (\S+)
+Value INTF_STATE (\S+)
+Value PROTOCOL_STATE (\S+)
+Value ENCAP_TYPE (\S+)
+Value MTU (\d+)
+Value BW (\d+)
+
+Start
+ ^-+$$ -> InterfaceList
+
+InterfaceList
+ ^\s+${INTERFACE}\s+${INTF_STATE}\s+${PROTOCOL_STATE}\s+${ENCAP_TYPE}\s+${MTU}\s+${BW}$$ -> Record
