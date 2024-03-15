@@ -1622,3 +1622,11 @@ Gateway of last resort is not set
 B    50.10.100.0/24 is directly connected, 00:00:21, Loopback1001 (nexthop in vrf test1)
 C    192.0.0.0/8 is directly connected, 1w3d, EINT0/RSP0/CPU0
                  is directly connected, 1w3d, EINT0/RSP1/CPU0"""
+
+# show arm router-ids
+
+show_arm_router_ids = """\
+Wed Mar 13 16:51:29.690 JST
+Router-ID         Interface
+      
+10.226.255.12     Loopback0"""
