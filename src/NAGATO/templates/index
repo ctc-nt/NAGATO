@@ -18,6 +18,7 @@ cisco_xr_show_access-lists_interface.textfsm, .*, cisco_xr, sh[[ow]] ac[[cess-li
 cisco_xr_show_protocols_ipv6_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] proto[[cols]] ipv6 o[[spfv3]]
 cisco_xr_show_bundle_bundle-ether.textfsm, .*, cisco_xr, sh[[ow]] bun[[dle]] bundle-e[[ther]] (\d+)
 cisco_xr_show_bgp_neighbors_brief.textfsm, .*, cisco_xr, sh[[ow]] bg[[p]] nei[[ghbors]] br[[ief]]
+cisco_xr_show_bfd_ipv4_session_detail.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv4 session detail
 cisco_xr_show_protocols_ipv4_ospf.textfsm, .*, cisco_xr, sh[[ow]] proto[[cols]] ipv4 o[[spf]]
 cisco_xr_show_route_ipv4_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv4 sum[[mary]]
 cisco_xr_show_route_ipv6_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv6 sum[[mary]]
