@@ -1728,3 +1728,42 @@ H/W                 NPU             Echo             Async
 ------------------- --------------- ---------------- ---------------- ----------
 Te0/0/0/38          fe80::4eec:fff:fee7:e3c6                      
 No                  n/a             0s(0s*0)         300ms(100ms*3)   UP        """
+
+show_bfd_ipv4_session_detail = """\
+Tue Mar 12 20:16:22.003 JST
+I/f: TenGigE0/0/0/38, Location: 0/0/CPU0
+Dest: 100.100.0.2
+Src: 100.100.0.1
+ State: UP for 0d:0h:0m:21s, number of times UP: 1
+ Session type: PR/V4/SH
+Received parameters:
+ Version: 1, desired tx interval: 100 ms, required rx interval: 100 ms
+ Required echo rx interval: 0 ms, multiplier: 10, diag: None
+ My discr: 2148007937, your discr: 2148007981, state UP, D/F/P/C/A: 0/0/0/1/0
+Transmitted parameters:
+ Version: 1, desired tx interval: 100 ms, required rx interval: 100 ms
+ Required echo rx interval: 0 ms, multiplier: 10, diag: None
+ My discr: 2148007981, your discr: 2148007937, state UP, D/F/P/C/A: 0/0/0/1/0
+Timer Values:
+ Local negotiated async tx interval: 100 ms
+ Remote negotiated async tx interval: 100 ms
+ Desired echo tx interval: 0 s, local negotiated echo tx interval: 0 ms
+ Echo detection time: 0 ms(0 ms*10), async detection time: 1 s(100 ms*10)
+Local Stats:
+ Intervals between async packets:
+   Tx: Number of intervals=100, min=83 ms, max=101 ms, avg=91 ms
+       Last packet transmitted 59 ms ago
+   Rx: Number of intervals=100, min=84 ms, max=101 ms, avg=92 ms
+       Last packet received 46 ms ago
+ Intervals between echo packets:
+   Tx: Number of intervals=0, min=0 s, max=0 s, avg=0 s
+       Last packet transmitted 0 s ago
+   Rx: Number of intervals=0, min=0 s, max=0 s, avg=0 s
+       Last packet received 0 s ago
+ Latency of echo packets (time between tx and rx):
+   Number of packets: 0, min=0 ms, max=0 ms, avg=0 ms
+Session owner information:
+                            Desired               Adjusted
+  Client               Interval   Multiplier Interval   Multiplier
+  -------------------- --------------------- ---------------------
+  ospf-1               100 ms     10         100 ms     10  """
