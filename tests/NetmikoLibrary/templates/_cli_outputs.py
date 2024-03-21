@@ -1728,3 +1728,11 @@ H/W                 NPU             Echo             Async
 ------------------- --------------- ---------------- ---------------- ----------
 Te0/0/0/38          fe80::4eec:fff:fee7:e3c6                      
 No                  n/a             0s(0s*0)         300ms(100ms*3)   UP        """
+
+# show arm router-ids
+
+show_arm_router_ids = """\
+Wed Mar 13 16:51:29.690 JST
+Router-ID         Interface
+      
+10.226.255.12     Loopback0"""
