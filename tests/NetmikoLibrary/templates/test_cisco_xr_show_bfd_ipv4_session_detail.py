@@ -21,4 +21,4 @@ def test_show_bfd_ipv4_session_detail():
 
     output = re_table.ParseText(show_bfd_ipv4_session_detail)
     print(f"\n{output=}")
-    assert output == [['ospf-1', '100', '10', '100', '10']]
+    assert output == [["ospf-1", "100", "10", "100", "10"]]
