@@ -1767,3 +1767,10 @@ Session owner information:
   Client               Interval   Multiplier Interval   Multiplier
   -------------------- --------------------- ---------------------
   ospf-1               100 ms     10         100 ms     10  """
+# show arm router-ids
+
+show_arm_router_ids = """\
+Wed Mar 13 16:51:29.690 JST
+Router-ID         Interface
+      
+10.226.255.12     Loopback0"""
