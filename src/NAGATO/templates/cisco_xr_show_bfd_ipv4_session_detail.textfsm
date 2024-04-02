@@ -1,0 +1,11 @@
+Value CLIENT (\S+)
+Value DESIRED_INTERVAL (\d+)
+Value DESIRED_MULTIPLIER (\d+)
+Value ADJUSTED_INTERVAL (\d+)
+Value ADJUSTED_MULTIPLIER (\d+)
+
+Start
+ ^[-\s]+ -> Session
+
+Session
+ ^\s+${CLIENT}\s+${DESIRED_INTERVAL}\s+ms\s+${DESIRED_MULTIPLIER}\s+${ADJUSTED_INTERVAL}\s+ms\s+${ADJUSTED_MULTIPLIER}\s+$$ -> Record

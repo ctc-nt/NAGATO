@@ -165,7 +165,7 @@ class IxNetworkRestpyWrapper:
     @keyword
     def stop_capture(self):
         self.IxNetwork.info("Stopped Packet Capture.")
-        self.IxNetwork.StopCapture
+        self.IxNetwork.StopCapture()
 
     @keyword
     def select_captured_vport(self, index: int, vport_name: str):
