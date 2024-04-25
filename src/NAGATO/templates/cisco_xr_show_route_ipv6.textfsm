@@ -7,5 +7,7 @@ Value VIAIP ([0-9a-f:.]*)
 Value TIMESTAMP (\S+)
 
 Start
+  ^${PROTOCOL}\s+${NETWORK}/${PREFIX_LENGTH}\s+is\sdirectly\sconnected,
+  ^\s+${UPTIME},\s+${INTERFACE} -> Record
   ^${PROTOCOL}\s+${NETWORK}\/${PREFIX}
   ^\s+(?:\[${DISTANCE}/${METRIX}\])\svia\s${VIAIP},\s${TIMESTAMP} -> Record
