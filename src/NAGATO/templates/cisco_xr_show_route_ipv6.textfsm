@@ -1,4 +1,4 @@
-Value PROTOCOL (\S)
+Value PROTOCOL (\S+)
 Value NETWORK ([0-9a-f:.]*)
 Value PREFIX (\d+)
 Value DISTANCE (\d+)
