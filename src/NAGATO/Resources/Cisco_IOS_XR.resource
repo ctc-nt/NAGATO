@@ -40,6 +40,9 @@ Running Config Should Be Equal
     ${expect_config_list} =    Normalize Config Text    ${expect_config}
     ${running_config_list} =    Normalize Config Text    ${running_config}
 
+    Sort List    ${expect_config_list}
+    Sort List    ${running_config_list}
+
     Lists Should Be Equal    ${expect_config_list}    ${running_config_list}
 
 Load And Commit Replace
