@@ -5,6 +5,8 @@ Value DISTANCE (\d+)
 Value METRIX (\d+)
 Value VIAIP ([0-9a-f:.]*)
 Value TIMESTAMP (\S+)
+Value UPTIME (\S+)
+Value INTERFACE (\S+)
 
 Start
   ^${PROTOCOL}\s+${NETWORK}/${PREFIX}\s+is\sdirectly\sconnected,
