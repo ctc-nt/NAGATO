@@ -1774,3 +1774,12 @@ Wed Mar 13 16:51:29.690 JST
 Router-ID         Interface
       
 10.226.255.12     Loopback0"""
+
+# show bgp ipv6 unicast neighbors brief
+
+show_bgp_ipv6_unicast_neighbors_brief = """\
+
+Tue May  7 16:09:13.224 JST
+
+Neighbor        Spk    AS Description                          Up/Down  NBRState
+2001:10::2        0   100                                      00:01:48 Established """
