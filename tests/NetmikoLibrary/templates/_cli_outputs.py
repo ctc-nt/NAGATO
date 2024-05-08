@@ -220,19 +220,17 @@ Total                            2          0          0           432"""
 
 # show ospfv3 neighbor
 show_ospfv3_neighbor = """\
-Mon Feb 16 01:42:20.842 JST
+Thu Apr 25 23:49:23.253 JST
 
-* Indicates MADJ interface
+# Indicates Neighbor awaiting BFD session up
 
-Neighbors for OSPFv3 TEST
+Neighbors for OSPFv3 1
 
-Neighbor ID     Pri   State           Dead Time   Address         Interface
-2.2.2.2         1     FULL/BDR        00:00:36    192.168.1.2     GigabitEthernet0/0/0/5
-    Neighbor is up for 00:18:29
-192.168.16.10   5     FULL/DR          0:00:33    192.168.48.189      GigabitEthernet 0/3/0/3
-    Neighbor is up for 18:45:27
+Neighbor ID     Pri   State           Dead Time   Interface ID    Interface
+192.0.0.1       0     FULL/  -        00:00:31    1               TenGigE0/0/0/0
+    Neighbor is up for 00:00:43
 
-Total neighbor count: 2"""
+Total neighbor count: 1"""
 
 show_lacp_io = """\
 Fri Jan 12 18:24:45.565 JST
