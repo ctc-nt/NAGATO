@@ -22,4 +22,4 @@ def test_show_ip():
     output = re_table.ParseText(show_ospfv3_neighbor)
     print(f"\n{output=}")
 
-    assert output == [['192.0.0.1', '0', 'FULL/  -', '1', 'TenGigE0/0/0/0']]
+    assert output == [["192.0.0.1", "0", "FULL/  -", "1", "TenGigE0/0/0/0"]]

@@ -21,4 +21,4 @@ def test_show_ip():
 
     output = re_table.ParseText(show_bgp_ipv6_unicast_neighbors_brief)
     print(f"\n{output=}")
-    assert output == [['2001:10::2', '0', '100', 'Established']]
+    assert output == [["2001:10::2", "0", "100", "Established"]]
