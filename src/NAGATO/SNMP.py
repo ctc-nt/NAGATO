@@ -10,25 +10,24 @@ from pysnmp.hlapi import (
     nextCmd,
 )
 from robot.api import logger
-from robot.api.deco import keyword
+from robot.api.deco import keyword, library
 
 
+@library(scope="SUITE", version="1.0.0")
 class SNMP:
-    """NetworkUtils.SNMPはSNMPに関する操作を提供するRobot Frameworkライブラリです。"""
+    """A library providing keywords for operations relevant to SNMP."""
 
     @keyword
     def snmpwalk(self, host: str, oid: str, port: int = 161, community: str = "public") -> dict:
-        """``host`` に対し、指定した ``oid`` に対するGetNext Requestを実行します。
-        その後、取得した全てのOIDとその値を返します。
+        """Execute GetNext Request to ``host`` and return all values as a dictionary.
+        This keyword supports SNMP version 1 or 2c.
 
         Example:
-        | ${oid_list} = | `Snmpwalk` | host=10.0.0.1 | oid=1.3.6.1.2.1.1.1 |
-        | `Builtin.Log` | ${oid_list} | formatter=repr |
+        | ${objects} = | `Snmpwalk` | host=192.168.2.1 | oid=1.3.6.1.2.1.1.1 |
+        | `Builtin.Log` | ${objects} | formatter=repr |
         """
 
-        # 現在の実装: v1/v2cで動作、IPv4のみ対応
-        # TODO: v1/v2c, v3で使い分ける
-        # TODO: IPv4, IPv6に対応
+        # TODO: Support both IPv4 and IPv6
 
         object_dict = {}
 
@@ -61,16 +60,15 @@ class SNMP:
 
     @keyword
     def get_request(self, host: str, oid: str, port: int = 161, community: str = "public") -> str:
-        """``host`` に対し、指定した ``oid`` に対するSNMP GetRequestを実行し、そのOIDの値を返します。
+        """Execute Get Request to ``host`` and return the value of ``oid`` .
+        This keyword supports SNMP version 1 or 2c.
 
         Example:
-        | ${result} = | `Get Request` | host=192.168.1.1 | oid=1.3.6.1.2.1.1.1.0 |
-        | Should Contain | ${result} | IOS-XE |
+        | ${object} = | `Get Request` | host=192.168.2.1 | oid=1.3.6.1.2.1.1.1.0 |
+        | Should Contain | ${object} | IOS-XE |
         """
 
-        # 現在の実装: v1/v2cで動作、IPv4のみ対応
-        # TODO: v1/v2c, v3で使い分ける
-        # TODO: IPv4, IPv6に対応
+        # TODO: Support both IPv4 and IPv6
 
         errorIndication, errorStatus, errorIndex, varBinds = next(
             getCmd(
