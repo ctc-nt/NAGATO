@@ -1,6 +1,0 @@
-ixnetwork-restpy>=1.1.10
-netmiko>=4.0.0
-ntc-templates>=3.5.0
-pyshark>=0.6
-pysnmplib>=5.0.20
-robotframework>=5.0.0
