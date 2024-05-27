@@ -1,20 +1,25 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
-[project]
+[tool.black]
+line-length = 300
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry]
 name = "nagato"
 version = "0.0.1"
 authors = [
-  {name = "Takumi Nohara", email = "takumi.nohara.571@ctc-g.co.jp"}
+  "Takumi Nohara <takumi.nohara.571@ctc-g.co.jp>"
 ]
 description = "NAGATO: Network Automation Gears and Test Orchestrator"
 readme = "README.md"
-requires-python = ">=3.8"
-license = {file = "LICENSE"}
+license = "Apache-2.0"
 classifiers = [
   "Framework :: Robot Framework",
-  "License :: OSI Approved :: MIT License",
+  "License :: OSI Approved :: Apache Software License",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -22,28 +27,35 @@ classifiers = [
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9"
 ]
-dependencies = [
-  "ixnetwork-restpy>=1.1.10",
-  "netmiko>=4.0.0",
-  "ntc-templates>=3.5.0",
-  "pyshark>=0.6",
-  "pysnmplib>=5.0.20",
-  "robotframework>=5.0.0"
+packages = [
+  {include = "NAGATO", from = "src"}
 ]
 
-[project.optional-dependencies]
-dev = [
-  "black",
-  "ipython",
-  "isort",
-  "pytest"
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+ixnetwork-restpy = ">=1.1.10"
+netmiko = ">=4.0.0"
+ntc-templates = ">=3.5.0"
+pyshark = ">=0.6"
+pysnmplib = ">=5.0.20"
+robotframework = ">=5.0.0"
+setuptools = "^70.0.0"
+
+[tool.poetry.group.dev.dependencies]
+black = ">=23.9.1"
+ipython = [
+  {version = "==8.13.0", python = "==3.8"},
+  {version = ">=8.15.0", python = ">=3.9"}
 ]
+isort = ">=5.12.0"
+pytest = ">=7.4.2"
+robotframework-tidy = ">=4.5.0"
+toml-sort = ">=0.23.1"
 
-[tool.black]
-line-length = 300
-
-[tool.isort]
-profile = "black"
+[[tool.poetry.source]]
+name = "files"
+url = "https://files.pythonhosted.org/"
+priority = "supplemental"
 
 [tool.robotidy]
 diff = true

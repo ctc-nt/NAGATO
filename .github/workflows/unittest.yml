@@ -8,7 +8,7 @@ jobs:
   pytest:
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11"] # TODO: Add 3.12
         platform: ["ubuntu-22.04"]
 
     runs-on: ${{ matrix.platform }}
@@ -17,11 +17,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: setup python
+
+      - name: Setup python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
 
       - name: Install tshark
         run: |
@@ -29,10 +33,7 @@ jobs:
           sudo apt install -y tshark
           
       - name: Install dependencies
-        run: python3 -m pip install -r requirements.txt
-
-      - name: Install dependencies for dev
-        run: python3 -m pip install -r requirements-dev.txt
+        run: poetry install
 
       - name: Run tests
-        run: pytest -v -s tests/
+        run: poetry run pytest -v -s tests/
