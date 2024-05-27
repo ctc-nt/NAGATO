@@ -52,8 +52,8 @@ jobs:
 
       - name: Sort dependencies
         run: |
-          toml-sort ./pyproject.toml --sort-inline-arrays --in-place
-          toml-sort ./pyproject.toml --sort-inline-arrays --in-place --check
+          poetry run toml-sort ./pyproject.toml --sort-inline-arrays --in-place
+          poetry run toml-sort ./pyproject.toml --sort-inline-arrays --in-place --check
 
       - name: Diff
         id: diff
@@ -64,9 +64,9 @@ jobs:
 
       - name: Commit & Push
         run: |
-            git config user.name github-actions[bot]
-            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-            git add .
-            git commit --author=. -m 'Formatter applied'
-            git push
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add .
+          git commit --author=. -m 'Formatter applied'
+          git push
         if: steps.diff.outcome == 'failure'
