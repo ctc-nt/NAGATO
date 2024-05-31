@@ -50,12 +50,13 @@ jobs:
 
             FILE_NAME=$(basename -- "$file")
             FILE_NAME_NO_EXT="${FILE_NAME%.*}"
+            DOC_PATH=./docs/${FILE_NAME_NO_EXT}.html
  
             # Generate document if it does not exist
-            if [ ! -f $file ]; then
+            if [ ! -f ${DOC_PATH} ]; then
               echo "Generating document for $file"
-              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ./docs/${FILE_NAME_NO_EXT}.html
-              git add ./docs/${FILE_NAME_NO_EXT}.html
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ${DOC_PATH}
+              git add ${DOC_PATH}
               continue
             fi
 
@@ -65,8 +66,8 @@ jobs:
             else
               # Update document it has changes
               echo "Updating document for $file"
-              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ./docs/${FILE_NAME_NO_EXT}.html
-              git add ./docs/${FILE_NAME_NO_EXT}.html
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ${DOC_PATH}
+              git add ${DOC_PATH}
             fi
 
           done
