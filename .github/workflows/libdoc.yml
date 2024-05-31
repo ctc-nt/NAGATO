@@ -18,9 +18,10 @@ jobs:
       PATH_TO_LIBRARIES: |
         src/NAGATO/IxNetworkLibrary
         src/NAGATO/NetmikoLibrary
-        src/NAGATO/NetworkUtils
         src/NAGATO/Resources/Cisco_IOS_XR.resource
         src/NAGATO/Resources/Juniper_Junos.resource
+        src/NAGATO/PcapFileReader.py
+        src/NAGATO/SNMP.py
 
     steps:
       - uses: actions/checkout@v4
@@ -46,15 +47,22 @@ jobs:
         run: |
           git fetch --all
           for file in $PATH_FOR_LIBRARIES; do
+
+            # Do not generate document if there are no differences from develop branch
             if git diff --exit-code --quiet origin/develop -- "$file"; then
               echo "No changes detected in $file"
-            else
-              echo "Changes detected in $file"
-              FILE_NAME=$(basename -- "$file")
-              FILE_NAME_NO_EXT="${FILE_NAME%.*}"
-              poetry run libdoc --name ${FILE_NAME_NO_EXT} $file ./docs/${FILE_NAME_NO_EXT}.html
-              git add ./docs/${FILE_NAME_NO_EXT}.html
+              continue
             fi
+
+            # Generate document
+            echo "Generating document for $file"
+
+            FILE_NAME=$(basename -- "$file")
+            FILE_NAME_NO_EXT="${FILE_NAME%.*}"
+ 
+            poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ./docs/${FILE_NAME_NO_EXT}.html
+            git add ./docs/${FILE_NAME_NO_EXT}.html
+
           done
 
       - name: Push changes
