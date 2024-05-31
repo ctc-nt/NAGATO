@@ -48,20 +48,26 @@ jobs:
           git fetch --all
           for file in $PATH_FOR_LIBRARIES; do
 
-            # Do not generate document if there are no differences from develop branch
-            if git diff --exit-code --quiet origin/develop -- "$file"; then
-              echo "No changes detected in $file"
-              continue
-            fi
-
-            # Generate document
-            echo "Generating document for $file"
-
             FILE_NAME=$(basename -- "$file")
             FILE_NAME_NO_EXT="${FILE_NAME%.*}"
  
-            poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ./docs/${FILE_NAME_NO_EXT}.html
-            git add ./docs/${FILE_NAME_NO_EXT}.html
+            # Generate document if it does not exist
+            if [ ! -f $file ]; then
+              echo "Generating document for $file"
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ./docs/${FILE_NAME_NO_EXT}.html
+              git add ./docs/${FILE_NAME_NO_EXT}.html
+              continue
+            fi
+
+            # Do not generate document if there are no differences from develop branch
+            if git diff --exit-code --quiet origin/develop -- "$file"; then
+              echo "No changes detected in $file"
+            else
+              # Generate document it has changes
+              echo "Updating document for $file"
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ./docs/${FILE_NAME_NO_EXT}.html
+              git add ./docs/${FILE_NAME_NO_EXT}.html
+            fi
 
           done
 
