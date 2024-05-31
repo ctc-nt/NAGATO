@@ -46,7 +46,7 @@ jobs:
         run: |
           git fetch --all
           for file in $PATH_FOR_LIBRARIES; do
-            if git diff --exit-code --quiet origin/master -- "$file"; then
+            if git diff --exit-code --quiet origin/develop -- "$file"; then
               echo "No changes detected in $file"
             else
               echo "Changes detected in $file"
