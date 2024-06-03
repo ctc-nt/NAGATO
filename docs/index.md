@@ -1,4 +1,4 @@
-# NAGATO Librari Documents
+# NAGATO Library Documents
 
 # Network Device Libraries
 
