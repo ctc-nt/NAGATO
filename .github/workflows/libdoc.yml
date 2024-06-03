@@ -1,10 +1,10 @@
 name: libdoc
 
 on:
-  push:
-    branches-ignore:
-      - "master"
-      - "develop"
+  pull_request:
+    types: [ opened, edited ]
+    branches:
+      - develop
 
 jobs:
   generate:
@@ -61,7 +61,7 @@ jobs:
             fi
 
             # Do not generate document if there are no differences from develop branch
-            if git diff --exit-code --quiet origin/develop -- "$file"; then
+            if git diff --exit-code --quiet origin/main -- "$file"; then
               echo "No changes detected in $file"
             else
               # Update document it has changes
