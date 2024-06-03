@@ -25,6 +25,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -76,7 +78,7 @@ jobs:
         run: |
          if ! git diff --cached --exit-code; then
             git commit -m "Auto-generated commit by GitHub Actions"
-            git push
+            git push origin 
           else
             echo "No changes to commit"
           fi
