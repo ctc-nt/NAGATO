@@ -62,9 +62,8 @@ The command will also install the following latest-packages:
 - [robotframework](https://pypi.org/project/robotframework/)
 - [setuptools](https://pypi.org/project/setuptools/)
 
-
 Usage
------
+------------
 To use NAGATO in Robot Framework tests,  
 import the libraries you want to use in the settings section.
 
@@ -113,8 +112,8 @@ Get Normalized Running Config
 ```
 
 Reference
-----
+------------
 - [Robot Framework Libraries docs](./docs/index.md)  
-NAGATOで提供しているRobot Framework Librariesのキーワード一覧へのリンク
-- [Contribution](./POLICIES_ja.md)  
-NAGATOのリリースポリシーやコントリビューションについて記載したページへのリンク
+Link to the list of keywords in Robot Framework Libraries provided by NAGATOO 
+- [Contribution](./POLICIES_ja.md)　　
+Link to a page describing NAGATO's release policy and contributions
