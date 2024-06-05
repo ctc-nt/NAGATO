@@ -2,32 +2,31 @@ name: libdoc
 
 on:
   pull_request:
+    types: [ opened, synchronize ]
     branches:
-      - master
-      - develop
-    types: [closed]
+      - main
 
 jobs:
-  libdoc:
+  generate:
 
     permissions:
-      actions: write
-      checks: write
       contents: write
-      deployments: write
-      issues: write
-      packages: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
 
     runs-on: "ubuntu-latest"
+
     env:
-      PYTHONPATH: ${{ github.workspace }}/src
+      PATH_TO_LIBRARIES: |
+        src/NAGATO/IxNetworkLibrary
+        src/NAGATO/NetmikoLibrary
+        src/NAGATO/Resources/Cisco_IOS_XR.resource
+        src/NAGATO/Resources/Juniper_Junos.resource
+        src/NAGATO/PcapFileReader.py
+        src/NAGATO/SNMP.py
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
 
       - name: setup python
         uses: actions/setup-python@v4
@@ -41,33 +40,47 @@ jobs:
       - name: Install dependencies
         run: poetry install
 
-      - name: Create IxNetworkLibrary libdoc
-        run: poetry run robot.libdoc --name NAGATO.IxNetworkLibrary ./src/NAGATO/IxNetworkLibrary ./Docs/IxNetworkLibrary.html
-
-      - name: Create NetmikoLibrary libdoc
-        run: poetry run robot.libdoc --name NAGATO.NetmikoLibrary ./src/NAGATO/NetmikoLibrary ./Docs/NetmikoLibrary.html
-
-      - name: Create NetworkUtils libdoc
-        run: poetry run robot.libdoc --name NAGATO.NetworkUtils ./src/NAGATO/NetworkUtils ./Docs/NetworkUtils.html
-
-      - name: Create Cisco_IOS_XR libdoc
-        run: poetry run robot.libdoc --name NAGATO.Cisco_IOS_XR ./src/NAGATO/Resources/Cisco_IOS_XR.resource ./Docs/Cisco_IOS_XR.html
-
-      - name: Create Juniper_Junos libdoc
-        run: poetry run robot.libdoc --name NAGATO.Juniper_Junos ./src/NAGATO/Resources/Juniper_Junos.resource ./Docs/Juniper_Junos.html
-
-      - name: Diff
-        id: diff
+      - name: configure git
         run: |
-          git add -N .
-          git diff --name-only --exit-code
-        continue-on-error: true
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Commit & Push
+      - name: Generate docs
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          git add .
-          git commit --author=. -m 'Update Libdoc.'
-          git push
-        if: steps.diff.outcome == 'failure'
+          git fetch --all
+          for file in $PATH_TO_LIBRARIES; do
+
+            FILE_NAME=$(basename -- "$file")
+            FILE_NAME_NO_EXT="${FILE_NAME%.*}"
+            DOC_PATH=./docs/${FILE_NAME_NO_EXT}.html
+ 
+            # Generate document if it does not exist
+            if [ ! -f ${DOC_PATH} ]; then
+              echo "Generating document for $file"
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ${DOC_PATH}
+              git add ${DOC_PATH}
+              continue
+            fi
+
+            # Do not generate document if there are no differences from develop branch
+            if git diff --exit-code --quiet origin/main -- "$file"; then
+              echo "No changes detected in $file"
+            else
+              # Update document it has changes
+              echo "Updating document for $file"
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ${DOC_PATH}
+              git add ${DOC_PATH}
+            fi
+
+          done
+
+      - name: Push changes
+        run: |
+         if ! git diff --cached --exit-code; then
+            git commit -m "Auto-generated commit by GitHub Actions"
+            git push origin 
+          else
+            echo "No changes to commit"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
