@@ -31,7 +31,8 @@ The RobotFramework Libraries in NAGATO is the following:
 | ---- | ---- |
 | IxNetworkLibrary | Provide operations on IxNetwork |
 | NetmikoLibrary | Provide operations on network devices through ssh/telent connections |
-| NetworkUtils | Provide various operations from the terminal |
+| Pcap FileReader | Provide packet capture file verification |
+| SNMP | Provide operations relevant to SNMP |
 
 For general information about using test libraries with Robot Framework, see
 [Robot Framework User Guide](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-test-libraries).
@@ -49,15 +50,18 @@ Installation
 ------------
 Execute the following command:
 ```
-pip install git+https://github.com/ctc-nt/NAGATO@main
+pip install nagato-network
 ```
 
 The command will also install the following latest-packages:
-- [robotframework](https://pypi.org/project/robotframework/)
 - [ixnetwork-restpy](https://pypi.org/project/ixnetwork-restpy/)
 - [netmiko](https://pypi.org/project/netmiko/)
 - [ntc-templates](https://pypi.org/project/ntc-templates/)
+- [pyshark](https://pypi.org/project/pyshark/)
 - [pysnmplib](https://pypi.org/project/pysnmplib/)
+- [robotframework](https://pypi.org/project/robotframework/)
+- [setuptools](https://pypi.org/project/setuptools/)
+
 
 Usage
 -----
