@@ -10,7 +10,7 @@ Contents
 - [High-Level Keywords](#high-level-keywords)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Support](#support)
+- [Reference](#reference)
 
 Introduction
 -------------
@@ -43,7 +43,7 @@ The RobotFramework resource files in NAGATO is the following:
  LIBRARY NAME | DESCRIPTION |
 | ---- | ---- |
 | Cisco_IOS_XR.resource | Provides high-level keywords defining the basic operations of Cisco IOS-XR using NetmikoLibrary |
-
+| Juniper_Junos.resource | Provides high-level keywords defining the basic operations of Junos using NetmikoLibrary |
 
 Installation
 ------------
@@ -108,5 +108,9 @@ Get Normalized Running Config
     Builtin.Log    ${normalized_config}
 ```
 
-Support
------
+Reference
+----
+- [Robot Framework Libraries docs](./docs/index.md)  
+NAGATOで提供しているRobot Framework Librariesのキーワード一覧へのリンク
+- [Contribution](./POLICIES_ja.md)  
+NAGATOのリリースポリシーやコントリビューションについて記載したページへのリンク
