@@ -30,7 +30,7 @@ The RobotFramework Libraries in NAGATO is the following:
  LIBRARY NAME | DESCRIPTION |
 | ---- | ---- |
 | IxNetworkLibrary | Provide operations on IxNetwork |
-| NetmikoLibrary | Provide operations on network devices through ssh/telent connections |
+| NetmikoLibrary | Provide operations on network devices through ssh/telnet connections |
 | Pcap FileReader | Provide packet capture file verification |
 | SNMP | Provide operations relevant to SNMP |
 
@@ -114,6 +114,6 @@ Get Normalized Running Config
 Reference
 ------------
 - [Robot Framework Libraries docs](./docs/index.md)  
-Link to the list of keywords in Robot Framework Libraries provided by NAGATOO 
+Link to the list of keywords in Robot Framework Libraries provided by NAGATO
 - [Contribution](./POLICIES_ja.md)　　
 Link to a page describing NAGATO's release policy and contributions
