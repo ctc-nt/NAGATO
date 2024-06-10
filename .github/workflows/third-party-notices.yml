@@ -50,10 +50,13 @@ jobs:
           git fetch --all
 
           separator="--------------------------------------------------------------------------------"
-          fileName="third-party-notices.txt"
+          tpnFileName="third-party-notices.txt"
+          tppFileName="third-party-packages.txt"
           preface="NOTICES\n\nThis repository incorporates material as listed below or described in the code.\n\n"
-          echo -e $preface > $fileName
 
+          echo -e $preface > $tpnFileName
+
+          poetry run pio-licenses -f plain > $tppFileName
           poetry run pip-licenses --with-license-file -f json > tpn.json
           cat tpn.json | jq -c '.[]' |
           while read -r array; do
@@ -61,10 +64,11 @@ jobs:
             License=$(echo "${array}" | jq -r ".License")
             Version=$(echo "${array}" | jq -r ".Version")
             Text=$(echo "${array}" | jq -r ".LicenseText")
-            echo -e "$separator\n\n$Name $Version - $License\n\n$Text\n\n$separator" >> $fileName
+            echo -e "$separator\n\n$Name $Version - $License\n\n$Text\n\n$separator" >> $tpnFileName
           done
 
-          git add $fileName
+          git add $tpnFileName
+          git add $tppFileName
 
       - name: Push changes
         run: |
