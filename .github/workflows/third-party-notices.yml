@@ -38,7 +38,7 @@ jobs:
         run: poetry install --without dev
 
       - name: Install pip-licenses
-        run: poetry add pip-licenses
+        run: poetry add pip-licenses --optional
 
       - name: configure git
         run: |
