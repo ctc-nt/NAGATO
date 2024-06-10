@@ -56,7 +56,7 @@ jobs:
 
           echo -e $preface > $tpnFileName
 
-          poetry run pio-licenses -f plain > $tppFileName
+          poetry run pip-licenses -f plain > $tppFileName
           poetry run pip-licenses --with-license-file -f json > tpn.json
           cat tpn.json | jq -c '.[]' |
           while read -r array; do
