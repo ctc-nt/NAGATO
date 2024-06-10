@@ -10,7 +10,7 @@ Contents
 - [High-Level Keywords](#high-level-keywords)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Support](#support)
+- [Reference](#reference)
 
 Introduction
 -------------
@@ -30,8 +30,9 @@ The RobotFramework Libraries in NAGATO is the following:
  LIBRARY NAME | DESCRIPTION |
 | ---- | ---- |
 | IxNetworkLibrary | Provide operations on IxNetwork |
-| NetmikoLibrary | Provide operations on network devices through ssh/telent connections |
-| NetworkUtils | Provide various operations from the terminal |
+| NetmikoLibrary | Provide operations on network devices through ssh/telnet connections |
+| Pcap FileReader | Provide packet capture file verification |
+| SNMP | Provide operations relevant to SNMP |
 
 For general information about using test libraries with Robot Framework, see
 [Robot Framework User Guide](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#using-test-libraries).
@@ -43,24 +44,26 @@ The RobotFramework resource files in NAGATO is the following:
  LIBRARY NAME | DESCRIPTION |
 | ---- | ---- |
 | Cisco_IOS_XR.resource | Provides high-level keywords defining the basic operations of Cisco IOS-XR using NetmikoLibrary |
-
+| Juniper_Junos.resource | Provides high-level keywords defining the basic operations of Junos using NetmikoLibrary |
 
 Installation
 ------------
 Execute the following command:
 ```
-pip install git+https://github.com/ctc-nt/NAGATO@main
+pip install nagato-network
 ```
 
 The command will also install the following latest-packages:
-- [robotframework](https://pypi.org/project/robotframework/)
 - [ixnetwork-restpy](https://pypi.org/project/ixnetwork-restpy/)
 - [netmiko](https://pypi.org/project/netmiko/)
 - [ntc-templates](https://pypi.org/project/ntc-templates/)
+- [pyshark](https://pypi.org/project/pyshark/)
 - [pysnmplib](https://pypi.org/project/pysnmplib/)
+- [robotframework](https://pypi.org/project/robotframework/)
+- [setuptools](https://pypi.org/project/setuptools/)
 
 Usage
------
+------------
 To use NAGATO in Robot Framework tests,  
 import the libraries you want to use in the settings section.
 
@@ -108,5 +111,9 @@ Get Normalized Running Config
     Builtin.Log    ${normalized_config}
 ```
 
-Support
------
+Reference
+------------
+- [Robot Framework Libraries docs](./docs/index.md)  
+Link to the list of keywords in Robot Framework Libraries provided by NAGATO
+- [Contribution](./POLICIES_ja.md)　　
+Link to a page describing NAGATO's release policy and contributions
