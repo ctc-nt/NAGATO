@@ -64,6 +64,8 @@ jobs:
             echo -e "$separator\n\n$Name $Version - $License\n\n$Text\n\n$separator" >> $fileName
           done
 
+          git add $fileName
+
       - name: Push changes
         run: |
          if ! git diff --cached --exit-code; then
