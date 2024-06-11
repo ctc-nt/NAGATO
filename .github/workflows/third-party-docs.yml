@@ -1,14 +1,13 @@
-name: tpngen
+name: third-party-docs
 
 on:
   pull_request:
     types: [ opened, synchronize ]
     branches:
       - main
-      - develop
 
 jobs:
-  generate_third-party-notices:
+  generate_third-party-docs:
 
     permissions:
       contents: write
