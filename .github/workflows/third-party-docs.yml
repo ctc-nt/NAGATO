@@ -1,0 +1,81 @@
+name: third-party-docs
+
+on:
+  pull_request:
+    types: [ opened, synchronize ]
+    branches:
+      - main
+
+jobs:
+  generate_third-party-docs:
+
+    permissions:
+      contents: write
+
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          architecture: x64
+
+      - name: Install jq
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install jq
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      - name: Install dependencies
+        run: poetry install --without dev
+
+      - name: Install pip-licenses
+        run: poetry run pip install pip-licenses
+
+      - name: configure git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Generate third-party-notices.txt
+        run: |
+          git fetch --all
+
+          separator="--------------------------------------------------------------------------------"
+          tpnFileName="third-party-notices.txt"
+          tppFileName="third-party-packages.txt"
+          preface="NOTICES\n\nThis repository incorporates material as listed below or described in the code.\n\n"
+
+          echo -e $preface > $tpnFileName
+
+          poetry run pip-licenses -f plain > $tppFileName
+          poetry run pip-licenses --with-license-file -f json > tpn.json
+          cat tpn.json | jq -c '.[]' |
+          while read -r array; do
+            Name=$(echo "${array}" | jq -r ".Name")
+            License=$(echo "${array}" | jq -r ".License")
+            Version=$(echo "${array}" | jq -r ".Version")
+            Text=$(echo "${array}" | jq -r ".LicenseText")
+            echo -e "$separator\n\n$Name $Version - $License\n\n$Text\n\n$separator" >> $tpnFileName
+          done
+
+          git add $tpnFileName
+          git add $tppFileName
+
+      - name: Push changes
+        run: |
+         if ! git diff --cached --exit-code; then
+            git commit -m "Update third-party-notices.txt by GitHub Actions"
+            git push origin 
+          else
+            echo "No changes to commit"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

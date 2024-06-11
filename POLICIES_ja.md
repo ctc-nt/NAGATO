@@ -7,6 +7,7 @@ NAGATOは現在予定されたリリーススケジュールは無く、必要�
 
 1. リリースPRを作成し、以下の作業を含めます。  
     1. libdocを更新します。\*  
+    1. third-party-notices.txt, third-party-packages.txtを更新します。\*  
     1. pyproject.tomlのバージョンを変更します。  
     1. リリースPRを`main`ブランチへ向けてマージするように設定します。  
 1. リリースPRがテストに合格したことを確認します。  
