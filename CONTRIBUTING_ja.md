@@ -5,9 +5,9 @@
 
 ## Submitting issues
 
-バグや機能追加は、GitHubの[Issue tracker](https://github.com/ctc-nt/NAGATO/issues)システムで追跡されます。何かがバグなのか、実装する価値のある機能なのかわからない場合は、ひとまずNAGATOメーリングリスト、またはSlackで質問することもできます。
+バグや機能追加は、[GitHub Issue](https://github.com/ctc-nt/NAGATO/issues)システムで追跡されます。何かがバグなのか、実装する価値のある機能なのかわからない場合でも、Issueを投稿することは歓迎されます。
 
-Issueの提出には、Issueテンプレートを利用することをお勧めします。また、新しいIssueを提出する前に、同じバグや機能追加がすでに報告されていないか確認してください。  
+Issueの投稿には、Issueテンプレートを利用することをお勧めします。また、新しいIssueを投稿する前に、同じバグや機能追加がすでに報告されていないか確認してください。  
 既に報告されている場合は、新しい問題を作成するのではなく、既存の問題にコメントを追加してください。
 
 ### バグの報告
@@ -18,10 +18,10 @@ Issueの提出には、Issueテンプレートを利用することをお勧め�
     - Robot Frameworkバージョン  
     - Pythonインタープリタバージョン  
     - オペレーティングシステムとそのバージョン  
-- 問題を再現する手順。  
-- エラーメッセージとトレースバック。
+- 問題を再現する手順  
+- エラーメッセージとトレースバック
 
-Issue tracker内のすべての情報は公開されていることに注意してください。機密情報は含めないでください。
+GitHub Issue内のすべての情報は公開されていることに注意してください。機密情報は含めないでください。
 
 ### 機能追加要望
 
@@ -33,7 +33,7 @@ Issue tracker内のすべての情報は公開されていることに注意し�
 バグを修正したり、機能強化を実装したりした場合は、GitHubのプルリクエストを通じて変更を投稿できます。  
 これはコードに限定されるものではなく、ドキュメントやテストの修正や機能強化だけでも非常に価値があります。
 
-多くの場合、すでに頭の中に取り組みたいバグや機能強化が浮かんでいると思いますが、Issue trackerシステムを見て他の人が提出したバグや機能追加を見つけることもできます。  
+多くの場合、すでに頭の中に取り組みたいバグや機能強化が浮かんでいると思いますが、GitHub Issueを見て他の人が提出したバグや機能追加を見つけることもできます。  
 問題は複雑さや難しさの点で大きく異なるため、自分のスキルレベルや知識に合ったものを見つけてみてください。
 
 ### Pull requests
@@ -48,7 +48,7 @@ NAGATOでは、`develop`ブランチを宛先としてプルリクエストを�
 
 #### 基本方針
 
-NAGATOは、[PEP-8](https://www.python.org/dev/peps/pep-0008/)で定義されている一般的なPythonコーディング規則を使用します。また、すべてのコードは[SOLID原則](https://ja.wikipedia.org/wiki/SOLID)に従うように努めています。  
+NAGATOは、[PEP 8](https://www.python.org/dev/peps/pep-0008/)で定義されている一般的なPythonコーディング規則を使用します。また、すべてのコードは[SOLID原則](https://ja.wikipedia.org/wiki/SOLID)に従うように努めています。  
 そして重要な方針として、コメントを付随させる必要がないくらいコードが明確であるべきということがあります。  
 
 テストコードを含むすべてのコードは、サポートされているすべてのPythonインタープリタおよびバージョンと互換性がある必要があります。  
@@ -59,7 +59,7 @@ NAGATOは、[PEP-8](https://www.python.org/dev/peps/pep-0008/)で定義されて
 #### Robot Frameworkライブラリ
 
 コードがRobot Frameworkのライブラリとして実装される場合、それは[Libdoc](https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#libdoc)ツールを使用して、docstringからドキュメントが生成されます。  
-ドキュメントはRobot Framework独自のドキュメント形式を使用します。ドキュメント形式については、Robot Frameworkの[CONTRIBUTING.md](https://github.com/robotframework/robotframework/blob/master/CONTRIBUTING.rst#documentation)の「Documentation」セクションを参照してください。  
+ドキュメントはRobot Framework独自のドキュメント形式を使用します。ドキュメント形式については、Robot Frameworkの[CONTRIBUTING.rst](https://github.com/robotframework/robotframework/blob/master/CONTRIBUTING.rst#documentation)の「Documentation」セクションを参照してください。  
 Robot Frameworkライブラリを新規に作成、または既存のものを更新する場合、このLibdocによってドキュメントが作成されることを念頭に置いてください。
 
 ### テスト
