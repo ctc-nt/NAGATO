@@ -1,5 +1,10 @@
 ![nagato](/images/Nagato_Logo_Horizontal.png)
 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/nagato-network)
+[![pypi](https://img.shields.io/pypi/v/nagato-network)](https://pypi.org/project/nagato-network/)
+[![Code Style](https://img.shields.io/badge/code%20style-black-000000)](https://github.com/ambv/black)
+[![License](https://img.shields.io/pypi/l/nagato-network)](https://www.apache.org/licenses/LICENSE-2.0)
+
 NAGATO
 ===============
 Network Automation Gears and Test Orchestrator.
