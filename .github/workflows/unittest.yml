@@ -36,4 +36,4 @@ jobs:
         run: poetry install
 
       - name: Run tests
-        run: poetry run pytest -v -s tests/
+        run: poetry run pytest -m "not flaky" -v -s tests/

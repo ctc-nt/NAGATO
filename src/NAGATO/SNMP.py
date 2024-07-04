@@ -7,7 +7,7 @@ from pysnmp.hlapi import (
     SnmpEngine,
     UdpTransportTarget,
     getCmd,
-    nextCmd,
+    walkCmd,
 )
 from robot.api import logger
 from robot.api.deco import keyword, library
@@ -20,18 +20,16 @@ class SNMP:
     @keyword
     def snmpwalk(self, host: str, oid: str, port: int = 161, community: str = "public") -> dict:
         """Execute GetNext Request to ``host`` and return all values as a dictionary.
-        This keyword supports SNMP version 1 or 2c.
+        This keyword supports only IPv4 and SNMP version 1 or 2c.
 
         Example:
         | ${objects} = | `Snmpwalk` | host=192.168.2.1 | oid=1.3.6.1.2.1.1.1 |
         | `Builtin.Log` | ${objects} | formatter=repr |
         """
 
-        # TODO: Support both IPv4 and IPv6
-
         object_dict = {}
 
-        for errorIndication, errorStatus, errorIndex, varBinds in nextCmd(
+        for errorIndication, errorStatus, errorIndex, varBinds in walkCmd(
             SnmpEngine(),
             CommunityData(community),
             UdpTransportTarget((host, port)),
@@ -61,23 +59,19 @@ class SNMP:
     @keyword
     def get_request(self, host: str, oid: str, port: int = 161, community: str = "public") -> str:
         """Execute Get Request to ``host`` and return the value of ``oid`` .
-        This keyword supports SNMP version 1 or 2c.
+        This keyword supports only IPv4 and SNMP version 1 or 2c.
 
         Example:
         | ${object} = | `Get Request` | host=192.168.2.1 | oid=1.3.6.1.2.1.1.1.0 |
         | Should Contain | ${object} | IOS-XE |
         """
 
-        # TODO: Support both IPv4 and IPv6
-
-        errorIndication, errorStatus, errorIndex, varBinds = next(
-            getCmd(
-                SnmpEngine(),
-                CommunityData(community),
-                UdpTransportTarget((host, port)),
-                ContextData(),
-                ObjectType(ObjectIdentity(oid)),
-            )
+        errorIndication, errorStatus, errorIndex, varBinds = getCmd(
+            SnmpEngine(),
+            CommunityData(community),
+            UdpTransportTarget((host, port)),
+            ContextData(),
+            ObjectType(ObjectIdentity(oid)),
         )
 
         if errorIndication:
