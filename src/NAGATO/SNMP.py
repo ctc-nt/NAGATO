@@ -7,7 +7,7 @@ from pysnmp.hlapi import (
     SnmpEngine,
     UdpTransportTarget,
     getCmd,
-    walkCmd
+    walkCmd,
 )
 from robot.api import logger
 from robot.api.deco import keyword, library
