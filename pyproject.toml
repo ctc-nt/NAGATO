@@ -8,6 +8,12 @@ line-length = 300
 [tool.isort]
 profile = "black"
 
+[tool.pytest.ini_options]
+markers = [
+  "flaky: Tests that depend on external systems",
+  "textfsm: TextFSM Parse Test"
+]
+
 [tool.poetry]
 name = "nagato"
 version = "0.0.1"
