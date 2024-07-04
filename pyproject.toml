@@ -37,9 +37,9 @@ ixnetwork-restpy = ">=1.1.10"
 netmiko = ">=4.0.0"
 ntc-templates = ">=3.5.0"
 pyshark = ">=0.6"
-pysnmplib = ">=5.0.20"
 robotframework = ">=5.0.0"
 setuptools = "^70.0.0"
+pysnmp-lextudio = "^6.1.2"
 
 [tool.poetry.group.dev.dependencies]
 black = ">=23.9.1"
