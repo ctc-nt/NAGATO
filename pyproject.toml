@@ -31,10 +31,6 @@ packages = [
   {include = "NAGATO", from = "src"}
 ]
 
-[tool.poetry-dynamic-versioning]
-enable = true
-format = "pep440"
-
 [tool.poetry.dependencies]
 python = ">=3.8,<4.0"
 ixnetwork-restpy = ">=1.1.10"
@@ -61,6 +57,10 @@ pip-licenses = "^4.4.0"
 name = "files"
 url = "https://files.pythonhosted.org/"
 priority = "supplemental"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+format = "pep440"
 
 [tool.pytest.ini_options]
 markers = [
