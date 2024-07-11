@@ -1,0 +1,6 @@
+Value PROTOCOL ([\w\s]+\b)
+Value ROUTES (\d+)
+
+Start
+ ^Route\s+Source\s+Routes\s+Backup\s+Deleted\s+Memory\(bytes\)$$
+ ^${PROTOCOL}\s+${ROUTES}\s+\d+\s+\d+\s+\d+(\s+)?$$ -> Record

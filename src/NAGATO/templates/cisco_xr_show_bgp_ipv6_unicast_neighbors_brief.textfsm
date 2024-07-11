@@ -1,0 +1,8 @@
+Value NEIGHBOR ([a-zA-Z0-9:/]+)
+Value SPK (\d+)
+Value AS (\d+)
+Value STATE (\S+)
+
+Start
+ ^Neighbor\s+Spk\s+AS\s+Description\s+Up/Down\s+NBRState$$
+ ^${NEIGHBOR}\s+${SPK}\s+${AS}\s+\d+:\d+:\d+\s+${STATE}(\s+)?$$

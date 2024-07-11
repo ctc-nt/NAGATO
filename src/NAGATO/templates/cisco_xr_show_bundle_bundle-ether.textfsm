@@ -1,0 +1,19 @@
+Value INTERFACE (\S+)
+Value STATUS (Up|Down|Admin\s+down|Bundle\s+shut|mLACP\s+cold\s+standby|mLACP\s+hot\s+standby|Nak|Partner\s+down|PE\s+isolated)
+Value LOCAL_LINKS_CONFIGURED (\d+)
+Value LINKS (\d+)
+Value LACP (Operational|Not\s+operational|Not\s+configured)
+Value List PORT (\S+\d+/\d+/\d+/\d+)
+Value List PORT_STATE (Active|BFD\s+Running|Configured|Hot\s+Standby|Negotiating|Standby)
+
+Start
+  ^${INTERFACE}\s*$$
+  ^\s+Status\:\s+${STATUS}\s*$$ 
+  ^\s+Local\s+links\s+<active/standby/configured>:\s+\d+\s+\/\s+\d+\s+\/\s+${LOCAL_LINKS_CONFIGURED}$$
+  ^\s+Minimum\s+active\s+links\s+/\s+bandwidth:\s+${LINKS}\s+/\s+\d+\s+kbps$$
+  ^\s+LACP\:\s+${LACP}\s*$$
+  ^\s+Port\s+Device\s+State\s+Port\s+ID\s+B\/W\,\s+kbps$$ -> Member
+
+Member
+  ^\s+${PORT}\s+\S+\s+${PORT_STATE}.*$$ 
+  ^\s+Link\s+is\s+Active\s+$$

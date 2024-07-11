@@ -1,0 +1,21 @@
+Value Filldown PROCESS (\d+)
+Value Filldown ROUTER_ID (\d+.\d+.\d+.\d+)
+Value Filldown DISTANCE (\d+)
+Value Filldown NSF (Enabled|Disabled)
+Value AREA (\d+)
+Value List INTERFACE ([\s\w\/]+)
+
+Start
+ ^Routing\s+Protocol\s+OSPF\s+${PROCESS}$$
+ ^\s+Router\s+Id:\s+${ROUTER_ID}$$
+ ^\s+Distance:\s+${DISTANCE}$$
+ ^\s+Non-Stop\s+Forwarding:\s+${NSF}$$
+ ^\s+Area\s+${AREA}$$ -> Member
+
+Member
+ ^\s+(MPLS/TE\s+\S+)?$$
+ ^\s+Area\s+\d$$ -> Continue.Record
+ ^\s+Area\s+${AREA}$$
+ ^Routing\s+Protocol\s+OSPF\s+\d+$$ -> Continue.Record
+ ^Routing\s+Protocol\s+OSPF\s+${PROCESS}$$ -> Start
+ ^\s+${INTERFACE}$$

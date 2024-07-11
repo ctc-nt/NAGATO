@@ -1,0 +1,7 @@
+Value NEIGHBOR (\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}|[0-9a-f:.]*)
+Value AS (\d+)
+Value NBR_STATE (Established|Active|Idle|Connect|Open Sent)
+
+Start
+ ^Neighbor\s+Spk\s+AS\s+Description\s+Up/Down\s+NBRState\s*$$
+ ^${NEIGHBOR}\s+\d+\s+${AS}\s+[\sa-z\d+]*\s+\d+:\d+:\d+\s+${NBR_STATE}\s*$$ -> Record

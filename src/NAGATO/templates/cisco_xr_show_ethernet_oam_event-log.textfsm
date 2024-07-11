@@ -1,0 +1,10 @@
+Value Filldown INTERFACE (\S+\d+/\d+/\d+/\d+)
+Value TIME (\S+\s+\S+\s+\d+\s+\d+:\d+:\d+\s+\S+)
+Value TYPE (\S+\s\S+|\S+)
+
+Start
+ ^${INTERFACE}\s*$$
+ ^Time\s+Type\s+Loc'n\s+Action\s+Threshold\s+Value
+ ^${TIME}\s+${TYPE}.*$$ -> Record
+
+EOF

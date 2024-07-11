@@ -1,0 +1,13 @@
+Value PROCESS (\d+)
+Value ID (\S+)
+Value List AREA (\S+)
+Value List AREA_TYPE (\S+)
+
+Start
+ ^\s+Routing\s+Process\s+\"ospf\s+${PROCESS}\"\s+with\s+ID\s+${ID}$$ -> Member
+
+Member
+ ^\s+Area\s+${AREA}(\s+\S+)?$$
+ ^\s+It\s+is\s+a\s+${AREA_TYPE}\s+area$$
+ ^\s+Routing\s+Process\s+\"ospf\s+\S+\"\s+with\s+ID\s+\S+$$ -> Continue.Record
+ ^\s+Routing\s+Process\s+\"ospf\s+${PROCESS}\"\s+with\s+ID\s+${ID}$$

@@ -1,0 +1,59 @@
+
+# The following lines are inserted to ntc_templates' index by NetmikoLibrary. 
+
+apresia_amios_show_status_card.textfsm, .*, apresia_amios, sh[[ow]] status card
+
+cisco_xr_show_bgp_ipv4_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast advertised neighbor (\d+.\d+.\d+.\d+)
+cisco_xr_show_bgp_ipv6_unicast_advertised_neighbor.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast advertised neighbor ([A-F0-9:]+)
+cisco_xr_show_bgp_vrf_all_ipv4_unicast_summary.textfsm, .*, cisco_xr, sh[[ow]] bgp vrf all ipv4 unicast summary
+cisco_xr_show_bgp_vrf_all_ipv6_unicast_summary.textfsm, .*, cisco_xr, sh[[ow]] bgp vrf all ipv6 unicast summary
+cisco_xr_show_route_vrf_ipv4_unicast_bgp.textfsm, .*, cisco_xr, sh[[ow]] route vrf (\S+) ipv4 unicast bgp
+cisco_xr_show_route_vrf_ipv6_unicast_bgp.textfsm, .*, cisco_xr, sh[[ow]] route vrf (\S+) ipv6 unicast bgp
+cisco_xr_show_bgp_ipv6_unicast_neighbors_brief.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast neighbors brief
+cisco_xr_show_bgp_ipv4_unicast_neighbors.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast neighbors
+cisco_xr_show_bgp_ipv6_unicast_neighbors.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast neighbors
+cisco_xr_show_bgp_ipv4_unicast_network.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast (\d+.\d+.\d+.\d+/\d+)
+cisco_xr_show_bgp_ipv6_unicast_network.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast ([A-F0-9:]+/\d+)
+cisco_xr_show_ethernet_oam_event-log.textfsm, .*, cisco_xr, sh[[ow]] ethern[[et]] oam event-log
+cisco_xr_show_access-lists_interface.textfsm, .*, cisco_xr, sh[[ow]] ac[[cess-lists]] int[[erface]]
+cisco_xr_show_protocols_ipv6_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] proto[[cols]] ipv6 o[[spfv3]]
+cisco_xr_show_bundle_bundle-ether.textfsm, .*, cisco_xr, sh[[ow]] bun[[dle]] bundle-e[[ther]] (\d+)
+cisco_xr_show_bgp_neighbors_brief.textfsm, .*, cisco_xr, sh[[ow]] bg[[p]] nei[[ghbors]] br[[ief]]
+cisco_xr_show_bfd_ipv4_session_detail.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv4 session detail
+cisco_xr_show_protocols_ipv4_ospf.textfsm, .*, cisco_xr, sh[[ow]] proto[[cols]] ipv4 o[[spf]]
+cisco_xr_show_route_ipv4_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv4 sum[[mary]]
+cisco_xr_show_route_ipv6_summary.textfsm, .*, cisco_xr, sh[[ow]] route ipv6 sum[[mary]]
+cisco_xr_show_route_vrf_all_ipv4.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] vrf all ipv4
+cisco_xr_show_route_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv4 unicast
+cisco_xr_show_route_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6 unicast
+cisco_xr_show_interfaces_brief.textfsm, .*, cisco_xr, sh[[ow]] interfaces brief
+cisco_xr_show_bgp_ipv4_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv4 unicast
+cisco_xr_show_bgp_ipv6_unicast.textfsm, .*, cisco_xr, sh[[ow]] bgp ipv6 unicast
+cisco_xr_show_bfd_ipv4_session.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv4 session
+cisco_xr_show_bfd_ipv6_session.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv6 session
+cisco_xr_show_ntp_associations.textfsm, .*, cisco_xr, sh[[ow]] nt[[p]] a[[ssociations]]
+cisco_xr_show_ospfv3_interface.textfsm, .*, cisco_xr, sh[[ow]] ospfv3 int[[erface]]
+cisco_xr_show_ospf_interface.textfsm, .*, cisco_xr, sh[[ow]] ospf int[[erface]]
+cisco_xr_show_ospfv3_neighbor.textfsm, .*, cisco_xr, sh[[ow]] ospfv[[3]] nei[[ghbor]]
+cisco_xr_show_ipv6_interface.textfsm, .*, cisco_xr, sh[[ow]] ipv6 i[[nterface]]
+cisco_xr_show_lacp_counters.textfsm, .*, cisco_xr, sh[[ow]] la[[cp]] counters
+cisco_xr_show_arm_router-id.textfsm, .*, cisco_xr, sh[[ow]] arm ro[[uter-id]]
+cisco_xr_show_access-lists.textfsm, .*, cisco_xr, sh[[ow]] ac[[cess-lists]] (ipv4|ipv6)?
+cisco_xr_show_bgp_sessions.textfsm, .*, cisco_xr, sh[[ow]] bg[[p]] sessions
+cisco_xr_show_route_ipv4.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv4
+cisco_xr_show_route_ipv6.textfsm, .*, cisco_xr, sh[[ow]] ro[[ute]] ipv6
+cisco_xr_show_ospfv3_vrf.textfsm, .*, cisco_xr, sh[[ow]] ospfv3 vrf (\S+)
+cisco_xr_show_ospf_vrf.textfsm, .*, cisco_xr, sh[[ow]] ospf vrf (\S+)
+cisco_xr_show_lacp_io.textfsm, .*, cisco_xr, sh[[ow]] la[[cp]] i[[o]]
+cisco_xr_show_bfd_ipv4.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv4
+cisco_xr_show_bfd_ipv6.textfsm, .*, cisco_xr, sh[[ow]] bfd ipv6
+cisco_xr_show_vrf_all.textfsm, .*, cisco_xr, sh[[ow]] vrf all
+cisco_xr_show_ospfv3.textfsm, .*, cisco_xr, sh[[ow]] ospfv[[3]]$
+cisco_xr_show_ospf.textfsm, .*, cisco_xr, sh[[ow]] ospf$
+cisco_xr_show_lacp.textfsm, .*, cisco_xr, sh[[ow]] la[[cp]]
+cisco_xr_show_vrf.textfsm, .*, cisco_xr, sh[[ow]] vrf (\S+)
+
+juniper_junos_show_chassis_routing-engine.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] ro[[uting-engine]]
+juniper_junos_show_chassis_environment.textfsm, .*, juniper_junos, sh[[ow]] ch[[assis]] en[[vironment]]
+
+# Insert End

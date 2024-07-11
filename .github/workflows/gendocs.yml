@@ -1,0 +1,160 @@
+name: generate_docs
+
+on:
+  pull_request:
+    types: [ opened, synchronize ]
+    branches:
+      - main
+
+jobs:
+  libdoc:
+
+    permissions:
+      contents: write
+
+    runs-on: "ubuntu-latest"
+
+    env:
+      PATH_TO_LIBRARIES: |
+        src/NAGATO/IxNetworkLibrary
+        src/NAGATO/NetmikoLibrary
+        src/NAGATO/Resources/Cisco_IOS_XR.resource
+        src/NAGATO/Resources/Juniper_Junos.resource
+        src/NAGATO/PcapFileReader.py
+        src/NAGATO/SNMP.py
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          architecture: x64
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: configure git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Generate docs
+        run: |
+          git fetch --all
+          for file in $PATH_TO_LIBRARIES; do
+
+            FILE_NAME=$(basename -- "$file")
+            FILE_NAME_NO_EXT="${FILE_NAME%.*}"
+            DOC_PATH=./docs/${FILE_NAME_NO_EXT}.html
+ 
+            # Generate document if it does not exist
+            if [ ! -f ${DOC_PATH} ]; then
+              echo "Generating document for $file"
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ${DOC_PATH}
+              git add ${DOC_PATH}
+              continue
+            fi
+
+            # Do not generate document if there are no differences from develop branch
+            if git diff --exit-code --quiet origin/main -- "$file"; then
+              echo "No changes detected in $file"
+            else
+              # Update document it has changes
+              echo "Updating document for $file"
+              poetry run libdoc --name NAGATO.${FILE_NAME_NO_EXT} $file ${DOC_PATH}
+              git add ${DOC_PATH}
+            fi
+
+          done
+
+      - name: Push changes
+        run: |
+         if ! git diff --cached --exit-code; then
+            git commit -m "Auto-generated commit by GitHub Actions"
+            git push origin 
+          else
+            echo "No changes to commit"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  third-party-docs:
+
+    permissions:
+      contents: write
+
+    runs-on: "ubuntu-latest"
+    needs: libdoc
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          architecture: x64
+
+      - name: Install jq
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install jq
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      - name: Install dependencies
+        run: poetry install --without dev
+
+      - name: Install pip-licenses
+        run: poetry run pip install pip-licenses
+
+      - name: configure git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Generate third-party-notices.txt
+        run: |
+          git fetch --all
+
+          separator="--------------------------------------------------------------------------------"
+          tpnFileName="third-party-notices.txt"
+          tppFileName="third-party-packages.txt"
+          preface="NOTICES\n\nThis repository incorporates material as listed below or described in the code.\n\n"
+
+          echo -e $preface > $tpnFileName
+
+          poetry run pip-licenses -f plain > $tppFileName
+          poetry run pip-licenses --with-license-file -f json > tpn.json
+          cat tpn.json | jq -c '.[]' |
+          while read -r array; do
+            Name=$(echo "${array}" | jq -r ".Name")
+            License=$(echo "${array}" | jq -r ".License")
+            Version=$(echo "${array}" | jq -r ".Version")
+            Text=$(echo "${array}" | jq -r ".LicenseText")
+            echo -e "$separator\n\n$Name $Version - $License\n\n$Text\n\n$separator" >> $tpnFileName
+          done
+
+          git add $tpnFileName
+          git add $tppFileName
+
+      - name: Push changes
+        run: |
+          if ! git diff --cached --exit-code; then
+            git commit -m "Update third-party-notices.txt by GitHub Actions"
+            git push origin 
+          else
+            echo "No changes to commit"
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

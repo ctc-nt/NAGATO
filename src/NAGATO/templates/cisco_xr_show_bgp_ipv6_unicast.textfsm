@@ -1,0 +1,12 @@
+Value STATUS_CODE (\S+)
+Value NETWORK ([a-zA-Z0-9:/]+/\d+)
+Value NEXT_HOP ([a-zA-Z0-9:/]+)
+
+
+Start
+  ^\s+Network\s+Next Hop\s+Metric LocPrf Weight Path
+  ^${STATUS_CODE}(\s|i)${NETWORK}\s+${NEXT_HOP}\s+(\d+\s+)?\s+(\d+\s+)?\s+(\d+\s+)?\s(\d+\s\S|\S) -> Record
+  ^${STATUS_CODE}(\s|\S)?${NETWORK}\s+${NEXT_HOP}
+  ^\s+\d+\s+(\d+\s+)?\d+\s(\d+|\S) -> Record
+
+EOF

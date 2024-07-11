@@ -1,0 +1,8 @@
+Value Filldown NAME (\S+)
+Value ENTRY (.*)
+
+Start
+ ^ipv(4|6)\s+access-list\s+${NAME}$$
+ ^\s+${ENTRY}$$ -> Record
+
+EOF

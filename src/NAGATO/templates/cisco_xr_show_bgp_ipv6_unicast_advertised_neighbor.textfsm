@@ -1,0 +1,39 @@
+Value NETWORK ([A-F0-9:]+/\d+)
+Value ADVERTISED_TO ([A-F0-9:]+)
+Value NEIGHBOR_IP ([A-F0-9:]+)
+Value INBOUND_NEXT_HOP ([A-F0-9:]+)
+Value INBOUND_ORIGIN (\S+)
+Value INBOUND_NEIGHBOR_AS (\d+)
+Value INBOUND_LOCAL_PREF (\d+)
+Value INBOUND_AS_PATH (\d+(\s\d+)*)
+Value INBOUND_METRIC (\d+)
+Value INBOUND_COMMUNITY (\d+:\d+)
+Value OUTBOUND_NEXT_HOP ([A-F0-9:]+)
+Value OUTBOUND_ORIGIN (\S+)
+Value OUTBOUND_NEIGHBOR_AS (\d+)
+Value OUTBOUND_LOCAL_PREF (\d+)
+Value OUTBOUND_AS_PATH (\d+(\s\d+)*)
+Value OUTBOUND_METRIC (\d+)
+Value OUTBOUND_COMMUNITY (\d+:\d+)
+
+
+Start
+  ^${NETWORK}\s+is advertised to\s+${ADVERTISED_TO}
+  ^\s+Path info:
+  ^\s+neighbor: ${NEIGHBOR_IP}\s+neighbor router id: [A-F0-9:]+
+  ^Received Path ID \d+, Local Path ID \d+, version \d+
+  ^\s+Attributes after inbound policy was applied: -> InboundPolicy
+
+InboundPolicy
+  ^\s+next hop: ${INBOUND_NEXT_HOP}
+  ^\s+origin: ${INBOUND_ORIGIN}  neighbor as: ${INBOUND_NEIGHBOR_AS}(  local pref: ${INBOUND_LOCAL_PREF})?(  metric: ${INBOUND_METRIC})?
+  ^\s+aspath: ${INBOUND_AS_PATH}
+  ^\s+community: ${INBOUND_COMMUNITY}
+  ^\s+Attributes after outbound policy was applied: -> OutboundPolicy
+
+OutboundPolicy
+  ^\s+next hop: ${OUTBOUND_NEXT_HOP}
+  ^\s+origin: ${OUTBOUND_ORIGIN}  neighbor as: ${OUTBOUND_NEIGHBOR_AS}(  local pref: ${OUTBOUND_LOCAL_PREF})?(  metric: ${OUTBOUND_METRIC})?
+  ^\s+aspath: ${OUTBOUND_AS_PATH}
+  ^\s+community: ${OUTBOUND_COMMUNITY}
+  ^\s*$$ -> Record Start

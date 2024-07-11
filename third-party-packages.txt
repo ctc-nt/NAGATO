@@ -1,0 +1,36 @@
+ Name                Version   License                                             
+ Jinja2              3.1.4     BSD License                                         
+ MarkupSafe          2.1.5     BSD License                                         
+ PyNaCl              1.5.0     Apache License 2.0                                  
+ PyYAML              6.0.1     MIT License                                         
+ appdirs             1.4.4     MIT License                                         
+ bcrypt              4.1.3     Apache Software License                             
+ certifi             2024.7.4  Mozilla Public License 2.0 (MPL 2.0)                
+ cffi                1.16.0    MIT License                                         
+ charset-normalizer  3.3.2     MIT License                                         
+ cryptography        42.0.8    Apache Software License; BSD License                
+ future              1.0.0     MIT License                                         
+ idna                3.7       BSD License                                         
+ ixnetwork-restpy    1.3.0     MIT License                                         
+ lxml                5.2.2     BSD License                                         
+ nagato-network      0.0.0     Apache Software License                             
+ netmiko             4.3.0     MIT License                                         
+ ntc_templates       5.1.0     Apache Software License                             
+ packaging           24.1      Apache Software License; BSD License                
+ paramiko            3.4.0     GNU Library or Lesser General Public License (LGPL) 
+ ply                 3.11      BSD                                                 
+ pyasn1              0.6.0     BSD License                                         
+ pycparser           2.22      BSD License                                         
+ pyserial            3.5       BSD License                                         
+ pyshark             0.6       MIT License                                         
+ pysmi-lextudio      1.4.3     BSD License                                         
+ pysnmp-lextudio     6.1.2     BSD License                                         
+ pysnmpcrypto        0.0.4     BSD License                                         
+ requests            2.32.3    Apache Software License                             
+ robotframework      7.0.1     Apache Software License                             
+ scp                 0.15.0    GNU Library or Lesser General Public License (LGPL) 
+ six                 1.16.0    MIT License                                         
+ termcolor           2.4.0     MIT License                                         
+ textfsm             1.1.3     Apache Software License                             
+ urllib3             2.2.2     MIT License                                         
+ websocket-client    1.8.0     Apache Software License                             

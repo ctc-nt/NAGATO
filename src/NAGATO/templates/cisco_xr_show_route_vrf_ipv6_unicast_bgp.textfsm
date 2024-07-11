@@ -1,0 +1,9 @@
+Value PROTOCOL (\S+)
+Value NETWORK ([a-zA-Z0-9:/]+/\d+)
+Value DESTINATION ([a-zA-Z0-9:/]+)
+
+
+
+Start
+  ^${PROTOCOL}\s+${NETWORK} 
+  ^\s+\[\d+/\d+\] via ${DESTINATION}, \d+:\d+:\d+ -> Record

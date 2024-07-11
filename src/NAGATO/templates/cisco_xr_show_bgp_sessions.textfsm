@@ -1,0 +1,12 @@
+Value NEIGHBOR (\d+.\d+.\d+.\d+|[A-F0-9:]+)
+Value VRF (\S+)
+Value SPK (\d+)
+Value AS (\d+)
+Value INQ (\d+)
+Value OUTQ (\d+)
+Value NBRSTATE (\S+)
+Value NSRSTATE (None|NSR Ready)
+
+Start
+ ^Neighbor\s+VRF\s+Spk\s+AS\s+InQ\s+OutQ\s+NBRState\s+NSRState$$
+ ^${NEIGHBOR}\s+${VRF}\s+${SPK}+\s+${AS}+\s+${INQ}\s+${OUTQ}\s+${NBRSTATE}\s+${NSRSTATE}$$ -> Record

@@ -1,0 +1,11 @@
+Value CARD (Manage\s+\d)
+Value TYPE (ApCA120-48X|ApCA120-32X8Q2C)
+Value STATUS (Active|Initializing|Out\s+of\s+service|Fault|Soft\s+updating)
+Value CONFIG (Sync|Unsync|-)
+Value TEMP_MAJOR (Normal|Warning|Critical)
+Value TEMP_MINOR (Normal|High|Low)
+Value FIRMWARE (\d+\.\d+\.\d+|-|Broken|Unknown)
+
+Start
+  ^${CARD}\s+${TYPE}\s+${STATUS}\s+${CONFIG}\s+${TEMP_MAJOR}\s+${TEMP_MINOR}\s+${FIRMWARE}\s*$$ -> Record
+  ^.*$$
