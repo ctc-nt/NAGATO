@@ -60,7 +60,7 @@ priority = "supplemental"
 
 [tool.poetry-dynamic-versioning]
 enable = true
-format = "pep440"
+style = "pep440"
 
 [tool.pytest.ini_options]
 markers = [
