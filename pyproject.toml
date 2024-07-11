@@ -1,6 +1,6 @@
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.black]
 line-length = 300
@@ -57,6 +57,10 @@ pip-licenses = "^4.4.0"
 name = "files"
 url = "https://files.pythonhosted.org/"
 priority = "supplemental"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+format = "pep440"
 
 [tool.pytest.ini_options]
 markers = [
