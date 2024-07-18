@@ -34,7 +34,7 @@ jobs:
       - name: get nagato version
         id: current
         run: |
-          OUTPUT=$(python -c "from NAGATO.version import get_version; print(get_version())")
+          OUTPUT=$(poetry run python -c "from NAGATO.version import get_version; print(get_version())")
           echo "version_current=$OUTPUT" >> $GITHUB_OUTPUT
 
       - name: get latest tag
