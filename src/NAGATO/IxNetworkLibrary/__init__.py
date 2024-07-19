@@ -15,12 +15,14 @@ limitations under the License."""
 
 from robot.api.deco import library
 
+from NAGATO.version import get_version
+
 from ._wrapper import IxNetworkRestpyWrapper
 
 __all__ = ["IxNetworkLibrary"]
 
 
-@library(scope="SUITE", version="1.0.0")
+@library
 class IxNetworkLibrary(IxNetworkRestpyWrapper):
     """IxNetworkLibrary is a Robot Framework library that provides operations on IxNetwork.
 
@@ -31,5 +33,8 @@ class IxNetworkLibrary(IxNetworkRestpyWrapper):
     - Windows IxNetwork GUI
     - Windows IxNetwork Connection Manager
     """
+
+    ROBOT_LIBRARY_SCOPE = "SUITE"
+    ROBOT_LIBRARY_VERSION = get_version()
 
     pass

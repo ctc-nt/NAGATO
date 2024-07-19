@@ -18,13 +18,18 @@ from pyshark.packet.packet import Packet
 from robot.api import logger
 from robot.api.deco import keyword, library
 
+from NAGATO.version import get_version
 
-@library(scope="SUITE", version="1.0.0")
+
+@library
 class PcapFileReader:
     """PcapFileReader is a Robot Framework library for packet capture file verification.
 
     This library uses pyshark package. Therefore it needs tshark installed on a machine.
     """
+
+    ROBOT_LIBRARY_SCOPE = "SUITE"
+    ROBOT_LIBRARY_VERSION = get_version()
 
     def __init__(self):
         pass

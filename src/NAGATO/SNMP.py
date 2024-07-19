@@ -27,10 +27,15 @@ from pysnmp.hlapi import (
 from robot.api import logger
 from robot.api.deco import keyword, library
 
+from NAGATO.version import get_version
 
-@library(scope="SUITE", version="1.0.0")
+
+@library
 class SNMP:
     """A library providing keywords for operations relevant to SNMP."""
+
+    ROBOT_LIBRARY_SCOPE = "SUITE"
+    ROBOT_LIBRARY_VERSION = get_version()
 
     @keyword
     def snmpwalk(self, host: str, oid: str, port: int = 161, community: str = "public") -> dict:
