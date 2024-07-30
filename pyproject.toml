@@ -1,6 +1,6 @@
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.black]
 line-length = 300
@@ -9,8 +9,8 @@ line-length = 300
 profile = "black"
 
 [tool.poetry]
-name = "nagato"
-version = "0.0.1"
+name = "nagato-network"
+version = "0.0.0"
 authors = [
   "Takumi Nohara <takumi.nohara.571@ctc-g.co.jp>"
 ]
@@ -37,9 +37,9 @@ ixnetwork-restpy = ">=1.1.10"
 netmiko = ">=4.0.0"
 ntc-templates = ">=3.5.0"
 pyshark = ">=0.6"
-pysnmplib = ">=5.0.20"
 robotframework = ">=5.0.0"
 setuptools = "^70.0.0"
+pysnmp-lextudio = "^6.1.2"
 
 [tool.poetry.group.dev.dependencies]
 black = ">=23.9.1"
@@ -57,6 +57,16 @@ pip-licenses = "^4.4.0"
 name = "files"
 url = "https://files.pythonhosted.org/"
 priority = "supplemental"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+style = "pep440"
+
+[tool.pytest.ini_options]
+markers = [
+  "flaky: Tests that depend on external systems",
+  "textfsm: TextFSM Parse Test"
+]
 
 [tool.robotidy]
 diff = true
