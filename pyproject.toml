@@ -12,7 +12,7 @@ profile = "black"
 name = "nagato-network"
 version = "0.0.0"
 authors = [
-  "Takumi Nohara <takumi.nohara.571@ctc-g.co.jp>"
+  "Takumi Nohara"
 ]
 description = "NAGATO: Network Automation Gears and Test Orchestrator"
 readme = "README.md"
