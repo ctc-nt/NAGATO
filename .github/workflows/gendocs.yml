@@ -40,6 +40,7 @@ jobs:
       - name: get latest tag
         id: tagged
         run: |
+          git fetch --tags
           OUTPUT=$(git describe --tags --abbrev=0 | sed "s/^v//g")
           echo "version_tagged=$OUTPUT" >> $GITHUB_OUTPUT
 
