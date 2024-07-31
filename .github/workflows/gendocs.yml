@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: setup python
         uses: actions/setup-python@v5
@@ -33,13 +35,14 @@ jobs:
         id: current
         run: |
           OUTPUT=$(poetry run python -c "from NAGATO.version import get_version; print(get_version())")
+          echo $OUTPUT
           echo "version_current=$OUTPUT" >> $GITHUB_OUTPUT
 
       - name: get latest tag
         id: tagged
         run: |
-          git fetch --tags
           OUTPUT=$(git describe --tags --abbrev=0 | sed "s/^v//g")
+          echo $OUTPUT
           echo "version_tagged=$OUTPUT" >> $GITHUB_OUTPUT
 
       - name: check version
