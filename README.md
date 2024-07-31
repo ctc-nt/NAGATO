@@ -10,12 +10,13 @@ NAGATO
 Network Automation Gears and Test Orchestrator.
 
 Contents
-- [Introduction](#introduction)
-- [Libraries](#libraries)
-- [High-Level Keywords](#high-level-keywords)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Reference](#reference)
+- [NAGATO](#nagato)
+  - [Introduction](#introduction)
+  - [Libraries](#libraries)
+  - [High-Level Keywords](#high-level-keywords)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Reference](#reference)
 
 Introduction
 -------------
@@ -118,7 +119,6 @@ Get Normalized Running Config
 
 Reference
 ------------
-- [Robot Framework Libraries docs](./docs/index.md)  
-Link to the list of keywords in Robot Framework Libraries provided by NAGATO
-- [Contribution](./POLICIES_ja.md)　　
-Link to a page describing NAGATO's release policy and contributions
+- [Robot Framework Libraries docs (Libdoc)](./docs/index.md)  
+- [Contributing](./CONTRIBUTING.md)  
+- [Policies](./POLICIES.md)
