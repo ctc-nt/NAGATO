@@ -51,13 +51,7 @@ class SNMP:
         async def walk() -> dict:
             result = {}
 
-            iterator = walkCmd(
-                SnmpEngine(),
-                CommunityData(community),
-                UdpTransportTarget((host, port)),
-                ContextData(),
-                ObjectType(ObjectIdentity(oid))
-            )
+            iterator = walkCmd(SnmpEngine(), CommunityData(community), UdpTransportTarget((host, port)), ContextData(), ObjectType(ObjectIdentity(oid)))
 
             async for errorIndication, errorStatus, errorIndex, varBinds in iterator:
                 if errorIndication:
