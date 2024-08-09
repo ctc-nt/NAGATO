@@ -5,7 +5,7 @@ on:
   - pull_request
 
 jobs:
-  pytest_linux:
+  pytest:
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11"] # TODO: Add 3.12
@@ -44,9 +44,11 @@ jobs:
         run: |
           echo "C:\Users\runneradmin\.local\bin" >> $Env:GITHUB_PATH
           echo "C:\Program Files\Wireshark" >> $Env:GITHUB_PATH
-          tshark --version
         shell: pwsh
         if: runner.os == 'Windows'
+
+      - name: Display tshark version
+        run: tshark --version
 
       - name: Install dependencies
         run: poetry install
