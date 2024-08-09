@@ -39,7 +39,7 @@ class SNMP:
     ROBOT_LIBRARY_VERSION = get_version()
 
     @keyword
-    def snmpwalk(self, host: str, oid: str, port: int = 161, community: str = "public") -> dict[str, str]:
+    def snmpwalk(self, host: str, oid: str, port: int = 161, community: str = "public") -> dict:
         """Execute GetNext Request to ``host`` and return all values as a dictionary.
         This keyword supports only IPv4 and SNMP version 1 or 2c.
 
