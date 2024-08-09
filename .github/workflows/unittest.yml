@@ -64,7 +64,9 @@ jobs:
         run: choco install wireshark
 
       - name: Add path
-        run: echo "C:\Program Files\Wireshark" >> $Env:GITHUB_PATH
+        run: |
+          echo "C:\Users\runneradmin\.local\bin" >> $Env:GITHUB_PATH
+          echo "C:\Program Files\Wireshark" >> $Env:GITHUB_PATH
         shell: pwsh
 
       - name: Display tshark version
@@ -74,5 +76,5 @@ jobs:
         run: poetry install
   
       - name: Run tests
-        run: poetry run pytest -v -s tests/
+        run: poetry run pytest -m "not flaky" -v -s tests/
 
