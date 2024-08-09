@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11"] # TODO: Add 3.12
-        platform: ["ubuntu-22.04"]
+        platform: ["ubuntu-22.04", "windows-2022"]
 
     runs-on: ${{ matrix.platform }}
     env:
@@ -29,52 +29,27 @@ jobs:
 
       - name: Install tshark
         run: |
-          sudo apt update
-          sudo apt install -y tshark
-          
-      - name: Install dependencies
-        run: poetry install
-
-      - name: Run tests
-        run: poetry run pytest -m "not flaky" -v -s tests/
-
-  pytest_win:
-    strategy:
-      matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
-        platform: ["windows-2022"]
-
-    runs-on: ${{ matrix.platform }}
-    env:
-      PYTHONPATH: ${{ github.workspace }}/src
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup python
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-          architecture: x64
-
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-
-      - name: Install tshark
-        run: choco install wireshark
+          if [ "$RUNNER_OS" == "Linux" ]; then
+              sudo apt update
+              sudo apt install -y tshark
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+              choco install wireshark
+          else
+              echo "$RUNNER_OS not supported"
+              exit 1
+          fi
+        shell: bash
 
       - name: Add path
         run: |
           echo "C:\Users\runneradmin\.local\bin" >> $Env:GITHUB_PATH
           echo "C:\Program Files\Wireshark" >> $Env:GITHUB_PATH
+          tshark --version
         shell: pwsh
-
-      - name: Display tshark version
-        run: tshark --version
+        if: runner.os == 'Windows'
 
       - name: Install dependencies
         run: poetry install
-  
+
       - name: Run tests
         run: poetry run pytest -m "not flaky" -v -s tests/
-
