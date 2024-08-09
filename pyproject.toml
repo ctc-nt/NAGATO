@@ -40,7 +40,7 @@ ntc-templates = ">=3.5.0"
 pyshark = ">=0.6"
 robotframework = ">=5.0.0"
 setuptools = "^70.0.0"
-pysnmp-lextudio = "^6.1.2"
+pysnmp = "^6.2.4"
 
 [tool.poetry.group.dev.dependencies]
 black = ">=23.9.1"

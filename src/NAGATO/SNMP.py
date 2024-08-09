@@ -13,17 +13,18 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License."""
 
+import asyncio
+
 from pysnmp.error import PySnmpError
-from pysnmp.hlapi import (
+from pysnmp.hlapi.asyncio import (
     CommunityData,
     ContextData,
-    ObjectIdentity,
-    ObjectType,
+    Slim,
     SnmpEngine,
     UdpTransportTarget,
-    getCmd,
     walkCmd,
 )
+from pysnmp.smi.rfc1902 import ObjectIdentity, ObjectType
 from robot.api import logger
 from robot.api.deco import keyword, library
 
@@ -47,37 +48,38 @@ class SNMP:
         | `Builtin.Log` | ${objects} | formatter=repr |
         """
 
-        object_dict = {}
+        async def walk() -> dict:
+            result = {}
 
-        for errorIndication, errorStatus, errorIndex, varBinds in walkCmd(
-            SnmpEngine(),
-            CommunityData(community),
-            UdpTransportTarget((host, port)),
-            ContextData(),
-            ObjectType(ObjectIdentity(oid)),
-            lexicographicMode=False,
-        ):
-            if errorIndication:
-                logger.error(errorIndication)
-                break
-            elif errorStatus:
-                logger.error(
-                    "%s at %s"
-                    % (
-                        errorStatus.prettyPrint(),
-                        errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
+            iterator = walkCmd(SnmpEngine(), CommunityData(community), UdpTransportTarget((host, port)), ContextData(), ObjectType(ObjectIdentity(oid)))
+
+            async for errorIndication, errorStatus, errorIndex, varBinds in iterator:
+                if errorIndication:
+                    logger.error(errorIndication)
+                    break
+                elif errorStatus:
+                    logger.error(
+                        "%s at %s"
+                        % (
+                            errorStatus.prettyPrint(),
+                            errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
+                        )
                     )
-                )
-                break
-            else:
-                for varBind in varBinds:
-                    logger.info(" = ".join([x.prettyPrint() for x in varBind]))
-                    object_dict[str(varBind[0])] = varBind[1].prettyPrint()
+                    break
+                else:
+                    for varBind in varBinds:
+                        _oid, _value = varBind
+                        try:
+                            result[str(_oid)] = str(_value)
+                        except Exception as e:
+                            print(f"Error getting label for OID {_oid}: {e}")
 
-        return object_dict
+            return result
+
+        return asyncio.run(walk())
 
     @keyword
-    def get_request(self, host: str, oid: str, port: int = 161, community: str = "public") -> str:
+    def get_request(self, host: str, oid: str, port: int = 161, community: str = "public", version: int = 2) -> str:
         """Execute Get Request to ``host`` and return the value of ``oid`` .
         This keyword supports only IPv4 and SNMP version 1 or 2c.
 
@@ -86,28 +88,27 @@ class SNMP:
         | Should Contain | ${object} | IOS-XE |
         """
 
-        errorIndication, errorStatus, errorIndex, varBinds = getCmd(
-            SnmpEngine(),
-            CommunityData(community),
-            UdpTransportTarget((host, port)),
-            ContextData(),
-            ObjectType(ObjectIdentity(oid)),
-        )
+        async def get():
+            with Slim(version) as slim:
+                errorIndication, errorStatus, errorIndex, varBinds = await slim.get(community, host, port, ObjectType(ObjectIdentity(oid)))
+                if errorIndication:
+                    logger.error(errorIndication)
+                    raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
+                elif errorStatus:
+                    logger.error(
+                        "%s at %s"
+                        % (
+                            errorStatus.prettyPrint(),
+                            errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
+                        )
+                    )
+                    raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
+                else:
+                    for varBind in varBinds:
+                        logger.info(" = ".join([x.prettyPrint() for x in varBind]))
+                        if "no such" in str(varBind[1].prettyPrint().lower()):
+                            logger.warn(varBind[1].prettyPrint())
 
-        if errorIndication:
-            logger.error(errorIndication)
-            raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
-        elif errorStatus:
-            logger.error(
-                "%s at %s"
-                % (
-                    errorStatus.prettyPrint(),
-                    errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
-                )
-            )
-            raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
-        else:
-            varBind = varBinds[0]
-            logger.info(f"{varBind[0]} = {varBind[1]}")
+                        return varBind[1].prettyPrint()
 
-        return str(varBind[1])
+        return asyncio.run(get())
