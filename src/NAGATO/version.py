@@ -13,26 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License."""
 
-from robot.api.deco import library
-
-from NAGATO.version import get_version
-
-from ._wrapper import NetmikoWrapper
-from .set_templates import set_templates
-
-__all__ = ["NetmikoLibrary"]
+VERSION = "0.0.5"
 
 
-@library
-class NetmikoLibrary(NetmikoWrapper):
-    """NetmikoLibrary is a Robot Framework library that provides SSH/Telnet connections to network devices and enables operations on the CLI.
+def get_version():
+    "Return NAGATO's version."
 
-    This library uses the netmiko package.
-    """
-
-    ROBOT_LIBRARY_SCOPE = "SUITE"
-    ROBOT_LIBRARY_VERSION = get_version()
-
-    def __init__(self):
-        super().__init__()
-        set_templates()
+    return VERSION
