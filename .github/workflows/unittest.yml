@@ -63,6 +63,10 @@ jobs:
       - name: Install tshark
         run: choco install wireshark
 
+      - name: Add path
+        run: echo "C:\Program Files\Wireshark" >> $Env:GITHUB_PATH
+        shell: pwsh
+
       - name: Display tshark version
         run: tshark --version
 
