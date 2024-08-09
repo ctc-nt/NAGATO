@@ -1215,14 +1215,14 @@ packaging = "*"
 termcolor = "*"
 
 [[package]]
-name = "pysmi-lextudio"
-version = "1.4.3"
+name = "pysmi"
+version = "1.4.4"
 description = "A pure-Python implementation of SNMP/SMI MIB parsing and conversion library."
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "pysmi_lextudio-1.4.3-py3-none-any.whl", hash = "sha256:cb629c6386a30c976f83c29fc71e53b06d60f15094d0c0114cf8d095351b76e5"},
-    {file = "pysmi_lextudio-1.4.3.tar.gz", hash = "sha256:7d255fb38669410835acf6c2e8ab41975a6d8e64593b119552e36ecba004054f"},
+    {file = "pysmi-1.4.4-py3-none-any.whl", hash = "sha256:4c961e726e83a88f11b24e3f76a77d1396d827682088f09b8f1d5ca0429e31fa"},
+    {file = "pysmi-1.4.4.tar.gz", hash = "sha256:7c8e7cae880dc56ffca872452023a3aea4e695c67661d5739eb6d718ec91e1f3"},
 ]
 
 [package.dependencies]
@@ -1231,19 +1231,19 @@ ply = ">=3.11,<4.0"
 requests = ">=2.26.0,<3.0.0"
 
 [[package]]
-name = "pysnmp-lextudio"
-version = "6.1.2"
+name = "pysnmp"
+version = "6.2.4"
 description = "A Python library for SNMP"
 optional = false
-python-versions = "<4.0,>=3.7"
+python-versions = "<4.0,>=3.8"
 files = [
-    {file = "pysnmp_lextudio-6.1.2-py3-none-any.whl", hash = "sha256:5a30d289f73fbdd56ca4a6b83e43cef3a1871eee402651748c8ff47f603e5cb2"},
-    {file = "pysnmp_lextudio-6.1.2.tar.gz", hash = "sha256:4035677d236f9fb6da5dbcfae2dc9122ee3652f535efeb904a56f54f162f28c9"},
+    {file = "pysnmp-6.2.4-py3-none-any.whl", hash = "sha256:0ad929b3d6223e1caab8be90daea804502499e41d6c14d2d0a18d83e38991fff"},
+    {file = "pysnmp-6.2.4.tar.gz", hash = "sha256:8b1346f561fdc53f13019c5ec2c108224b4935d5bb6d2c0133ca236bbae77665"},
 ]
 
 [package.dependencies]
 pyasn1 = ">=0.4.8,<0.5.0 || >0.5.0"
-pysmi-lextudio = ">=1.3.0,<2.0.0"
+pysmi = ">=1.3.0,<2.0.0"
 pysnmpcrypto = ">=0.0.4,<0.0.5"
 
 [[package]]
@@ -1635,4 +1635,4 @@ test = ["websockets"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<4.0"
-content-hash = "16fec939db51f825ea22c0c86e7c698f960a5fa564a423c15b826b45230bd5ee"
+content-hash = "71639f30e5cfbdf36e01f3d0a0b532fdeaf750a8591e48d547839f0626343325"
