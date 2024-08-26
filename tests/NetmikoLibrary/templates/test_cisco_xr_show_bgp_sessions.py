@@ -21,4 +21,9 @@ def test_show_ip():
 
     output = re_table.ParseText(show_bgp_sessions)
     print(f"\n{output=}")
-    assert output == [["10.1.1.100", "default", "0", "200", "0", "0", "Established", "None"], ["100.100.0.2", "default", "0", "100", "0", "0", "Established", "None"], ["10:1:1::100", "default", "0", "200", "0", "0", "Idle", "None"], ["100:100::2", "default", "0", "100", "0", "0", "Idle", "None"]]
+    assert output == [
+        ["10.1.1.100", "default", "0", "200", "0", "0", "Established", "None"],
+        ["100.100.0.2", "default", "0", "100", "0", "0", "Established", "None"],
+        ["10:1:1::100", "default", "0", "200", "0", "0", "Idle", "None"],
+        ["100:100::2", "default", "0", "100", "0", "0", "Idle", "None"],
+    ]
