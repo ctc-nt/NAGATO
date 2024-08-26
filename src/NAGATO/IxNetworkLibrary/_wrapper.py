@@ -132,7 +132,9 @@ class IxNetworkRestpyWrapper:
         return rows
 
     @keyword
-    def download_traffic_csv_file(self, caption: str, file_name: str, output_dir: str, api_server_ip: str, seconds: int):
+    def download_traffic_csv_file(
+        self, caption: str, file_name: str, output_dir: str, api_server_ip: str, seconds: int
+    ):
         view = self.IxNetwork.Statistics.View.find(Caption=caption)
 
         remote_csv_filename = "%s/%s" % (self.IxNetwork.Statistics.CsvFilePath, view.CsvFileName)
