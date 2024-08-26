@@ -22,4 +22,15 @@ def test_show_ip():
     output = re_table.ParseText(show_route_ipv6_summary)
     print(f"\n{output=}")
 
-    assert output == [["local-iid sidmgr", "0"], ["connected", "1"], ["connected l2tpv3_xconnect", "0"], ["local", "1"], ["local-srv6 xtc_srv6", "0"], ["static", "0"], ["vxlan", "0"], ["ospf 1", "0"], ["ospf 2", "0"], ["Total", "2"]]
+    assert output == [
+        ["local-iid sidmgr", "0"],
+        ["connected", "1"],
+        ["connected l2tpv3_xconnect", "0"],
+        ["local", "1"],
+        ["local-srv6 xtc_srv6", "0"],
+        ["static", "0"],
+        ["vxlan", "0"],
+        ["ospf 1", "0"],
+        ["ospf 2", "0"],
+        ["Total", "2"],
+    ]

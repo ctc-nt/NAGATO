@@ -51,7 +51,13 @@ class SNMP:
         async def walk() -> dict:
             result = {}
 
-            iterator = walkCmd(SnmpEngine(), CommunityData(community), UdpTransportTarget((host, port)), ContextData(), ObjectType(ObjectIdentity(oid)))
+            iterator = walkCmd(
+                SnmpEngine(),
+                CommunityData(community),
+                UdpTransportTarget((host, port)),
+                ContextData(),
+                ObjectType(ObjectIdentity(oid)),
+            )
 
             async for errorIndication, errorStatus, errorIndex, varBinds in iterator:
                 if errorIndication:
@@ -90,10 +96,14 @@ class SNMP:
 
         async def get():
             with Slim(version) as slim:
-                errorIndication, errorStatus, errorIndex, varBinds = await slim.get(community, host, port, ObjectType(ObjectIdentity(oid)))
+                errorIndication, errorStatus, errorIndex, varBinds = await slim.get(
+                    community, host, port, ObjectType(ObjectIdentity(oid))
+                )
                 if errorIndication:
                     logger.error(errorIndication)
-                    raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
+                    raise PySnmpError(
+                        f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}"
+                    )
                 elif errorStatus:
                     logger.error(
                         "%s at %s"
@@ -102,7 +112,9 @@ class SNMP:
                             errorIndex and varBinds[int(errorIndex) - 1][0] or "?",
                         )
                     )
-                    raise PySnmpError(f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}")
+                    raise PySnmpError(
+                        f"GetRequest failed. host:{repr(host)}, community:{repr(community)}, oid:{repr(oid)}"
+                    )
                 else:
                     for varBind in varBinds:
                         logger.info(" = ".join([x.prettyPrint() for x in varBind]))

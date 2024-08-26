@@ -22,4 +22,8 @@ def test_show_ip():
     output = re_table.ParseText(show_bgp_neighbors_brief)
     print(f"\n{output=}")
 
-    assert output == [["100.100.0.2", "100", "Active"], ["2001:10::2", "100", "Established"], ["10.10.10.10", "65001", "Idle"]]
+    assert output == [
+        ["100.100.0.2", "100", "Active"],
+        ["2001:10::2", "100", "Established"],
+        ["10.10.10.10", "65001", "Idle"],
+    ]

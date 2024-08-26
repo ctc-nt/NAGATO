@@ -8,7 +8,9 @@ from _cli_outputs import show_bgp_vrf_all_ipv6_unicast_summary
 from textfsm import TextFSM
 
 # テスト対象テンプレートファイル
-template_path = os.path.join(os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_bgp_vrf_all_ipv6_unicast_summary.textfsm")
+template_path = os.path.join(
+    os.getcwd(), "src/NAGATO/templates", "cisco_xr_show_bgp_vrf_all_ipv6_unicast_summary.textfsm"
+)
 
 # テンプレートファイルを読み込む
 with open(template_path, mode="r") as f:

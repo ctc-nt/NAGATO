@@ -22,4 +22,6 @@ def test_show_ip():
     output = re_table.ParseText(show_bundle_bundle_ether)
     print(f"\n{output=}")
 
-    assert output == [["Bundle-Ether10", "Up", "2", "1", "Not operational", ["Te0/0/0/38", "Hu0/1/0/42"], ["Active", "Active"]]]
+    assert output == [
+        ["Bundle-Ether10", "Up", "2", "1", "Not operational", ["Te0/0/0/38", "Hu0/1/0/42"], ["Active", "Active"]]
+    ]
