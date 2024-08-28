@@ -22,4 +22,10 @@ def test_juniper_junos_show_chassis_environment():
     output = re_table.ParseText(show_chassis_environment)
     print(f"\n{output=}")
 
-    assert output == [["PEM 0", "OK"], ["PEM 1", "OK"], ["PEM 2", "Check"], ["PEM 3", "Check"], ["Routing Engine 0", "OK"]]
+    assert output == [
+        ["PEM 0", "OK"],
+        ["PEM 1", "OK"],
+        ["PEM 2", "Check"],
+        ["PEM 3", "Check"],
+        ["Routing Engine 0", "OK"],
+    ]

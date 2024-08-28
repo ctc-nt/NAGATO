@@ -22,4 +22,6 @@ def test_juniper_junos_show_chassis_environment():
     output = re_table.ParseText(show_ipv6_interface)
     print(f"\n{output=}")
 
-    assert output == [["TenGigE0/0/0/1", "enabled", "fe80::4eec:fff:fe16:aa61", "::ffff:192.168.100.2", "::ffff:192.168.100.2/128"]]
+    assert output == [
+        ["TenGigE0/0/0/1", "enabled", "fe80::4eec:fff:fe16:aa61", "::ffff:192.168.100.2", "::ffff:192.168.100.2/128"]
+    ]

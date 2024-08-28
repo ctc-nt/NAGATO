@@ -3,7 +3,7 @@ requires = ["poetry-core", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
 
 [tool.black]
-line-length = 300
+line-length = 119
 
 [tool.isort]
 profile = "black"
@@ -11,12 +11,13 @@ profile = "black"
 [tool.poetry]
 name = "nagato-network"
 version = "0.0.0"
+description = "NAGATO: Network Automation Gears and Test Orchestrator"
+license = "Apache-2.0"
 authors = [
   "Takumi Nohara"
 ]
-description = "NAGATO: Network Automation Gears and Test Orchestrator"
 readme = "README.md"
-license = "Apache-2.0"
+repository = "https://github.com/ctc-nt/NAGATO"
 classifiers = [
   "Framework :: Robot Framework",
   "License :: OSI Approved :: Apache Software License",
@@ -39,7 +40,7 @@ ntc-templates = ">=3.5.0"
 pyshark = ">=0.6"
 robotframework = ">=5.0.0"
 setuptools = "^70.0.0"
-pysnmp-lextudio = "^6.1.2"
+pysnmp = "^6.2.4"
 
 [tool.poetry.group.dev.dependencies]
 black = ">=23.9.1"

@@ -22,4 +22,8 @@ def test_show_ip():
     output = re_table.ParseText(show_ethernet_oam_event_log)
     print(f"\n{output=}")
 
-    assert output == [["TenGigE0/0/0/38", "Mon Dec 04 11:26:38 JST", "Dying gasp"], ["TenGigE0/0/0/38", "Mon Dec 04 11:26:38 JST", "Frame fail"], ["TenGigE0/0/0/39", "Mon Dec 04 11:26:38 JST", "Frame"]]
+    assert output == [
+        ["TenGigE0/0/0/38", "Mon Dec 04 11:26:38 JST", "Dying gasp"],
+        ["TenGigE0/0/0/38", "Mon Dec 04 11:26:38 JST", "Frame fail"],
+        ["TenGigE0/0/0/39", "Mon Dec 04 11:26:38 JST", "Frame"],
+    ]
