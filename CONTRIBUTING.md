@@ -1,19 +1,18 @@
 # Contribution Guidelines
 
-This guideline assumes the reader has a basic understanding of open source and why and how to contribute to open source projects.  
-If you are new to these topics, we recommend that you first read the general [Open Source Guide](https://opensource.guide/).
+**This** guideline assumes the reader has a basic understanding of open source and how to contribute to open source projects.  
+If you are new to these topics, we recommend reading the general [Open Source Guide](https://opensource.guide/).
 
 ## Submitting issues
 
-Bugs and enhancements are tracked in the [GitHub Issue](https://github.com/ctc-nt/NAGATO/issues) system. You are welcome to submit an issue even if you are not sure whether something is a bug or a feature worth implementing.
+Bugs and enhancements are tracked in the [GitHub Issue](https://github.com/ctc-nt/NAGATO/issues) system. You are welcome to submit an issue even if you are unsure whether it is a bug or a feature worth implementing.
 
 We encourage you to use the issue template to submit an issue. Also, before submitting a new issue, please check whether the same bug or enhancement has already been reported.  
-If it has already been reported, please add a comment to the existing issue instead of creating a new issue.
+If it has, add a comment to the existing issue instead of creating a new one.
 
 ### Reporting a bug
 
-Please describe the bug you encountered so that others can understand and hopefully reproduce it.  
-The key points for a good bug report are:
+To help others understand and reproduce the bug you encountered, please provide the following information:
 
 - Version information
   - Robot Framework version
@@ -26,9 +25,9 @@ Please note that all information in GitHub Issues is public. Do not include any 
 
 ### Feature requests
 
-Describe the new feature and its use case as detailed as possible. It is also valid to contribute code in the form of a pull request as described below, especially for larger enhancements.
+When requesting a new feature, describe it and its use case in as much detail as possible. It is also valid to contribute code in the form of a pull request as described below, especially for larger enhancements.
 
-Also consider whether this functionality would be better implemented as a separate tool outside of the core framework.
+Also consider whether this functionality might be better implemented as a separate tool outside of the core framework.
 
 ## Code contributions
 
@@ -41,7 +40,7 @@ Issues vary widely in terms of complexity and difficulty, so try to find one tha
 
 ### Pull requests
 
-In GitHub, pull requests are the main mechanism for submitting code. They are easy to use for both the submitter and the person accepting the submission, and for more complex submissions, they also allow others to join the discussion.
+Pull requests are the main way to submit code in GitHub. They facilitate discussions and reviews of code changes.  
 
 The prerequisites for creating a pull request are that you have a GitHub account and that you have Git installed.  
 GitHub has articles that explain how to set up Git, how to fork a repository, and how to use pull requests. We recommend that you read them.
