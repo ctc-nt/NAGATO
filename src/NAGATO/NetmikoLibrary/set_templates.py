@@ -38,7 +38,9 @@ def set_templates():
 
             # copy all templates
             shutil.copytree(ntc_templates_path, dest_templates_path, ignore=shutil.ignore_patterns("index"))
-            shutil.copytree(nagato_templates_path, dest_templates_path, ignore=shutil.ignore_patterns("index"), dirs_exist_ok=True)
+            shutil.copytree(
+                nagato_templates_path, dest_templates_path, ignore=shutil.ignore_patterns("index"), dirs_exist_ok=True
+            )
 
             with open(join(ntc_templates_path, "index"), mode="r") as f:
                 ntc_index_contents = f.readlines()

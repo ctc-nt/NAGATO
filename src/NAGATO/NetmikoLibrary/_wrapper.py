@@ -82,7 +82,17 @@ class NetmikoWrapper:
         self.connections: dict[str, BaseConnection] = {}
 
     @keyword
-    def connect(self, alias: str, device_type: str, host: str, username: str, password: str, port: int = None, session_log: str = None, **kwargs) -> None:
+    def connect(
+        self,
+        alias: str,
+        device_type: str,
+        host: str,
+        username: str,
+        password: str,
+        port: int = None,
+        session_log: str = None,
+        **kwargs,
+    ) -> None:
         """Creates an SSH or Telnet connection based on the given arguments.
 
         ``alias`` is a unique name that identifies this connection.
@@ -182,7 +192,9 @@ class NetmikoWrapper:
     @keyword
     @connection_specify
     @robot_log
-    def send_config_set(self, config_commands: Union[str, Sequence[str], Iterator[str], TextIO, None] = None, alias: str = "", **kwargs) -> str:
+    def send_config_set(
+        self, config_commands: Union[str, Sequence[str], Iterator[str], TextIO, None] = None, alias: str = "", **kwargs
+    ) -> str:
         """Sends the configuration commands specified in ``config_commands`` and
         returns a display of the CLI during that time.
 

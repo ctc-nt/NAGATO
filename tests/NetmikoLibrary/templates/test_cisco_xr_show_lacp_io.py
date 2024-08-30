@@ -21,4 +21,7 @@ def test_show_ip():
 
     output = re_table.ParseText(show_lacp_io)
     print(f"\n{output=}")
-    assert output == [["1", ["TenGigE0/0/0/38", "TenGigE0/0/0/39"], ["30000", "30000"]], ["2", ["HundredGigE0/1/0/42"], ["1000"]]]
+    assert output == [
+        ["1", ["TenGigE0/0/0/38", "TenGigE0/0/0/39"], ["30000", "30000"]],
+        ["2", ["HundredGigE0/1/0/42"], ["1000"]],
+    ]

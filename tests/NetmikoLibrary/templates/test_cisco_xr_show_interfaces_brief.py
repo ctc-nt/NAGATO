@@ -22,4 +22,9 @@ def test_juniper_junos_show_chassis_environment():
     output = re_table.ParseText(show_interfaces_brief)
     print(f"\n{output=}")
 
-    assert output == [["Lo0", "up", "up", "Loopback", "1500", "0"], ["Mg0/RSP0/CPU0/0", "up", "up", "ARPA", "1514", "1000000"], ["Te0/0/0/0", "up", "up", "ARPA", "1514", "10000000"], ["Te0/0/0/0.1", "up", "up", "802.1Q", "1518", "10000000"]]
+    assert output == [
+        ["Lo0", "up", "up", "Loopback", "1500", "0"],
+        ["Mg0/RSP0/CPU0/0", "up", "up", "ARPA", "1514", "1000000"],
+        ["Te0/0/0/0", "up", "up", "ARPA", "1514", "10000000"],
+        ["Te0/0/0/0.1", "up", "up", "802.1Q", "1518", "10000000"],
+    ]
