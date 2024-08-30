@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-**This** guideline assumes the reader has a basic understanding of open source and how to contribute to open source projects.  
+This guideline assumes the reader has a basic understanding of open source and how to contribute to open source projects.  
 If you are new to these topics, we recommend reading the general [Open Source Guide](https://opensource.guide/).
 
 ## Submitting issues
