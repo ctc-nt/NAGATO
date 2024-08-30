@@ -81,5 +81,3 @@ configure = [
 
 [tool.setuptools.package-dir]
 NAGATO = "src/NAGATO"
-
-# TODO: 環境変数(NET_TEXTFSM)、alias(-dでlog格納先を指定)周りの設定
