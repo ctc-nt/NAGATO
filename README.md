@@ -33,7 +33,7 @@ Libraries
 -------------
 The RobotFramework Libraries in NAGATO is the following:
 
- LIBRARY NAME | DESCRIPTION |
+| LIBRARY NAME | DESCRIPTION |
 | ---- | ---- |
 | IxNetworkLibrary | Provide operations on IxNetwork |
 | NetmikoLibrary | Provide operations on network devices through ssh/telnet connections |
@@ -47,7 +47,7 @@ High-Level Keywords
 -------------
 The RobotFramework resource files in NAGATO is the following:
 
- LIBRARY NAME | DESCRIPTION |
+| LIBRARY NAME | DESCRIPTION |
 | ---- | ---- |
 | Cisco_IOS_XR.resource | Provides high-level keywords defining the basic operations of Cisco IOS-XR using NetmikoLibrary |
 | Juniper_Junos.resource | Provides high-level keywords defining the basic operations of Junos using NetmikoLibrary |
@@ -64,7 +64,7 @@ The command will also install the following latest-packages:
 - [netmiko](https://pypi.org/project/netmiko/)
 - [ntc-templates](https://pypi.org/project/ntc-templates/)
 - [pyshark](https://pypi.org/project/pyshark/)
-- [pysnmplib](https://pypi.org/project/pysnmplib/)
+- [pysnmp](https://pypi.org/project/pysnmp/)
 - [robotframework](https://pypi.org/project/robotframework/)
 - [setuptools](https://pypi.org/project/setuptools/)
 
