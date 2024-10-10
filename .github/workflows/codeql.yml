@@ -14,8 +14,6 @@ name: "CodeQL Advanced"
 on:
   push:
     branches: [ "develop", "main" ]
-  pull_request:
-    branches: [ "develop", "main" ]
   schedule:
     - cron: '28 4 * * 2'
 
@@ -27,7 +25,7 @@ jobs:
     #   - https://gh.io/supported-runners-and-hardware-resources
     #   - https://gh.io/using-larger-runners (GitHub.com only)
     # Consider using larger runners or machines with greater resources for possible analysis time improvements.
-    runs-on: [ self-hosted ]
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
     permissions:
       # required for all workflows
       security-events: write
@@ -90,3 +88,4 @@ jobs:
       uses: github/codeql-action/analyze@v3
       with:
         category: "/language:${{matrix.language}}"
+        upload: false
